@@ -1,0 +1,79 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+
+.menu{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+table{
+    width: 50%;
+    margin: auto;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+th, td{
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.turnos{
+    margin-top: 30px;
+}
+
+.crear{
+    border-color: rgb(0, 118, 173);
+    background-color: rgb(3, 196, 196);
+    border-radius: 10px;
+    color: white;
+    padding: 10px;
+    margin-top: 25px;
+}
+
+form{
+    border: 1px solid red;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: start;
+    width: 30%;
+    gap: 10px;
+}
+
+input{
+    padding: 5px;
+    background-color: #ebebeb;
+    border-radius: 5px;
+    border-color: rgb(159, 158, 158) ;
+}
+
+select{
+    padding: 5px;
+    background-color: #ebebeb;
+    border-radius: 5px;
+    border-color: rgb(159, 158, 158) ;
+}
+
+.btnForm{
+    border-radius: 5px;
+    border-color: rgb(0, 118, 173);
+    background-color: rgb(3, 196, 196);
+    color: white;
+    padding: 5px;
+    width: 30%;
+}
