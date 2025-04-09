@@ -81,6 +81,18 @@ Formulario
                 <button class="btnForm" type="submit">Enviar formulario</button>
             </form>
         </div>
+
+        <h1>Lista de Turnos</h1>
+        <a href="{{ url_for('nuevo_turno') }}">Crear nuevo turno</a>
+        <ul>
+            {% for turno in turnos %}
+                <li>
+                    {{ turno[1] }} - {{ turno[2] }} - {{ turno[3] }}
+                    <a href="{{ url_for('editar_turno', id=turno[0]) }}">Editar</a>
+                    <a href="{{ url_for('eliminar_turno', id=turno[0]) }}">Eliminar</a>
+                </li>
+            {% endfor %}
+        </ul>
     </main>
 </body>
 </html>
