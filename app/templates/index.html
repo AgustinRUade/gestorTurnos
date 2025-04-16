@@ -1,0 +1,27 @@
+{% extends './layout.html' %}
+
+{% block title %}TUKIIII{% endblock %}
+
+{% block header %}
+<h1>Carga de usuario</h1>
+<h2>    </h2>
+<h3>Ingrese los datos</h3>
+{% endblock %}
+
+{% block body %}
+    <form>
+        <label for="text" style="display: block;">Nombre</label>
+        <input type="text" style="display: block;">
+        <label for="text" style="display: block;">Apellido</label>
+        <input type="text" style="display: block;"> <br>
+        <label for="text" style="display: block;">DNI</label>
+        <input type="text" style="display: block;"> <br>
+        <label for="text" style="display: block;">Género como figura en DNI</label>
+        <input type="text" style="display: block;"> <br>
+        <label for="mail" style="display: block;">Correo electrónico</label>
+        <input type="mail" style="display: block;"> <br>
+        <label for="mail" style="display: block;">Covertura médica</label>
+        <input type="text" style="display: block;"> <br>
+        <button><a href="" style="display: block;">Envíar</a></button> <br>
+    </form>
+{% endblock %}
