@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block body %}
-    <form>
+    <form method="post">
         <label for="text" style="display: block;">Nombre</label>
         <input type="text" style="display: block;">
         <label for="text" style="display: block;">Apellido</label>
@@ -20,8 +20,13 @@
         <input type="text" style="display: block;"> <br>
         <label for="mail" style="display: block;">Correo electrónico</label>
         <input type="mail" style="display: block;"> <br>
-        <label for="mail" style="display: block;">Covertura médica</label>
-        <input type="text" style="display: block;"> <br>
+        <label for="obra_social">Obra Social:</label>
+        <select name="obra_social" id="obra_social">
+            {% for obra in obras_sociales %}
+                <option value="{{ obra }}">{{ obra }}</option>
+            {% endfor %}
+        </select>
+        <br>
         <button><a href="" style="display: block;">Envíar</a></button> <br>
     </form>
 {% endblock %}
