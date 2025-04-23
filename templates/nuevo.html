@@ -1,20 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Nuevo Turno</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='crud.css') }}">
 </head>
 <body>
     <main>
-        <h2>Nuevo Turno</h2>
-        <form method="post">
-            Nombre: <input type="text" name="nombre"><br>
-            Día: <input type="text" name="dia"><br>
-            Horario: <input type="text" name="horario"><br>
-            <input type="submit" value="Guardar">
-        </form>
-
+        <div class="container">
+            <h2>Cargar Nuevo Turno</h2>
+            <form action="/nuevo" method="post">
+                <label for="dni">DNI (8 numeros):</label><br>
+                <input type="text" name="dni" required><br><br>
+                
+                <label for="nombre">Nombre y Apellido:</label><br>
+                <input type="text" name="nombre" required><br><br>
+                
+                <label for="Email">Email:</label><br>
+                <input type="text" name="email" required><br><br>
+    
+                <label for="tipo">Tipo de paciente:</label><br>
+                <select name="tipo" required>
+                    <option value="1">Particular</option>
+                    <option value="2">Obra Social</option>
+                </select><br><br>
+    
+                <input type="submit" value="Guardar">
+                <a class="btn cancel" href="/">Cancelar</a>
+                
+            </form>
+        </div>
     </main>
 </body>
 </html>

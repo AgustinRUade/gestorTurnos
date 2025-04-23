@@ -1,47 +1,62 @@
+#Aca generamos la matriz de turnos (de momento vacia)
+#Creamos el CRUD para crear, ver, editar y borrar los turnos
 from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
-# Lista de turnos - Ejemplo: [ [id, nombre, dia, horario], ... ]
-turnos = [
-    [1, "Juan Pérez", "Lunes", "10:00"],
-    [2, "Ana Gómez", "Martes", "11:30"]
-]
+#Matriz de turnos
+turnos = []
 
-# READ - Mostrar todos los turnos
+#Hacemos que el dni sea de 8 digitos y que se asegure son sumeros
+def validarDNI(dni):
+    return dni.isdigit() and len(dni) == 8
+
+#En este vemos que tenga el @
+def validarMail(email):
+    return "@" in email
+
+#Ruta princiapl
 @app.route("/")
 def index():
-    return render_template("index.html", turnos=turnos)
+    turnosOrdenados = sorted(turnos, key = lambda x: x[1]) #Ordenamos la matriz por nombres
+    return render_template("index.html", turnos = turnosOrdenados)
 
-# CREATE - Formulario para crear turno
+#Creamos turno
 @app.route("/nuevo", methods=["GET", "POST"])
-def nuevo_turno():
+def nuevo():
     if request.method == "POST":
-        nuevo_id = turnos[-1][0] + 1 if turnos else 1
-        nombre = request.form["nombre"]
-        dia = request.form["dia"]
-        horario = request.form["horario"]
-        turnos.append([nuevo_id, nombre, dia, horario])
+        dni = request.form["dni"]
+        nombre = request.form["nombre"].strip().capitalize()#Estos son para borrar los espacios extras y poner la primera letra mayuscula
+        email = request.form["email"].strip().lower()#Borra los espacios extra y primera letra minuscula
+        tipo = request.form["tipo"]
+
+        if not validarDNI(dni) or not validarMail(email):
+            return "Datos invalidos, vuelva a intentarlo"
+        
+        turnos.append([dni, nombre, email, tipo])
         return redirect(url_for("index"))
+    
     return render_template("nuevo.html")
 
-# UPDATE - Editar un turno
-@app.route("/editar/<int:id>", methods=["GET", "POST"])
-def editar_turno(id):
-    turno = next((t for t in turnos if t[0] == id), None)
+#Editamos turno
+@app.route("/editar/<dni>", methods = ["GET", "POST"])
+def editar(dni):
+    turno = next((t for t in turnos if t[0] == dni), None)
     if request.method == "POST":
-        turno[1] = request.form["nombre"]
-        turno[2] = request.form["dia"]
-        turno[3] = request.form["horario"]
-        return redirect(url_for("index"))
-    return render_template("editar.html", turno=turno)
+        turno[0] = request.form["dni"]
+        turno[1] = request.form["nombre"].strip().capitalize()
+        turno[2] = request.form["email"].strip().lower()
+        turno[3] = request.form["tipo"]
+        return redirect("/")
+    
+    return render_template("editar.html", turno = turno, id = dni)
 
-# DELETE - Eliminar turno
-@app.route("/eliminar/<int:id>")
-def eliminar_turno(id):
+#Borramos turno
+@app.route("/eliminar/<dni>")
+def eliminar(dni):
     global turnos
-    turnos = [t for t in turnos if t[0] != id]
-    return redirect(url_for("index"))
+    turnos = [t for t in turnos if t[0] != dni]
+    return redirect("/")
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug = True)

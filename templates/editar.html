@@ -3,16 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Editar Turno</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='crud.css') }}">
 </head>
 <body>
-    <h2>Editar Turno</h2>
-    <form method="post">
-        Nombre: <input type="text" name="nombre" value="{{ turno[1] }}"><br>
-        Día: <input type="text" name="dia" value="{{ turno[2] }}"><br>
-        Horario: <input type="text" name="horario" value="{{ turno[3] }}"><br>
-        <input type="submit" value="Guardar cambios">
-    </form>
+    <div class="container">
+        <h2>Editar Turno</h2>
+        <form action="/editar/{{ id }}" method="post">
+            <label for="dni">DNI:</label><br>
+            <input type="text" name="dni" value="{{ turno[0] }}" required><br><br>
+    
+            <label for="nombre">Nombre:</label><br>
+            <input type="text" name="nombre" value="{{ turno[1] }}" required><br><br>
+            
+            <label for="dni">Email:</label><br>
+            <input type="text" name="email" value="{{ turno[2] }}" required><br><br>
+    
+            <label for="tipo">Tipo de paciente:</label><br>
+            <select name="tipo" required>
+                <option value="1" {% if turno[3] == "1" %}selected{% endif %}>Particular</option>
+                <option value="2" {% if turno[3] == "2" %}selected{% endif %}>Obra Social</option>
+            </select><br><br>
+    
+            <input type="submit" value="Actualizar">
+            <a class="btn cancel" href="/">Cancelar</a>
+        </form>
+    </div>
 
 
 </body>

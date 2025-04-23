@@ -1,99 +1,41 @@
-<!-- 
-Crear usuario para cliente / El usuario del personal estara creado de antemano con los permisos
-
-Apartado para mostrar los turnos y crear nuevos
-
-Formulario
-    Nombre Completo, DNI, Edad, Telefono, Mail (Vemos si lo agregamos directamente en el inicio de sesión)
-    Traumatologia, Radiologia, Otorrino, General, Pediatria, Oculista, etc
-    Fecha de turno
-    Seguro Medico? 
-    Metodo de pago (QR/tarjeta/efectivo)
--->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Clinica Hornero</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <header>
-        <div class="menu">
-            <h1>Clinica Hornero</h1>
-            <p>navbar</p>
-            <button>Cerrar sesión</button>
-        </div>
-    </header>
-    <main>
-        <!-- <div>
-            <button>Crear turno</button>
-        </div> -->
-        <div>
-            <h2>LISTA DE TURNOS</h2>
-            <div class="turnos">
-                <table border = "1">
-                    <tr>
-                        <th>Paciente</th>
-                        <th>Especialidad</th>
-                        <th>Fecha</th>
-                        <th>Hora</th>
-                    </tr>
-                    {% for turno in turnos %}
-                    <tr>
-                        <td>{{ turno[0] }}</td>
-                        <td>{{ turno[1] }}</td>
-                        <td>{{ turno[2] }}</td>
-                        <td>{{ turno[3] }}</td>
-                    </tr>
-                    {% endfor %}
-                </table>
-            </div>
-            <button class="crear">CREAR TURNO</button>
-        </div>
-
-        <div>
-            <h2>Formulario</h2>
-            <form action="">
-                <p>
-                    <label for="name">Nombre completo:</label>
-                    <input type="text" id="name"
-                    name="user_name">
-                </p>
-                <p>
-                    <label for="text">Correo electronico:</label>
-                    <input type="text" id="mail" name="user_mail">
-                </p>
-                <p>
-                    <label for="text">DNI:</label>
-                    <input type="text" id="dni"
-                    name="user_dni">
-                </p>
-                <p>
-                    <label for="Obra social">Obra social:</label>
-                    <select id="obraSocial" name="user_obraSocial">
-                        <option value="ejemplo">Ejemplo</option>
-                        <option value="pami">PAMI</option>
-                        <option value="noTener">No tengo</option>
-                    </select>
-                </p>
-                <button class="btnForm" type="submit">Enviar formulario</button>
-            </form>
-        </div>
-
+    <div class="container">
         <h1>Lista de Turnos</h1>
-        <a href="{{ url_for('nuevo_turno') }}">Crear nuevo turno</a>
-        <ul>
-            {% for turno in turnos %}
-                <li>
-                    {{ turno[1] }} - {{ turno[2] }} - {{ turno[3] }}
-                    <a href="{{ url_for('editar_turno', id=turno[0]) }}">Editar</a>
-                    <a href="{{ url_for('eliminar_turno', id=turno[0]) }}">Eliminar</a>
-                </li>
-            {% endfor %}
-        </ul>
-    </main>
+        <a class="btn" href="/nuevo">Cargar nuevo turno</a>
+        <table border="1" cellpadding="5" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>DNI</th>
+                    <th>Nombre y Apellido</th>
+                    <th>Email</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Se muestra cada uno de los turnos dentro de la matriz de turnos -->
+                {% for turno in turnos %} 
+                <tr>
+                    <td>{{ turno[0] }}</td> 
+                    <td>{{ turno[1] }}</td>
+                    <td>{{ turno[2] }}</td>
+                    <td>{{ "Particular" if turno[3] == "1" else "Obra Social" }}</td>
+                    <td>
+                        <a class="btnEdit" href="/editar/{{ turno[0] }}">Editar</a>
+                        <a class="btnDelete" href="/eliminar/{{ turno[0] }}">Elimiar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
 
