@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuevo Turno</title>
+    <title>Nuevo paciente</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='crud.css') }}">
 </head>
 <body>
     <main>
         <div class="container">
-            <h2>Cargar Nuevo Turno</h2>
+            <h2>Cargar nuevo paciente</h2>
             <form action="/nuevo" method="post">
                 <label for="dni">DNI (8 numeros):</label><br>
                 <input type="text" name="dni" required><br><br>
