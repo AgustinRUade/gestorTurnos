@@ -27,13 +27,14 @@ def nuevo():
     if request.method == "POST":
         dni = request.form["dni"]
         nombre = request.form["nombre"].strip().capitalize()#Estos son para borrar los espacios extras y poner la primera letra mayuscula
+        apellido = request.form["apellido"].strip().capitalize()
         email = request.form["email"].strip().lower()#Borra los espacios extra y primera letra minuscula
         tipo = request.form["tipo"]
 
         if not validarDNI(dni) or not validarMail(email):
             return "Datos invalidos, vuelva a intentarlo"
         
-        turnos.append([dni, nombre, email, tipo])
+        turnos.append([dni, nombre, apellido, email, tipo])
         return redirect(url_for("index"))
     
     return render_template("nuevo.html")
@@ -45,8 +46,9 @@ def editar(dni):
     if request.method == "POST":
         turno[0] = request.form["dni"]
         turno[1] = request.form["nombre"].strip().capitalize()
-        turno[2] = request.form["email"].strip().lower()
-        turno[3] = request.form["tipo"]
+        turno[2] = request.form["apellido"].strip().capitalize()
+        turno[3] = request.form["email"].strip().lower()
+        turno[4] = request.form["tipo"]
         return redirect("/")
     
     return render_template("editar.html", turno = turno, id = dni)
