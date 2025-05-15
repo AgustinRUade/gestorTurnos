@@ -9,13 +9,16 @@ turnos = []
 
 #Hacemos que el dni sea de 8 digitos y que se asegure son sumeros
 def validarDNI(dni):
-    return dni.isdigit() and len(dni) == 8
-
+    if not dni.isdigit() and len(dni) == 8:
+        raise ValueError("dni invalido")
+    return True
 #En este vemos que tenga el @
 def validarMail(email):
-    return "@" in email
+    if "@" not in email or "." not in email:
+        raise ValueError("email invalido")
+    return True
 
-#Ruta princiapl
+#Ruta principal
 @app.route("/")
 def index():
     turnosOrdenados = sorted(turnos, key = lambda x: x[1]) #Ordenamos la matriz por nombres
@@ -31,8 +34,11 @@ def nuevo():
         email = request.form["email"].strip().lower()#Borra los espacios extra y primera letra minuscula
         tipo = request.form["tipo"]
 
-        if not validarDNI(dni) or not validarMail(email):
-            return "Datos invalidos, vuelva a intentarlo"
+        try:
+            validarMail(email)
+            validarDNI(dni)
+        except ValueError as e:
+            return f"error en los datos: {str(e)}"
         
         turnos.append([dni, nombre, apellido, email, tipo])
         return redirect(url_for("index"))
