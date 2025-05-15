@@ -11,31 +11,31 @@
         <h1>Lista de pacientes  </h1>
         <a class="btn" href="/nuevo">Cargar nuevo paciente</a>
         <table border="1" cellpadding="5" cellspacing="0">
-            <thead>
-                <tr>
-                    <th>DNI</th>
-                    <th>Nombre</th>
-                    <th>Apellido </th> 
-                    <th>Email</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Se muestra cada uno de los turnos dentro de la matriz de turnos -->
-                {% for turno in turnos %} 
-                <tr>
-                    <td>{{ turno[0] }}</td> 
-                    <td>{{ turno[1] }}</td>
-                    <td>{{ turno[2] }}</td>
-                    <td>{{ turno[3] }}</td>
-                    <td>{{ "Particular" if turno[4] == "1" else "Obra Social" }}</td>
-                    <td>
-                        <a class="btnEdit" href="/editar/{{ turno[0] }}">Editar</a>
-                        <a class="btnDelete" href="/eliminar/{{ turno[0] }}">Eliminar</a>
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
+        <thead>
+            <tr>
+                <th>DNI</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+                <th>Obra social / Particular</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for paciente in pacientes %}
+            <tr>
+                <td>{{ paciente["dni"] }}</td>
+                <td>{{ paciente["nombre"] }}</td>
+                <td>{{ paciente["apellido"] }}</td>
+                <td>{{ paciente["email"] }}</td>
+                <td>{{ paciente["tipo"] }}</td>
+                <td>
+                    <a class="btnEdit" href="/editar/{{ paciente['dni'] }}">Editar</a>
+                    <a class="btnDelete" href="/eliminar/{{ paciente['dni'] }}">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
         </table><br>
         <a href="/intusuario" class="btn">Interfaz paciente</a>
     </div>
