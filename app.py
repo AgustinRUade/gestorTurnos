@@ -24,8 +24,11 @@ def cargar_pacientes():
 # Función para guardar la lista de pacientes en el archivo JSON.
 # Sobrescribe el archivo con la nueva lista de pacientes.
 def guardar_pacientes(pacientes):
-    with open(PACIENTES_FILE, "w", encoding="utf-8") as f:
-        json.dump(pacientes, f, ensure_ascii=False, indent=4)
+    try:
+        with open(PACIENTES_FILE, "w", encoding="utf-8") as f:
+            json.dump(pacientes, f, ensure_ascii=False, indent=4)
+    except Exception as e:
+        print(f"Error al guardar pacientes: {e}") #Imprime que hubo un error al guardar los pacientes
 
 
 #Lista de obras sociales
@@ -113,10 +116,11 @@ def editar(dni):
         paciente["apellido"] = request.form["apellido"].strip().capitalize()
         paciente["email"] = request.form["email"].strip().lower()
         paciente["tipo"] = request.form["tipo"]
+
         guardar_pacientes(pacientes)
-        return redirect(url_for("index"))
-    
-    return render_template("editar.html", paciente=paciente, obras_sociales=obras_sociales)
+        return redirect(url_for("index"))  # <-- Esto es lo que te lleva al index
+
+    return render_template("editar.html", paciente=paciente, obras_sociales=obras_sociales, id=dni)
 
 #Borramos turno
 @app.route("/eliminar/<dni>")

@@ -3,29 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Turno</title>
+    <title>Editar paciente</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='crud.css') }}">
 </head>
 <body>
     <div class="container">
-        <h2>Editar Turno</h2>
+        <h2>Editar paciente</h2>
         <form action="/editar/{{ id }}" method="post">
             <label for="dni">DNI:</label><br>
-            <input type="text" name="dni" value="{{ turno[0] }}" required><br><br>
+            <input type="text" name="dni" value="{{ paciente[0] }}" required><br><br>
     
             <label for="nombre">Nombre:</label><br>
-            <input type="text" name="nombre" value="{{ turno[1] }}" required><br><br>
+            <input type="text" name="nombre" value="{{ paciente[1] }}" required><br><br>
 
             <label for="nombre">Apellido:</label><br>
-            <input type="text" name="apellido" value="{{ turno[2] }}" required><br><br>
+            <input type="text" name="apellido" value="{{ paciente[2] }}" required><br><br>
             
             <label for="dni">Email:</label><br>
-            <input type="text" name="email" value="{{ turno[3] }}" required><br><br>
+            <input type="text" name="email" value="{{ paciente[3] }}" required><br><br>
     
-            <label for="tipo">Tipo de paciente:</label><br>
+            <label for="tipo">Obra social o particular:</label><br>
             <select name="tipo" required>
-                <option value="1" {% if turno[4] == "1" %}selected{% endif %}>Particular</option>
-                <option value="2" {% if turno[4] == "2" %}selected{% endif %}>Obra Social</option>
+                <option value="Particular" {% if paciente["tipo"] == "Particular" %}selected{% endif %}>Particular</option>
+                {% for obra in obras_sociales %}
+                    <option value="{{ obra }}" {% if paciente["tipo"] == obra %}selected{% endif %}>{{ obra }}</option>
+                {% endfor %}
             </select><br><br>
     
             <input type="submit" value="Actualizar">
