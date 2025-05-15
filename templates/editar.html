@@ -15,14 +15,17 @@
     
             <label for="nombre">Nombre:</label><br>
             <input type="text" name="nombre" value="{{ turno[1] }}" required><br><br>
+
+            <label for="nombre">Apellido:</label><br>
+            <input type="text" name="apellido" value="{{ turno[2] }}" required><br><br>
             
             <label for="dni">Email:</label><br>
-            <input type="text" name="email" value="{{ turno[2] }}" required><br><br>
+            <input type="text" name="email" value="{{ turno[3] }}" required><br><br>
     
             <label for="tipo">Tipo de paciente:</label><br>
             <select name="tipo" required>
-                <option value="1" {% if turno[3] == "1" %}selected{% endif %}>Particular</option>
-                <option value="2" {% if turno[3] == "2" %}selected{% endif %}>Obra Social</option>
+                <option value="1" {% if turno[4] == "1" %}selected{% endif %}>Particular</option>
+                <option value="2" {% if turno[4] == "2" %}selected{% endif %}>Obra Social</option>
             </select><br><br>
     
             <input type="submit" value="Actualizar">
