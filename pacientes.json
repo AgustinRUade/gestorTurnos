@@ -1,1 +1,9 @@
-[]
+[
+    {
+        "dni": "11111112",
+        "nombre": "Ana",
+        "apellido": "Gomez",
+        "email": "ppppp@gmail.com",
+        "tipo": "Medicus"
+    }
+]

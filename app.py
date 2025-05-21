@@ -12,14 +12,17 @@ PACIENTES_FILE = "pacientes.json"
 # Función para cargar la lista de pacientes desde el archivo JSON.
 # Si el archivo no existe o está vacío, devuelve una lista vacía.
 def cargar_pacientes():
-    if not os.path.exists(PACIENTES_FILE):
-        return []
-    with open(PACIENTES_FILE, "r", encoding="utf-8") as f:
-        try:
-            return json.load(f)
-        except json.JSONDecodeError:
-            # Si el archivo está corrupto o vacío, retorna una lista vacía
+    try:
+        if not os.path.exists(PACIENTES_FILE):
             return []
+        with open(PACIENTES_FILE, "r", encoding="utf-8") as f:
+            try:
+                return json.load(f)
+            except json.JSONDecodeError:
+                # Si el archivo está corrupto o vacío, retorna una lista vacía
+                return []
+    except Exception as e:
+        return f"Error al cargar los pacientes: {e}"
 
 # Función para guardar la lista de pacientes en el archivo JSON.
 # Sobrescribe el archivo con la nueva lista de pacientes.
@@ -108,31 +111,37 @@ def nuevo_paciente():
 # Editamos paciente
 @app.route("/editar/<dni>", methods=["GET", "POST"])
 def editar(dni):
-    pacientes = cargar_pacientes()
-    paciente = next((p for p in pacientes if p["dni"] == dni), None)
-    if not paciente:
-        return "Paciente no encontrado"
+    try:
+        pacientes = cargar_pacientes()
+        paciente = next((p for p in pacientes if p["dni"] == dni), None)
+        if not paciente:
+            return "Paciente no encontrado"
 
-    if request.method == "POST":
-        paciente["dni"] = request.form["dni"]
-        paciente["nombre"] = request.form["nombre"].strip().capitalize()
-        paciente["apellido"] = request.form["apellido"].strip().capitalize()
-        paciente["email"] = request.form["email"].strip().lower()
-        paciente["tipo"] = request.form["tipo"]
+        if request.method == "POST":
+            paciente["dni"] = request.form["dni"]
+            paciente["nombre"] = request.form["nombre"].strip().capitalize()
+            paciente["apellido"] = request.form["apellido"].strip().capitalize()
+            paciente["email"] = request.form["email"].strip().lower()
+            paciente["tipo"] = request.form["tipo"]
 
-        guardar_pacientes(pacientes)
-        return redirect(url_for("index"))  # <-- Esto es lo que te lleva al index
+            guardar_pacientes(pacientes)
+            return redirect(url_for("index"))  # <-- Esto es lo que te lleva al index
 
-    return render_template("editar.html", paciente=paciente, obras_sociales=obras_sociales, id=dni)
+        return render_template("editar.html", paciente=paciente, obras_sociales=obras_sociales, id=dni)
+    except Exception as e:
+        return f"Error al editar el paciente {e}"
 
 #Borramos turno
 @app.route("/eliminar/<dni>")
 def eliminar(dni):
-    pacientes = cargar_pacientes()
-    pacientes = [p for p in pacientes if p["dni"] != dni]
-    guardar_pacientes(pacientes)
-    return redirect(url_for("index"))
-    return redirect("/")
+    try:
+        pacientes = cargar_pacientes()
+        pacientes = [p for p in pacientes if p["dni"] != dni]
+        guardar_pacientes(pacientes)
+        return redirect(url_for("index"))
+        return redirect("/")
+    except Exception as e:
+        return f"Error al eliminar el paciente {e}"
 
 @app.route("/intusuario")
 def intusuario():
