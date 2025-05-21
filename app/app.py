@@ -2,21 +2,34 @@ from flask import Flask, render_template, request, url_for, redirect
 
 app = Flask(__name__)
 
-administra = ['administracion','@altaadminis2025']
+administra = ('administracion', '@altaadminis2025')
 
-@app.route('/', methods = ['POST', 'GET'])
-def index():
+@app.route('/', methods=['GET', 'POST'])
+def inicio():
+    mensaje = ''
     if request.method == 'POST':
-        usuario = request.form['usuario']
-        contrasenia = request.form['contrasenia']
-        if usuario in administra and contrasenia in administra:
+        usuario = request.form.get('usuario')
+        contrasenia = request.form.get('contrasenia')
+
+        if usuario == administra[0] and contrasenia == administra[1]:
             return redirect(url_for('alta'))
-    return render_template('inicio.html')
+        else:
+            mensaje = 'Usuario o contraseña incorrectos'
 
-@app.route('/alta')
+    return render_template('inicio.html', mensaje=mensaje)
+
+@app.route('/alta', methods=['GET', 'POST'])
 def alta():
-    obras_sociales = ["OSDE", "Swiss Medical", "Galeno", "Medifé", "Omint", "Sancor Salud", "Federada Salud", "Hospital Italiano", "IOMA", "PAMI", "OSDEPYM", "Unión Personal","Luis Pasteur"]
-    return render_template('index.html', obras_sociales=obras_sociales)
+    obras_sociales = ["OSDE", "Swiss Medical", "Galeno", "Medifé", "Omint", "Sancor Salud", 
+                      "Federada Salud", "Hospital Italiano", "IOMA", "PAMI", "OSDEPYM", 
+                      "Unión Personal", "Luis Pasteur"]
 
-if __name__ == '__main__':
-    app.run(debug=True)
+    if request.method == 'POST':
+        nombre = request.form.get('nombre')
+        apellido = request.form.get('apellido')
+        dni = request.form.get('dni')
+        genero = request.form.get('genero')
+        email = request.form.get('email')
+        obra_social = request.form.get('obra_social')
+        
+    return render_template('alta.html', obras_sociales=obras_sociales)

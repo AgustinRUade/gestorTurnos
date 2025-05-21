@@ -1,19 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clinica</title>
+    <title>Iniciar sesión</title>
 </head>
 <body>
-    <header>
-        <h1>Ingrese usuario y contraseña determinados</h1>
-    </header>
+
+    <h2>Inicio de sesión</h2>
+
     <form method="POST">
-        <label for="text" style="display: block; align-items: center;">Usuario</label>
-        <input type="text" name ='usuario' style="display: block; align-items: center;">
-        <label for="text" style="display: block; align-items: center;">Contraseña</label>
-        <input type="text" name='contrasenia' style="display: block; align-items: center;"> <br>
-        <a href="layout.html" src=><button type="submit" display: block; align-items: center;">Ingresar</button></a>
+        <label for="usuario">Usuario</label>
+        <input type="text" name="usuario" required placeholder="usuario"><br><br>
+
+        <label for="contrasenia">Contraseña</label>
+        <input type="password" name="contrasenia" required placeholder="contraseña"><br><br>
+
+        <button type="submit">Ingresar</button>
+    </form>
+
+    {% if mensaje %}
+        <p style="color:red;">{{ mensaje }}</p>
+    {% endif %}
+
 </body>
 </html>
+
