@@ -1,5 +1,5 @@
 from flask import Flask
-from app import pacientes_bp
+from administrador.app import pacientes_bp
 from registro.admin import admin_bp
 
 app = Flask(__name__)
