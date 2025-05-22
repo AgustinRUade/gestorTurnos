@@ -20,11 +20,11 @@ def inicio():
         contrasenia = request.form.get('contrasenia')
 
         if usuario == administra[0] and contrasenia == administra[1]:
-            return redirect(url_for('alta')) #solo si se inicia sesión con credenciales de administrador se direcciona a alta.html
+            return redirect(url_for('admin.alta')) #solo si se inicia sesión con credenciales de administrador se direcciona a alta.html
 
         for user in usuarios: #se recorren todos los usuarios y sus contraseñas de todos los diccionarios (uno por usuario) de la lista 'usuarios'
             if user['usuario'] == usuario and user['contrasenia'] == contrasenia:
-                return redirect(url_for('bienvenida', nombre=user['nombre']))
+                return redirect(url_for('admin.bienvenida', nombre=user['nombre']))
 
         mensaje = 'Usuario o contraseña incorrectos'
         mensaje_tipo = 'error'
@@ -79,7 +79,7 @@ def registro():
             'contrasenia': contrasenia
         })
         mensaje = '¡Registro exitoso! Ya podés iniciar sesión.'
-        return redirect(url_for('inicio', mensaje='registro_exitoso'))
+        return redirect(url_for('admin.inicio', mensaje='registro_exitoso'))
     
     return render_template('registro.html', obras_sociales=obras_sociales, mensaje=mensaje)
 
