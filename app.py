@@ -1,11 +1,10 @@
 #Aca generamos la matriz de turnos (de momento vacia)
 #Creamos el CRUD para crear, ver, editar y borrar los turnos
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Blueprint, render_template, request, redirect, url_for
 import json
 import os
 
-app = Flask(__name__)
-
+pacientes_bp = Blueprint('pacientes', __name__)
 
 PACIENTES_FILE = "pacientes.json"
 
@@ -55,7 +54,7 @@ def validarMail(email):
     return "@" in email
 
 #Ruta princiapl
-@app.route("/")
+@pacientes_bp.route("/")
 def index():
     # Cargamos los datos del .json
     pacientes = cargar_pacientes()
@@ -64,7 +63,7 @@ def index():
     return render_template("index.html", pacientes=pacientes_ordenados)
 
 #Agregamos paciente
-@app.route("/nuevo", methods=["GET", "POST"])
+@pacientes_bp.route("/nuevo", methods=["GET", "POST"])
 def nuevo_paciente():
     
     if request.method == "POST":
@@ -97,13 +96,13 @@ def nuevo_paciente():
         
         # Guardamos los datos en el .json
         guardar_pacientes(pacientes)
-        return redirect(url_for("index"))
+        return redirect(url_for("pacientes.index"))
     
     # Si la solicitud es GET, mostramos el formulario
     return render_template("nuevo.html", obras_sociales = obras_sociales)
 
 # Editamos paciente
-@app.route("/editar/<dni>", methods=["GET", "POST"])
+@pacientes_bp.route("/editar/<dni>", methods=["GET", "POST"])
 def editar(dni):
     pacientes = cargar_pacientes()
     paciente = next((p for p in pacientes if p["dni"] == dni), None)
@@ -118,22 +117,14 @@ def editar(dni):
         paciente["tipo"] = request.form["tipo"]
 
         guardar_pacientes(pacientes)
-        return redirect(url_for("index"))  # <-- Esto es lo que te lleva al index
+        return redirect(url_for("pacientes.index"))  # <-- Esto es lo que te lleva al index
 
     return render_template("editar.html", paciente=paciente, obras_sociales=obras_sociales, id=dni)
 
 #Borramos turno
-@app.route("/eliminar/<dni>")
+@pacientes_bp.route("/eliminar/<dni>")
 def eliminar(dni):
     pacientes = cargar_pacientes()
     pacientes = [p for p in pacientes if p["dni"] != dni]
     guardar_pacientes(pacientes)
-    return redirect(url_for("index"))
-    return redirect("/")
-
-@app.route("/intusuario")
-def intusuario():
-    return render_template("intusuario.html")
-
-if __name__ == "__main__":
-    app.run(debug = True)
+    return redirect(url_for("pacientes.index"))
