@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Carga de Usuario</title>
+{% endblock %}
+
+{% block content %}
+    <h1>Carga de usuario</h1>
+    <h3>Ingrese los datos</h3>
+
+    <form method="post">
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre" placeholder="Nombre" required><br><br>
+
+        <label for="apellido">Apellido</label>
+        <input type="text" name="apellido" placeholder="Apellido" required><br><br>
+
+        <label for="dni">DNI</label>
+        <input type="text" name="dni" placeholder="DNI" required><br><br>
+
+        <label for="genero">Género (como figura en DNI)</label>
+        <input type="text" name="genero" placeholder="Género" required><br><br>
+
+        <label for="email">Correo electrónico</label>
+        <input type="email" name="email" placeholder="Correo electrónico" required><br><br>
+
+        <label for="obra_social">Obra Social</label>
+        <select name="obra_social" required>
+            {% for obra in obras_sociales %}
+                <option value="{{ obra }}">{{ obra }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <button type="submit">Enviar</button>
+    </form>
+{% endblock %}
+
+
+
