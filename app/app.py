@@ -79,7 +79,7 @@ def registro():
             'contrasenia': contrasenia
         })
         mensaje = '¡Registro exitoso! Ya podés iniciar sesión.'
-        return redirect('inicio.html', mensaje='registro_exitoso')
+        return redirect(url_for('inicio.html', mensaje='registro_exitoso'))
     
     return render_template('registro.html', obras_sociales=obras_sociales, mensaje=mensaje)
 
