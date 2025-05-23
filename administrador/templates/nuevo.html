@@ -10,7 +10,7 @@
     <main>
         <div class="container">
             <h2>Cargar nuevo paciente</h2>
-            <form action="/nuevo" method="post">
+            <form action="{{ url_for('clientes.nuevo_paciente') }}" method="post">
                 <label for="dni">DNI (8 numeros):</label><br>
                 <input type="text" name="dni" required><br><br>
                 
@@ -22,7 +22,7 @@
                 
                 <label for="Email">Email:</label><br>
                 <input type="text" name="email" required><br><br>
-    
+
                 <label for="tipo">Obra social o particular:</label><br>
                 <select name="tipo" required>
                     <option value="Particular">Particular</option>
@@ -30,10 +30,9 @@
                         <option value="{{ obra }}">{{ obra }}</option>
                     {% endfor %}
                 </select><br><br>
-    
+
                 <input type="submit" value="Guardar">
-                <a class="btn cancel" href="/">Cancelar</a>
-                
+                <a class="btn cancel" href="{{ url_for('clientes.index') }}">Cancelar</a>
             </form>
         </div>
     </main>

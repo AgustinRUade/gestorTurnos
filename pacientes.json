@@ -5,5 +5,12 @@
         "apellido": "F",
         "email": "nahuelfernandez109@gmail.com",
         "tipo": "Particular"
+    },
+    {
+        "dni": "44398618",
+        "nombre": "Nahuel román",
+        "apellido": "Fernández",
+        "email": "nahuelfernandez109@gmail.com",
+        "tipo": "PAMI"
     }
 ]

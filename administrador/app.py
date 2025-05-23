@@ -4,7 +4,7 @@ from flask import Blueprint, render_template, request, redirect, url_for
 import json
 import os
 
-pacientes_bp = Blueprint('pacientes', __name__)
+pacientes_bp = Blueprint('clientes', __name__, url_prefix="/pacientes", template_folder="templates") 
 
 PACIENTES_FILE = "pacientes.json"
 
@@ -96,7 +96,7 @@ def nuevo_paciente():
         
         # Guardamos los datos en el .json
         guardar_pacientes(pacientes)
-        return redirect(url_for("pacientes.index"))
+        return redirect(url_for("clientes.index"))  # <-- Esto es lo que te lleva al index
     
     # Si la solicitud es GET, mostramos el formulario
     return render_template("nuevo.html", obras_sociales = obras_sociales)
@@ -117,7 +117,7 @@ def editar(dni):
         paciente["tipo"] = request.form["tipo"]
 
         guardar_pacientes(pacientes)
-        return redirect(url_for("pacientes.index"))  # <-- Esto es lo que te lleva al index
+        return redirect(url_for("clientes.index"))  # <-- Esto es lo que te lleva al index
 
     return render_template("editar.html", paciente=paciente, obras_sociales=obras_sociales, id=dni)
 
@@ -127,4 +127,5 @@ def eliminar(dni):
     pacientes = cargar_pacientes()
     pacientes = [p for p in pacientes if p["dni"] != dni]
     guardar_pacientes(pacientes)
-    return redirect(url_for("pacientes.index"))
+    return redirect(url_for("clientes.index"))  # <-- Esto es lo que te lleva al index
+#Vemos los pacientes
