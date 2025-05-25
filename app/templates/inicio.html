@@ -3,27 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Clinica Hornero - Inicio de sesión</title>
-
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body>
+<body class="inicio">
 
-    <h2>Inicio de sesión</h2>
+    <h2 class="titulo">Inicio de sesión</h2>
 
     <form method="POST">
-        <label for="usuario">Usuario</label>
-        <input type="text" name="usuario" required placeholder="usuario"><br><br>
 
-        <label for="contrasenia">Contraseña</label>
-        <input type="password" name="contrasenia" required placeholder="contraseña"><br><br>
-
-        <button type="submit">Ingresar</button>
+        <input type="text" name="usuario" required placeholder="Usuario"><br><br>
+        <input type="password" name="contrasenia" required placeholder="Contraseña"><br><br>
+        <br>
+        <button type="submit" class="btn">Ingresar</button>
     </form>
     {% if mensaje %}
     <br>
     <p>{{ mensaje }}</p>
     {% endif %}
     <br>
-    <p>¿No tenés una cuenta? <a href="{{ url_for('registro') }}">Registrate acá</a></p>
+    <p>¿No tenés una cuenta? <a href="{{ url_for('registro') }}" class="btn">Registrate acá</a></p>
 
 
 
