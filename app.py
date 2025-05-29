@@ -8,6 +8,7 @@ app = Flask(__name__)
 
 
 PACIENTES_FILE = "pacientes.json"
+datos_guardados = []
 
 # Función para cargar la lista de pacientes desde el archivo JSON.
 # Si el archivo no existe o está vacío, devuelve una lista vacía.
@@ -68,6 +69,19 @@ def index():
     # Ordenamos la lista de pacientes por el campo 'nombre'
     pacientes_ordenados = sorted(pacientes, key=lambda x: x["nombre"])
     return render_template("index.html", pacientes=pacientes_ordenados)
+
+
+@app.route('/intusuario.html', methods=['GET', 'POST'])
+def formulario():
+    if request.method == 'POST':
+        dni = request.form['user_dni']
+        telefono = request.form['user_phonenumber']
+        obra_social = request.form['user_obraSocial']
+
+        datos_guardados.append([dni, telefono, obra_social])
+
+    return render_template("misturnos.html", datos=datos_guardados)
+
 
 #Agregamos paciente
 @app.route("/nuevo", methods=["GET", "POST"])

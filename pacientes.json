@@ -5,5 +5,12 @@
         "apellido": "Gomez",
         "email": "ppppp@gmail.com",
         "tipo": "Medicus"
+    },
+    {
+        "dni": "11111123",
+        "nombre": "Ana gómez",
+        "apellido": "Gomez",
+        "email": "ppppp@gmail.com",
+        "tipo": "Omint"
     }
 ]
