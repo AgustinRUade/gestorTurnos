@@ -26,6 +26,13 @@ h2 {
     margin-bottom: 20px;
 }
 
+.h2azul {
+    text-align: center;
+    font-size: 22px;
+    color: #5459d6;
+    margin-bottom: 20px;
+}
+
 form {
     display: flex;
     flex-direction: column;

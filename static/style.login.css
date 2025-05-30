@@ -1,0 +1,130 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.inicio{
+    margin-top: 120px;
+    display: -ms-inline-grid;
+    place-items: center;
+    height: 100vh;
+}
+
+.registro h1{
+    margin-top: -6px;
+    font-size: 30px;
+}
+.registro{
+    margin-top: 10px;
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
+.registro input, select{
+    padding: 4px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button{
+    display: flex;
+    align-items: center;
+    justify-content: center;;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-bottom: 20px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+button:hover{
+    background-color: #45a049;
+}
+
+.titulo{ 
+    margin-bottom: 30px;
+}
+body{
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+.inicio input, select {
+    padding: 8px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+a.btn {
+    font-size: 17px;
+    text-decoration:wavy;
+    border-color: #333;
+    color: #038f16;
+    padding: 3px 6px;
+    border-radius: 5px;
+    text-decoration: none;
+
+    margin-top: 10px;
+}
+
+.containerlogin{
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.h1azul {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 24px;
+    color: #6799f0;
+}
+
+.tableazul{
+    background-color: #6462de;
+    color: white;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table, td{
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.btnEdit, .btnDelete{
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.btnEdit{
+    background-color: #3c68e0;
+}
+
+.btnEdit:hover{
+    background-color: #3c68e0;
+}
+
+.btnDelete{
+    background-color: #3c68e0;
+}

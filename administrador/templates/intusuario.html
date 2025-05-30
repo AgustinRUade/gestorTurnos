@@ -13,34 +13,25 @@
             Interfaz paciente
         </h2>
         <div>
-            <form action="/intusuario.html" method="post">
+            <form action="">
                 <p>
                     <label for="name">Nombre completo:</label>
                     <input type="text" id="name"
                     name="user_name">
                 </p>
                 <p>
-                    <label for="edad">Edad:</label>
-                    <input type="number" id="edad" name="user_age" min="1" max="100" required>
-                </p>
-                <p>
                     <label for="text">Correo electronico:</label>
                     <input type="text" id="mail" name="user_mail">
                 </p>
                 <p>
-                    <label for="dni">DNI:</label>
-                    <input type="number" id="dni"
+                    <label for="text">DNI:</label>
+                    <input type="text" id="dni"
                     name="user_dni">
-                </p>
-                <p>
-                    <label for="telefono">Numero de telefono:</label>
-                    <input type="number" id="numtelefono"
-                    name="user_phonenumber">
                 </p>
                 <p>
                     <label for="Obra social">Obra social:</label>
                     <select id="obraSocial" name="user_obraSocial">
-                        <option value="Eleccion">Elija su opcion</option>
+                        <option value="ejemplo">Ejemplo</option>
                         <option value="pami">PAMI</option>
                         <option value="OSDE">OSDE</option>
                         <option value="IOMA">IOMA</option>
@@ -51,10 +42,8 @@
                         <option value="noTener">No tengo</option>
                     </select>
                 </p>
-
                 <button class="btnForm" type="submit">Enviar formulario</button>
             </form>
-            <a href="/misturnos.html" class="btn">Interfaz pacientee</a>
         </div>
     </div>
 </body>

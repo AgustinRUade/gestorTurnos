@@ -1,16 +1,18 @@
 [
     {
-        "dni": "11111112",
-        "nombre": "Ana",
-        "apellido": "Gomez",
-        "email": "ppppp@gmail.com",
-        "tipo": "Medicus"
+        "dni": "45236002",
+        "nombre": "Agustín",
+        "apellido": "Ronchi",
+        "email": "agustinronchi15@gmail.com",
+        "tipo": "Particular",
+        "usuario": "agustinr"
     },
     {
-        "dni": "11111123",
-        "nombre": "Ana gómez",
-        "apellido": "Gomez",
-        "email": "ppppp@gmail.com",
-        "tipo": "Omint"
+        "dni": "45236008",
+        "nombre": "Agustín",
+        "apellido": "Ronchi",
+        "email": "agustinronchi15@gmail.com",
+        "tipo": "Particular",
+        "usuario": "agustinrr"
     }
 ]
