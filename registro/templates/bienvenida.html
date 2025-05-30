@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Mis Turnos - Clínica Hornero
+{% endblock %}
+
+{% block content %}
+    <div class="containerlogin">
+        <h1 class="h1azul">Mis Turnos</h1>
+        <a href="{{ url_for('admin.turnocliente') }}" class="btnEdit">Cargar nuevo turno</a>
+        
+        <table border="1" cellpadding="5" cellspacing="0">
+            <thead class="tableazul">
+                <tr>
+                    <th>DNI</th>
+                    <th>Nombre completo</th>
+                    <th>Obra social</th>
+                    <th>Fecha del turno</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for paciente in pacientes %}
+                <tr>
+                    <td>{{ paciente.dni }}</td>
+                    <td>{{ paciente.nombre }}</td>
+                    <td>{{ paciente.obra_social }}</td>
+                    <td>{{ paciente.fecha }}</td>
+                    <td>
+                        <a href="{{ url_for('admin.eliminar', dni=paciente['dni']) }}" class="btnEdit">Eliminar turno</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <p><a href="{{ url_for('admin.logout') }}" class="btnEdit">Cerrar sesión</a></p>
+    </div>
+{% endblock %}

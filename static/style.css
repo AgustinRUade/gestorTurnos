@@ -20,7 +20,7 @@ body{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h1{
+.h1verde {
     margin-bottom: 20px;
     text-align: center;
     font-size: 24px;
@@ -55,7 +55,7 @@ table th, table, td{
     border: 1px solid #ddd;
 }
 
-table th{
+.tableverde{
     background-color: #4CAF50;
     color: white;
 }

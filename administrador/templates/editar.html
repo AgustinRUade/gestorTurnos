@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar paciente</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='crud.css') }}"> <!--flask ya entiende que tiene que buscar la carpeta static en el directorio raiz-->
+</head>
+<body>
+    <div class="container">
+        <h2>Editar paciente</h2>
+        <form action="/editar/{{ id }}" method="post">
+            <label for="dni">DNI:</label><br>
+            <input type="text" name="dni" value="{{ paciente[0] }}" required><br><br>
+    
+            <label for="nombre">Nombre:</label><br>
+            <input type="text" name="nombre" value="{{ paciente[1] }}" required><br><br>
+
+            <label for="nombre">Apellido:</label><br>
+            <input type="text" name="apellido" value="{{ paciente[2] }}" required><br><br>
+            
+            <label for="dni">Email:</label><br>
+            <input type="text" name="email" value="{{ paciente[3] }}" required><br><br>
+    
+            <label for="tipo">Obra social o particular:</label><br>
+            <select name="tipo" required>
+                <option value="Particular" {% if paciente["tipo"] == "Particular" %}selected{% endif %}>Particular</option>
+                {% for obra in obras_sociales %}
+                    <option value="{{ obra }}" {% if paciente["tipo"] == obra %}selected{% endif %}>{{ obra }}</option>
+                {% endfor %}
+            </select><br><br>
+    
+            <input type="submit" value="Actualizar">
+            <a class="btn cancel" href="/">Cancelar</a>
+        </form>
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Clinica Hornero - Registro de nuevo usuario</title>
+{% endblock %}
+
+{% block content %}
+<div class="registro">
+    <h1 class="titutlo">Complete los datos</h3>
+
+    <form method="post">
+        <input type="text" name="nombre" required placeholder="Nombre"><br><br>
+        <input type="text" name="apellido" required placeholder="Apellido"><br><br>
+        <input type="text" name="dni" required placeholder="DNI"><br><br>
+        <input type="text" name="genero" required placeholder="Género"><br><br>
+        <input type="email" name="email" required placeholder="Email"><br><br>
+
+        <label for="obra_social">Obra Social</label>
+        <select name="obra_social" required>
+            {% for obra in obras_sociales %}
+                <option value="{{ obra }}">{{ obra }}</option>
+            {% endfor %}
+        </select><br><br>
+        <input type="text" name="usuario" required placeholder="Usuario"><br><br>
+        <input type="password" name="contrasenia" required placeholder="Contraseña"><br><br>
+
+        <button type="submit" class="btn">Registrarse</button>
+    </form>
+
+    {% if mensaje %}
+    <p style="color: red; font-weight: bold;">{{ mensaje }}</p>
+    {% endif %}
+
+
+    <p>¿Ya tenés una cuenta? <a href="{{ url_for('admin.inicio') }}" class="btn">Iniciá sesión acá</a></p>
+
+</div>
+{% endblock %}
+
+
