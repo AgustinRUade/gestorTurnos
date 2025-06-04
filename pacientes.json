@@ -1,0 +1,18 @@
+[
+    {
+        "dni": "45236002",
+        "nombre": "Agustín",
+        "apellido": "Ronchi",
+        "email": "agustinronchi15@gmail.com",
+        "tipo": "Particular",
+        "usuario": "agustinr"
+    },
+    {
+        "dni": "45236008",
+        "nombre": "Agustín",
+        "apellido": "Ronchi",
+        "email": "agustinronchi15@gmail.com",
+        "tipo": "Particular",
+        "usuario": "agustinrr"
+    }
+]

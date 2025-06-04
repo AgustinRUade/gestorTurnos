@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo paciente</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='crud.css') }}">
+</head>
+<body>
+    <main>
+        <div class="container">
+            <h2>Cargar nuevo paciente</h2>
+            <form action="{{ url_for('clientes.nuevo_paciente') }}" method="post">
+                <label for="dni">DNI (8 numeros):</label><br>
+                <input type="text" name="dni" required><br><br>
+                
+                <label for="nombre">Nombre</label><br>
+                <input type="text" name="nombre" required><br><br>
+
+                <label for="apellido">Apellido:</label><br>
+                <input type="text" name="apellido" required><br><br>
+                
+                <label for="Email">Email:</label><br>
+                <input type="text" name="email" required><br><br>
+
+                <label for="tipo">Obra social o particular:</label><br>
+                <select name="tipo" required>
+                    <option value="Particular">Particular</option>
+                    {% for obra in obras_sociales %}
+                        <option value="{{ obra }}">{{ obra }}</option>
+                    {% endfor %}
+                </select><br><br>
+
+                <input type="submit" value="Guardar">
+                <a class="btn cancel" href="{{ url_for('clientes.index') }}">Cancelar</a>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
