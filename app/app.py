@@ -1,16 +1,29 @@
 from flask import Flask, render_template, request, url_for, redirect, session
 import re #este import ayuda a la validación de datos como mail y/o dni
 from datetime import timedelta #import de tiempo, fechas, para establecer el tiempo de duración de la sesión en este caso
+import json
+import os
 
 app = Flask(__name__) #creación de app tipo Flask
+
+USUARIOS_JSON = os.path.join(os.path.dirname(__file__), 'usuarios.json')
+
+def cargar_pacientes():
+    if not os.path.exists(USUARIOS_JSON):
+        return []
+    with open(USUARIOS_JSON, 'r', encoding='utf-8') as f:
+        return json.load(f)
+
+def guardar_pacientes(lista):
+    with open(USUARIOS_JSON, 'w', encoding='utf-8') as f:
+        json.dump(lista, f, ensure_ascii=False, indent=4)
+
 app.secret_key = 'contra_se_123'  #clave necesaria para usar sesiones
 app.permanent_session_lifetime = timedelta(days=7) #se establece el tiempo por el cual la sesión se mantiene iniciada, en este caso establecí 7 días
 
-administra = ('administracion', '@altaadminis2025') #credenciales para iniciar sesión como administrador, como NO se modifica nunca, y NO se debe modificar nunca, estos datos deben estar en una tupla
-usuarios = [] #lista donde se guardan los diccionarios, por supuesto no es una base de datos, solo almacena en ram, entonces cuando se refresca la página la lista se vacía completamente
 
-def cargar_pacientes():
-    return usuarios
+
+administra = ('administracion', '@altaadminis2025') # credenciales para iniciar sesión como administrador
 
 @app.route('/', methods=['GET', 'POST'])
 def inicio():
@@ -30,7 +43,7 @@ def inicio():
         if usuario == administra[0] and contrasenia == administra[1]: 
             session['admin'] = True  #seguridad, se confirma que el administrador inició sesión
             return redirect(url_for('buscar_paciente')) #solo si se inicia sesión con credenciales de administrador se direcciona a la función buscar_paciente
-        for user in usuarios: #se recorren todos los usuarios y sus contraseñas de todos los diccionarios (uno por usuario) de la lista 'usuarios'
+        for user in cargar_pacientes(): #se recorren todos los usuarios y sus contraseñas de todos los diccionarios (uno por usuario) de la lista 'usuarios'
             if user['usuario'] == usuario and user['contrasenia'] == contrasenia:
                 session.permanent = mantener_sesion #se pensó la permanencia de la sesión SOLO en la el caso de inicio de sesión de un usuario común, REVER si se quiere también esto para el usuario administrador
                 session['usuario'] = user['usuario']
@@ -70,6 +83,7 @@ def registro():
         obra_social = request.form.get('obra_social')
         usuario = request.form.get('usuario')
         contrasenia = request.form.get('contrasenia')
+        usuarios = cargar_pacientes()  # <-- AGREGA ESTA LÍNEA AQUÍ
         if not dni.isdigit() or not (7 <= len(dni) <= 8): #se valida el formato del DNI, númerico y entre 7 y 8 digitos
             mensaje = 'DNI inválido. Debe contener solo números y tener entre 7 y 8 dígitos.'
             return render_template('registro.html', obras_sociales=obras_sociales, mensaje=mensaje)
@@ -97,6 +111,7 @@ def registro():
             'usuario': usuario,
             'contrasenia': contrasenia
         })
+        guardar_pacientes(usuarios)
         return redirect(url_for('inicio', mensaje='registro_exitoso'))
     return render_template('registro.html', obras_sociales=obras_sociales, mensaje=mensaje)
 
