@@ -13,7 +13,11 @@
 
         <input type="text" name="usuario" required placeholder="Usuario"><br><br>
         <input type="password" name="contrasenia" required placeholder="Contraseña"><br><br>
-        <br>
+        <label style="font-size: 13px;">
+            <input type="checkbox" name="mantener_sesion">
+            Mantener sesión iniciada
+        </label>
+        <br><br>
         <button type="submit" class="btn">Ingresar</button>
     </form>
     {% if mensaje %}

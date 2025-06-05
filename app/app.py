@@ -1,8 +1,10 @@
 from flask import Flask, render_template, request, url_for, redirect, session
 import re #este import ayuda a la validación de datos como mail y/o dni
+from datetime import timedelta #import de tiempo, fechas, para establecer el tiempo de duración de la sesión en este caso
 
 app = Flask(__name__) #creación de app tipo Flask
-app.secret_key = 'secreto_super_seguro_123'  #clave necesaria para usar sesiones
+app.secret_key = 'contra_se_123'  #clave necesaria para usar sesiones
+app.permanent_session_lifetime = timedelta(days=7) #se establece el tiempo por el cual la sesión se mantiene iniciada, en este caso establecí 7 días
 
 administra = ('administracion', '@altaadminis2025') #credenciales para iniciar sesión como administrador, como NO se modifica nunca, y NO se debe modificar nunca, estos datos deben estar en una tupla
 usuarios = [] #lista donde se guardan los diccionarios, por supuesto no es una base de datos, solo almacena en ram, entonces cuando se refresca la página la lista se vacía completamente
@@ -20,11 +22,18 @@ def inicio():
     if request.method == 'POST':
         usuario = request.form.get('usuario')
         contrasenia = request.form.get('contrasenia')
-        if usuario == administra[0] and contrasenia == administra[1]:
+        mantener_sesion = request.form.get('mantener_sesion') #captura valor del checkbox que se encuentra en inicio.html
+        if mantener_sesion == 'on': #si se marca el checkbox la variable mantener_sesion tiene el valor 'on'
+            session.permanet = True #si el valor es 'on', la sesión persiste
+        else: #si el checkbox no se marca, entonces la variable mantener_sesion NO tiene el valor 'on', por lo tanto se ejecuta el else
+            session.permanent = False #si el valor NO es 'on', la sesión NO persiste
+        if usuario == administra[0] and contrasenia == administra[1]: 
             session['admin'] = True  #seguridad, se confirma que el administrador inició sesión
             return redirect(url_for('buscar_paciente')) #solo si se inicia sesión con credenciales de administrador se direcciona a la función buscar_paciente
         for user in usuarios: #se recorren todos los usuarios y sus contraseñas de todos los diccionarios (uno por usuario) de la lista 'usuarios'
             if user['usuario'] == usuario and user['contrasenia'] == contrasenia:
+                session.permanent = mantener_sesion #se pensó la permanencia de la sesión SOLO en la el caso de inicio de sesión de un usuario común, REVER si se quiere también esto para el usuario administrador
+                session['usuario'] = user['usuario']
                 return redirect(url_for('bienvenida', nombre=user['nombre']))
         mensaje = 'Usuario o contraseña incorrectos'
         mensaje_tipo = 'error'
@@ -36,7 +45,7 @@ def buscar_paciente():
         return redirect(url_for('inicio'))
     dni = request.args.get('dni')  #obtiene el parámetro 'dni' desde la URL (formulario GET)
     pacientes = cargar_pacientes()
-    encontrado = None #variable con contenido None, si se encuentra un paciente se lo guarda en esta variable
+    encontrado = None #variable con contenido False, si se encuentra un paciente se lo guarda en esta variable
     if dni:
         for paciente in pacientes: #se recorre la lista de pacientes (usuarios) para encontrar el paciente que tenga el DNI ingresado
             if paciente["dni"] == dni:
