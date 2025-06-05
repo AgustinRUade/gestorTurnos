@@ -14,5 +14,38 @@
         "email": "agustinronchi15@gmail.com",
         "tipo": "Particular",
         "usuario": "agustinrr"
+    },
+    {
+        "dni": "34453543",
+        "nombre": "Ana gómez",
+        "apellido": "Gomez",
+        "email": "ppppp@gmail.com",
+        "tipo": "Particular",
+        "usuario": "admin"
+    },
+    {
+        "dni": "11111112",
+        "nombre": "Ana gómez",
+        "apellido": "Gomez",
+        "email": "ppppp@gmail.com",
+        "tipo": "OSPIP",
+        "usuario": "admin"
+    },
+    {
+        "dni": "31111112",
+        "nombre": "Ana gómez",
+        "apellido": "D",
+        "email": "ppppp@gmail.com",
+        "tipo": "Federada Salud",
+        "usuario": "admin"
+    },
+    {
+        "dni": "12345678",
+        "nombre": "Juan",
+        "apellido": "Perez",
+        "email": "juan@gmail.com",
+        "fecha": "2025-06-20",
+        "tipo": "Galeno",
+        "usuario": "admin"
     }
 ]

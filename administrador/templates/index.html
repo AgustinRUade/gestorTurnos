@@ -17,6 +17,7 @@
                 <th>Nombre</th>
                 <th>Apellido</th>
                 <th>Email</th>
+                <th>Fecha</th>
                 <th>Obra social / Particular</th>
                 <th>Acciones</th>
             </tr>
@@ -28,6 +29,7 @@
                 <td>{{ paciente["nombre"] }}</td>
                 <td>{{ paciente["apellido"] }}</td>
                 <td>{{ paciente["email"] }}</td>
+                <td>{{ paciente["fecha"] }}</td>
                 <td>{{ paciente["tipo"] }}</td>
                 <td>
                     <a class="btnEdit" href="{{ url_for('clientes.editar', dni=paciente['dni']) }}">Editar</a>
