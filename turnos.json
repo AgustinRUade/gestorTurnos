@@ -10,17 +10,5 @@
         "hora": "14:15",
         "especialidad": "Pediatría",
         "usuario": "admin"
-    },
-    {
-        "id": 2,
-        "nombre": "Agustin",
-        "apellido": "Ronchi",
-        "dni": "45236089",
-        "email": "agustinronchi15@gmail.com",
-        "obra_social": "Galeno",
-        "fecha": "2025-06-18",
-        "hora": "14:18",
-        "especialidad": "Cardiología",
-        "usuario": "agustinr"
     }
 ]

@@ -108,7 +108,7 @@ def nuevo_turno():
         turnos.append(turno)
         guardar_turnos(turnos)
         
-        #Volvemos al Hud
+        #Volvemos al Hud del admin/usuario (se maneja desde turnos.py)
         return redirect(url_for("turnos.index"))
 
     #Si el usuario no es admin lo guardamos para que lo vea como sus turnos
@@ -163,7 +163,7 @@ def editar(id):
 
         guardar_turnos(turnos)
 
-        #Volvemos al hud segun seamos admin o usuario
+        #Volvemos al hud del admin/usuario (se maneja desde turnos.py)
         return redirect(url_for("turnos.index"))
 
     #Cargamos el html de admin_editar
@@ -186,6 +186,8 @@ def eliminar(id):
 
     turnos = [t for t in turnos if t["id"] != id]
     guardar_turnos(turnos)
+
+    # Url para volver al hud de admin/usuario (se maneja desde turnos.py)
     return redirect(url_for("turnos.index"))
 
 # Ver historial del usuario

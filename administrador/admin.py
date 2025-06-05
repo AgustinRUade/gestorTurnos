@@ -23,17 +23,17 @@ def inicio():
         usuario = request.form.get('usuario')
         contrasenia = request.form.get('contrasenia')
 
-        #Cumple con los datos del admin
+        #Inicia sesion solo si cumple con los datos del admin
         if usuario == administra[0] and contrasenia == administra[1]:
             session['usuario'] = 'admin'
             session['rol'] = 'admin'
-            return redirect(url_for('turnos.index')) #solo si se inicia sesión con credenciales de administrador 
+            return redirect(url_for('turnos.index')) #Redirige al Hud
 
         for user in usuarios: #se recorren todos los usuarios y sus contraseñas de todos los diccionarios (uno por usuario) de la lista 'usuarios'
             if user['usuario'] == usuario and user['contrasenia'] == contrasenia:
                 session['usuario'] = usuario
                 session['rol'] = 'normal'
-                return redirect(url_for('turnos.mis_turnos'))
+                return redirect(url_for('turnos.index'))
 
         mensaje = 'Usuario o contraseña incorrectos'
         mensaje_tipo = 'error'
@@ -97,39 +97,39 @@ def registro():
             'contrasenia': contrasenia
         })
         mensaje = '¡Registro exitoso! Ya podés iniciar sesión.'
+
+        #Volvemos al login
         return redirect(url_for('admin.inicio', mensaje='registro_exitoso'))
     
     return render_template('registro.html', obras_sociales=obras_sociales, mensaje=mensaje)
-
-
-@admin_bp.route('/alta', methods=['GET', 'POST']) #por ahora está pensada como ruta para demostrar funcionalidad, solo iniciando sesión con usuario y contraseña de administrador se dirige a esta ruta
-def alta():
-    obras_sociales = ["OSDE", "Swiss Medical", "Galeno", "Medifé", "Omint", "Sancor Salud", 
-                      "Federada Salud", "Hospital Italiano", "IOMA", "PAMI", "OSDEPYM", 
-                      "Unión Personal", "Luis Pasteur"] #lista de obras sociales para que administrador pueda registrar un paciente
-    return render_template('alta.html', obras_sociales=obras_sociales)
-
 
 @admin_bp.route("/logout")
 def logout():
     session.clear()  # borra todos los datos de sesión
     return redirect(url_for("admin.inicio"))
 
-@admin_bp.route('/eliminar/<dni>', methods=['GET'])
-def eliminar(dni):
-    global paciente  # usamos la lista global
+# @admin_bp.route('/eliminar/<dni>', methods=['GET'])
+# def eliminar(dni):
+#     global paciente  # usamos la lista global
 
-    paciente_encontrado = next((p for p in paciente if p["dni"] == dni), None)
+#     paciente_encontrado = next((p for p in paciente if p["dni"] == dni), None)
 
-    if not paciente_encontrado:
-        return "Paciente no encontrado", 404
+#     if not paciente_encontrado:
+#         return "Paciente no encontrado", 404
 
-    paciente.remove(paciente_encontrado)  # se elimina automáticamente
+#     paciente.remove(paciente_encontrado)  # se elimina automáticamente
 
-    return redirect(url_for('admin.bienvenida'))  # redirige después de eliminar
+#     return redirect(url_for('admin.bienvenida'))  # redirige después de eliminar
 
 def validarDNI(dni):
     return dni.isdigit() and len(dni) == 8
+
+# @admin_bp.route('/alta', methods=['GET', 'POST']) #por ahora está pensada como ruta para demostrar funcionalidad, solo iniciando sesión con usuario y contraseña de administrador se dirige a esta ruta
+# def alta():
+#     obras_sociales = ["OSDE", "Swiss Medical", "Galeno", "Medifé", "Omint", "Sancor Salud", 
+#                       "Federada Salud", "Hospital Italiano", "IOMA", "PAMI", "OSDEPYM", 
+#                       "Unión Personal", "Luis Pasteur"] #lista de obras sociales para que administrador pueda registrar un paciente
+#     return render_template('alta.html', obras_sociales=obras_sociales)
 
 # @admin_bp.route('/bienvenida') #también pensada como ruta para mostrar funcionalidad, solo iniciando sesión con usuario y contraseña que NO sea de administrador se dirige a esta ruta
 # def bienvenida():
