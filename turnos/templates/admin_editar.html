@@ -36,10 +36,10 @@
             <label>Hora:</label><br>
             <input type="time" name="hora" value="{{ turno['hora'] }}" required><br><br>
 
-            <label>Especialización:</label><br>
-            <select name="especializacion" required>
-                {% for esp in especializaciones %}
-                    <option value="{{ esp }}" {% if turno["especializacion"] == esp %}selected{% endif %}>{{ esp }}</option>
+            <label>Especialidad:</label><br>
+            <select name="especialidad" required>
+                {% for esp in especialidades %}
+                    <option value="{{ esp }}" {% if turno["especialidad"] == esp %}selected{% endif %}>{{ esp }}</option>
                 {% endfor %}
             </select><br><br>
 
