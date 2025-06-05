@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cargar Turno</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='crud.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2 class="h2azul">Cargar nuevo turno</h2>
+        <form action="{{ url_for('turnos.nuevo_turno') }}" method="POST" class="form-container">
+            <div class="form-row">
+                <label>Nombre:</label>
+                <input type="text" name="nombre" value="{{ datos_usuario.nombre }}" {% if datos_usuario.nombre %}readonly{% endif %} required>
+            </div>
+            
+            <div class="form-row">
+                <label>Apellido:</label>
+                <input type="text" name="apellido" value="{{ datos_usuario.apellido }}" {% if datos_usuario.apellido %}readonly{% endif %} required>
+            </div>
+            
+            <div class="form-row">
+                <label>DNI:</label>
+                <input type="text" name="dni" value="{{ datos_usuario.dni }}" {% if datos_usuario.dni %}readonly{% endif %} required>
+            </div>
+            
+            <div class="form-row">
+                <label>Email:</label>
+                <input type="email" name="email" value="{{ datos_usuario.email }}" {% if datos_usuario.email %}readonly{% endif %} required>
+            </div>
+            
+            <div class="form-row">
+                <label>Obra Social:</label>
+                <select name="obra_social" {% if datos_usuario.obra_social %}disabled{% endif %}>
+                {% for obra in obras_sociales %}
+                    <option value="{{ obra }}" {% if obra == datos_usuario.obra_social %}selected{% endif %}>{{ obra }}</option>
+                {% endfor %}
+                </select>
+                {% if datos_usuario.obra_social %}
+                
+                <input type="hidden" name="obra_social" value="{{ datos_usuario.obra_social }}">
+                {% endif %}
+            </div>
+
+            <div class="form-row">
+                <label>Fecha:</label>
+                <input type="date" name="fecha" required>
+            </div>
+
+            <div class="form-row">
+                <label>Hora:</label>
+                <input type="time" name="hora" required>
+            </div>
+
+            <div class="form-row">
+                <label>Especialidad:</label>
+                <select name="especialidad" required>
+                {% for esp in especialidades %}
+                    <option value="{{ esp }}">{{ esp }}</option>
+                {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-row">
+                <button type="submit">Solicitar Turno</button>
+            </div>
+        </form>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo turno</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='crud.css') }}">
+</head>
+<body>
+    <main>
+        <div class="container">
+            <h2>Cargar nuevo turno</h2>
+            <form action="{{ url_for('turnos.nuevo_turno') }}" method="post">
+                {% if es_admin %}
+                    <label>DNI:</label><br>
+                    <input type="text" name="dni" required><br><br>
+                    <label>Nombre:</label><br>
+                    <input type="text" name="nombre" required><br><br>
+                    <label>Apellido:</label><br>
+                    <input type="text" name="apellido" required><br><br>
+                    <label>Email:</label><br>
+                    <input type="text" name="email" required><br><br>
+                {% elif usuario %}
+                    <input type="hidden" name="dni" value="{{ usuario.dni }}">
+                    <input type="hidden" name="nombre" value="{{ usuario.nombre }}">
+                    <input type="hidden" name="apellido" value="{{ usuario.apellido }}">
+                    <input type="hidden" name="email" value="{{ usuario.email }}">
+                    <p><strong>Nombre:</strong> {{ usuario.nombre }} {{ usuario.apellido }}</p>
+                    <p><strong>DNI:</strong> {{ usuario.dni }}</p>
+                    <p><strong>Email:</strong> {{ usuario.email }}</p>
+                {% endif %}
+
+                <label>Obra social o particular:</label><br>
+                <select name="obra_social" required>
+                    <option value="Particular">Particular</option>
+                    {% for obra in obras_sociales %}
+                        <option value="{{ obra }}">{{ obra }}</option>
+                    {% endfor %}
+                </select><br><br>
+
+                <label>Fecha del turno:</label><br>
+                <input type="date" name="fecha" required><br><br>
+
+                <label>Hora del turno:</label><br>
+                <input type="time" name="hora" required><br><br>
+
+                <label>Especialidad:</label><br>
+                <select name="especialidad" required>
+                    {% for esp in especialidades %}
+                        <option value="{{ esp }}">{{ esp }}</option>
+                    {% endfor %}
+                </select><br><br>
+
+                <input type="submit" value="Guardar">
+                <a class="btn cancel" href="{{ url_for('turnos.index') }}">Cancelar</a>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

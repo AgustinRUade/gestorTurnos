@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Mis Turnos - Clínica Hornero
+{% endblock %}
+
+{% block content %}
+    <div class="containerlogin">
+        <h1 class="h1azul">Mis Turnos</h1>
+        <a href="{{ url_for('turnos.nuevo_turno') }}" class="btnEdit">Cargar nuevo turno</a>
+
+        <!-- <form method="get" action="{{ url_for('turnos.index') }}" class="filter-form">
+            <input type="text" name="nombre" placeholder="Filtrar por nombre">
+            <input type="text" name="dni" placeholder="Filtrar por DNI">
+            <input type="date" name="fecha" placeholder="Filtrar por fecha">
+            <button type="submit" class="btnEdit">Filtrar</button>
+        </form> -->
+
+        <table border="1" cellpadding="5" cellspacing="0">
+            <thead class="tableazul">
+                <tr>
+                    <th>ID</th>
+                    <th>DNI</th>
+                    <th>Nombre completo</th>
+                    <th>Email</th>
+                    <th>Obra social</th>
+                    <th>Especialidad</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for turno in turnos %}
+                <tr>
+                    <td>{{ turno.id }}</td>
+                    <td>{{ turno.dni }}</td>
+                    <td>{{ turno.nombre }} {{ turno.apellido }}</td>
+                    <td>{{ turno.email }}</td>
+                    <td>{{ turno.obra_social }}</td>
+                    <td>{{ turno.especialidad }}</td>
+                    <td>{{ turno.fecha }}</td>
+                    <td>{{ turno.hora }}</td>
+                    <td>
+                        <a href="{{ url_for('turnos.editar', id=turno.id) }}" class="btnEdit">Editar</a>
+                        <a href="{{ url_for('turnos.eliminar', id=turno.id) }}" class="btnEdit">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <p><a href="{{ url_for('admin.logout') }}" class="btnEdit">Cerrar sesión</a></p>
+    </div>
+{% endblock %}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinica Hornero - Turnos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="h1verde">Lista de turnos</h1>
+        <a class="btn" href="{{ url_for('turnos.nuevo_turno') }}">Cargar nuevo turno</a>
+        <table border="1" cellpadding="5" cellspacing="0">
+            <thead>
+                <tr class="tableverde">
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>DNI</th>
+                    <th>Email</th>
+                    <th>Obra social</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Especialización</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for turno in turnos %}
+                <tr>
+                    <td>{{ turno["id"] }}</td>
+                    <td>{{ turno["nombre"] }}</td>
+                    <td>{{ turno["apellido"] }}</td>
+                    <td>{{ turno["dni"] }}</td>
+                    <td>{{ turno["email"] }}</td>
+                    <td>{{ turno["obra_social"] }}</td>
+                    <td>{{ turno["fecha"] }}</td>
+                    <td>{{ turno["hora"] }}</td>
+                    <td>{{ turno["especializacion"] }}</td>
+                    <td>
+                        <a class="btnEdit" href="{{ url_for('turnos.editar', id=turno['id']) }}">Editar</a>
+                        <a class="btnDelete" href="{{ url_for('turnos.eliminar', id=turno['id']) }}">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table><br>
+        <p><a href="{{ url_for('admin.logout') }}">Cerrar sesión</a></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar turno</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='crud.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Editar turno</h2>
+        <form action="{{ url_for('turnos.editar', id=turno['id']) }}" method="post">
+            <label>DNI:</label><br>
+            <input type="text" name="dni" value="{{ turno['dni'] }}" required><br><br>
+
+            <label>Nombre:</label><br>
+            <input type="text" name="nombre" value="{{ turno['nombre'] }}" required><br><br>
+
+            <label>Apellido:</label><br>
+            <input type="text" name="apellido" value="{{ turno['apellido'] }}" required><br><br>
+
+            <label>Email:</label><br>
+            <input type="text" name="email" value="{{ turno['email'] }}" required><br><br>
+
+            <label>Obra social o particular:</label><br>
+            <select name="obra_social" required>
+                <option value="Particular" {% if turno["obra_social"] == "Particular" %}selected{% endif %}>Particular</option>
+                {% for obra in obras_sociales %}
+                    <option value="{{ obra }}" {% if turno["obra_social"] == obra %}selected{% endif %}>{{ obra }}</option>
+                {% endfor %}
+            </select><br><br>
+
+            <label>Fecha:</label><br>
+            <input type="date" name="fecha" value="{{ turno['fecha'] }}" required><br><br>
+
+            <label>Hora:</label><br>
+            <input type="time" name="hora" value="{{ turno['hora'] }}" required><br><br>
+
+            <label>Especialización:</label><br>
+            <select name="especializacion" required>
+                {% for esp in especializaciones %}
+                    <option value="{{ esp }}" {% if turno["especializacion"] == esp %}selected{% endif %}>{{ esp }}</option>
+                {% endfor %}
+            </select><br><br>
+
+            <input type="submit" value="Actualizar">
+            <a class="btn cancel" href="{{ url_for('turnos.index') }}">Cancelar</a>
+        </form>
+    </div>
+</body>
+</html>
