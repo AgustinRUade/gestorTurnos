@@ -1,11 +1,37 @@
 from flask import Blueprint, render_template, request, session, url_for, redirect
 import re
+import json
+import os
 
 admin_bp = Blueprint('admin', __name__, template_folder='templates')
 
-paciente = []
+
+PACIENTES_JSON = "pacientes.json"
+
+
+def cargar_pacientes():
+    if not os.path.exists(PACIENTES_JSON):                                         #este es el mismo código acá como en app.py, recurrí a esto como prueba y me funcionó bien, REVER si se quiere hacer esto de otra manera
+        return []
+    with open(PACIENTES_JSON, "r", encoding="utf-8") as f:
+        try:
+            return json.load(f)
+        except json.JSONDecodeError:
+            # Si el archivo está corrupto o vacío, retorna una lista vacía
+            return []
+
+# Función para guardar la lista de pacientes en el archivo JSON.
+# Sobrescribe el archivo con la nueva lista de pacientes.
+def guardar_pacientes(pacientes):                                                  #también es un copy de app.py
+    try:
+        with open(PACIENTES_JSON, "w", encoding="utf-8") as f:
+            json.dump(pacientes, f, ensure_ascii=False, indent=4)
+    except Exception as e:
+        print(f"Error al guardar pacientes: {e}") #Imprime que hubo un error al guardar los pacientes
+
+
 administra = ('administracion', '@altaadminis2025') #credenciales para iniciar sesión como administrador, como NO se modifica nunca, y NO se debe modificar nunca, estos datos deben estar en una tupla
-usuarios = [] #lista donde se guardan los diccionarios, por supuesto no es una base de datos, solo almacena en ram, entonces cuando se refresca la página la lista se vacía completamente
+usuarios = cargar_pacientes()
+paciente = [] #lista de pacientes con su turno, también se vacía al refrescar la página
 
 @admin_bp.route('/', methods=['GET', 'POST'])
 def inicio():
@@ -26,7 +52,7 @@ def inicio():
             return redirect(url_for('clientes.index')) #solo si se inicia sesión con credenciales de administrador se direcciona a alta.html
 
         for user in usuarios: #se recorren todos los usuarios y sus contraseñas de todos los diccionarios (uno por usuario) de la lista 'usuarios'
-            if user['usuario'] == usuario and user['contrasenia'] == contrasenia:
+            if user['email'] == usuario and user['dni'] == contrasenia: #antes había input de usuario y contraseña, ahora el email es el usuario y el dni es la contraseña
                 session['usuario'] = usuario
                 session['rol'] = 'normal'
                 return redirect(url_for('clientes.mis_turnos'))
@@ -52,19 +78,13 @@ def registro():
         genero = request.form.get('genero')
         email = request.form.get('email')
         obra_social = request.form.get('obra_social')
-        usuario = request.form.get('usuario')
-        contrasenia = request.form.get('contrasenia')
-        if not dni.isdigit() or not (7 <= len(dni) <= 8): #se valida que el formato de DNI sea correcto
+        if not validarDNI(dni): #se valida que el formato de DNI sea correcto
             mensaje = 'DNI inválido. Debe contener solo números y tener entre 7 y 8 dígitos.'
             return render_template('registro.html', obras_sociales=obras_sociales, mensaje=mensaje)
         email_regex = r'^[\w\.-]+@[\w\.-]+\.\w+$' #variable para formato de mail
         if not re.match(email_regex, email): #se valida que formato de MAIL sea correcto
             mensaje = 'Email inválido. Ingrese un formato correcto.'
             return render_template('registro.html', obras_sociales=obras_sociales, mensaje=mensaje)
-        for user in usuarios: #se valida que el nombre de usuario con el que se quiere registrar el usuario no esté ya en la matriz con los usuarios existentes
-            if user['usuario'] == usuario:
-                mensaje = 'El nombre de usuario ya está registrado.'
-                return render_template('registro.html', obras_sociales=obras_sociales, mensaje=mensaje)
         for user in usuarios: #se valida que el dni con el que se quiere registrar el usuario no esté ya en la matriz con los usuarios existentes
             if user['dni'] == dni:
                 mensaje = 'El DNI ya está registrado.'
@@ -76,13 +96,12 @@ def registro():
         usuarios.append({ #se guarda el resgistro de un usuario nuevo
             'nombre': nombre,
             'apellido': apellido,
-            'dni': dni,
+            'dni': dni, #MODIFICACIÓN, ahora el DNI pasa como contraseña
             'genero': genero,
-            'email': email,
-            'obra_social': obra_social,
-            'usuario': usuario,
-            'contrasenia': contrasenia
+            'email': email, #MODIFICACIÓN, ahora el mail pasa como nombre de usuario
+            'obra_social': obra_social, 
         })
+        guardar_pacientes(usuarios)
         mensaje = '¡Registro exitoso! Ya podés iniciar sesión.'
         return redirect(url_for('admin.inicio', mensaje='registro_exitoso'))
     

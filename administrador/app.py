@@ -10,7 +10,7 @@ PACIENTES_FILE = "pacientes.json"
 
 # Función para cargar la lista de pacientes desde el archivo JSON.
 # Si el archivo no existe o está vacío, devuelve una lista vacía.
-def cargar_pacientes():
+def cargar_pacientes():                                              #se repite misma funcion en admin.py
     if not os.path.exists(PACIENTES_FILE):
         return []
     with open(PACIENTES_FILE, "r", encoding="utf-8") as f:
@@ -22,7 +22,7 @@ def cargar_pacientes():
 
 # Función para guardar la lista de pacientes en el archivo JSON.
 # Sobrescribe el archivo con la nueva lista de pacientes.
-def guardar_pacientes(pacientes):
+def guardar_pacientes(pacientes):                                    #se repite misma funcion en admin.py
     try:
         with open(PACIENTES_FILE, "w", encoding="utf-8") as f:
             json.dump(pacientes, f, ensure_ascii=False, indent=4)
@@ -71,6 +71,21 @@ def index():
     # Ordenamos la lista de pacientes por el campo 'nombre'
     pacientes_ordenados = sorted(pacientes, key=lambda x: x["nombre"])
     return render_template("index.html", pacientes=pacientes_ordenados)
+
+@pacientes_bp.route('/buscar_paciente', methods=['GET']) #a esta ruta SOLO PUEDE ACCEDER EL ADMINISTRADOR para buscar un paciente por su DNI
+def buscar_paciente():
+    dni = request.args.get('dni')  #obtiene el parámetro 'dni' desde la URL (formulario GET)
+    pacientes = cargar_pacientes()
+    encontrado = None #variable con contenido False, si se encuentra un paciente se lo guarda en esta variable
+    if dni:
+        for paciente in pacientes: #se recorre la lista de pacientes (usuarios) para encontrar el paciente que tenga el DNI ingresado
+            if paciente["dni"] == dni:
+                encontrado = paciente
+                break #si se encuentra el paciente se sale del bucle
+        mensaje = None if encontrado else "Paciente no encontrado." #mensaje de error si no se encuentra ningún paciente
+        return render_template('buscar_paciente.html', paciente=encontrado, mensaje=mensaje)
+    return render_template('buscar_paciente.html', paciente=None, mensaje=None)
+
 
 #Agregamos paciente
 @pacientes_bp.route("/nuevo", methods=["GET", "POST"])

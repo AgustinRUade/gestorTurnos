@@ -14,5 +14,21 @@
         "email": "agustinronchi15@gmail.com",
         "tipo": "Particular",
         "usuario": "agustinrr"
+    },
+    {
+        "nombre": "Sofía",
+        "apellido": "Romero Eckerdt",
+        "dni": "44423588",
+        "genero": "Femenino",
+        "email": "eckerdtsofia23@gmail.com",
+        "obra_social": "Omint"
+    },
+    {
+        "nombre": "Sofía",
+        "apellido": "Romero Eckerdt",
+        "dni": "44423507",
+        "genero": "Femenino",
+        "email": "sromeroeckerdt@uade.edu.ar",
+        "obra_social": "IOMA"
     }
 ]
