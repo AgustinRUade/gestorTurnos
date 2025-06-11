@@ -1,34 +1,26 @@
 [
     {
-        "dni": "45236002",
-        "nombre": "Agustín",
-        "apellido": "Ronchi",
-        "email": "agustinronchi15@gmail.com",
-        "tipo": "Particular",
-        "usuario": "agustinr"
+        "nombre": "Sofía",
+        "apellido": "Romero Eckerdt",
+        "dni": "44423507",
+        "genero": "Femenino",
+        "email": "sromeroeckerdt@uade.edu.ar",
+        "obra_social": "OSDE"
     },
     {
-        "dni": "45236008",
-        "nombre": "Agustín",
-        "apellido": "Ronchi",
-        "email": "agustinronchi15@gmail.com",
+        "dni": "44423506",
+        "nombre": "Sofía",
+        "apellido": "Romero eckerdt",
+        "email": "eckerdtsofia23@gmail.com",
         "tipo": "Particular",
-        "usuario": "agustinrr"
+        "usuario": "admin"
     },
     {
         "nombre": "Sofía",
         "apellido": "Romero Eckerdt",
         "dni": "44423588",
         "genero": "Femenino",
-        "email": "eckerdtsofia23@gmail.com",
-        "obra_social": "Omint"
-    },
-    {
-        "nombre": "Sofía",
-        "apellido": "Romero Eckerdt",
-        "dni": "44423507",
-        "genero": "Femenino",
-        "email": "sromeroeckerdt@uade.edu.ar",
-        "obra_social": "IOMA"
+        "email": "sofiaromeroeck@gmail.com",
+        "obra_social": "OSDE"
     }
 ]
