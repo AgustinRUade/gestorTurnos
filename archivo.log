@@ -1,0 +1,7 @@
+[11-06-2025 20:47:00] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
+[11-06-2025 20:47:06] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 44423507
+[11-06-2025 20:47:06] [ENCONTRADO] Paciente encontrado: Romero Eckerdt, Sofía. (DNI: 44423507)
+[11-06-2025 20:47:10] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 44444444
+[11-06-2025 20:47:10] [NO ENCONTRADO] Paciente no encontrado con DNI: 44444444
+[11-06-2025 20:48:02] [INICIO SESIÓN] Usuario 'sromeroeckerdt@uade.edu.ar' inició sesión.
+[11-06-2025 20:48:18] [TURNO] Paciente Sofia Yazmin Romero Eckerdt (DNI: 44423507) ha agendado un turno para el 2025-06-23.

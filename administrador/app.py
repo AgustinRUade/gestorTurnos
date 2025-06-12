@@ -1,33 +1,10 @@
-#Aca generamos la matriz de turnos (de momento vacia)
 #Creamos el CRUD para crear, ver, editar y borrar los turnos
 from flask import Blueprint, render_template, request, redirect, session, url_for
-import json
-import os
+from funciones_comunes import registrar_log, registrar_error, validarDNI, validarMail, cargar_pacientes, guardar_pacientes, PACIENTES_JSON #importamos las funciones de registro de log y error, validación de dni y de email, carga  y guardado de pacientes que están en funciones_comunes.py
 
 pacientes_bp = Blueprint('clientes', __name__, url_prefix="/pacientes", template_folder="templates") 
 
-PACIENTES_FILE = "pacientes.json"
-
-# Función para cargar la lista de pacientes desde el archivo JSON.
-# Si el archivo no existe o está vacío, devuelve una lista vacía.
-def cargar_pacientes():
-    if not os.path.exists(PACIENTES_FILE):
-        return []
-    with open(PACIENTES_FILE, "r", encoding="utf-8") as f:
-        try:
-            return json.load(f)
-        except json.JSONDecodeError:
-            # Si el archivo está corrupto o vacío, retorna una lista vacía
-            return []
-
-# Función para guardar la lista de pacientes en el archivo JSON.
-# Sobrescribe el archivo con la nueva lista de pacientes.
-def guardar_pacientes(pacientes):
-    try:
-        with open(PACIENTES_FILE, "w", encoding="utf-8") as f:
-            json.dump(pacientes, f, ensure_ascii=False, indent=4)
-    except Exception as e:
-        print(f"Error al guardar pacientes: {e}") #Imprime que hubo un error al guardar los pacientes
+PACIENTES_FILE = "pacientes.json" #verificar si es necesario que esta variable siga existiendo acá
 
 
 #Lista de obras sociales
@@ -45,17 +22,10 @@ obras_sociales = [
     "OSUTHGRA"
 ]
 
-#Hacemos que el dni sea de 8 digitos y que se asegure son sumeros
-def validarDNI(dni):
-    return dni.isdigit() and len(dni) == 8
-
-#En este vemos que tenga el @
-def validarMail(email):
-    return "@" in email
-
 #Ruta princiapl
 @pacientes_bp.route("/")
 def index():
+    
     if 'usuario' not in session:
         return redirect(url_for('admin.inicio')) # Esto hace que alguien no logueado pueda ingresar
     
@@ -63,14 +33,37 @@ def index():
     pacientes = cargar_pacientes()
     usuario_actual = session.get("usuario")
     rol = session.get("rol")
+    for p in pacientes:          
+        print(" -", type(p), p) #tuve un error antes, como en el lambda se pide por "nombre", agregué esto por las dudas para verificar que exista el campo nombre en el json
+    for p in pacientes:
+        if "nombre" not in p:
+            registrar_error(f"[ADVERTENCIA] Paciente sin campo 'nombre': {p}")  #se registra un error en archivo.log si algún paciente no tiene el campo 'nombre' con datos
 
     if rol != 'admin':
         # Si no es admin, filtramos solo sus turnos
         pacientes = [p for p in pacientes if p.get("usuario") == usuario_actual]
-
     # Ordenamos la lista de pacientes por el campo 'nombre'
     pacientes_ordenados = sorted(pacientes, key=lambda x: x["nombre"])
     return render_template("index.html", pacientes=pacientes_ordenados)
+
+@pacientes_bp.route('/buscar_paciente', methods=['GET']) #a esta ruta SOLO PUEDE ACCEDER EL ADMINISTRADOR para buscar un paciente por su DNI
+def buscar_paciente():
+    dni = request.args.get('dni')  #obtiene el parámetro 'dni' desde la URL (formulario GET)
+    pacientes = cargar_pacientes()
+    encontrado = None #variable con contenido None, si se encuentra un paciente se lo guarda en esta variable
+    if dni:
+        registrar_log(f"[BÚSQUEDA] Usuario '{session.get('usuario')}' buscó paciente con DNI: {dni}")  #se registra en el archivo .log que se buscó un paciente y se registra qué dni se buscó
+        for paciente in pacientes: #se recorre la lista de pacientes (usuarios) para encontrar el paciente que tenga el DNI ingresado
+            if paciente["dni"] == dni:
+                registrar_log(f"[ENCONTRADO] Paciente encontrado: {paciente['apellido']}, {paciente['nombre']}. (DNI: {dni})")  #se registra en el archivo .log que se encontró un paciente con el dni ingresado, en el log. se registra nombre, apellido y dni
+                encontrado = paciente
+                break #si se encuentra el paciente se sale del bucle
+        if not encontrado:
+            registrar_log(f"[NO ENCONTRADO] Paciente no encontrado con DNI: {dni}") #se registra en el archivo .log que el paciente que se intentó buscar no fue encontrado, en el .log se registra el dni que no se encontró
+        mensaje = None if encontrado else "Paciente no encontrado." #mensaje de error si no se encuentra ningún paciente
+        return render_template('buscar_paciente.html', paciente=encontrado, mensaje=mensaje)
+    return render_template('buscar_paciente.html', paciente=None, mensaje=None)
+
 
 #Agregamos paciente
 @pacientes_bp.route("/nuevo", methods=["GET", "POST"])
@@ -92,12 +85,14 @@ def nuevo_paciente():
         
 
         pacientes = cargar_pacientes()
+        usuario_actual = session.get("usuario")  #usamos el nombre de usuario
         # Verificamos si el paciente ya existe
         for paciente in pacientes:
             if paciente["dni"] == dni:
+                registrar_log(f"[DENEGADO] Usuario '{usuario_actual}' intentó registrar paciente ya existente DNI {dni}") #se registra en el archivo .log que se intentó registrar un paciente ya existente, se deja registro del dni
                 return "El paciente ya existe"
 
-        usuario_actual = session.get("usuario")  # usamos el nombre de usuario
+        
 
         # Si no existe, lo agregamos
         pacientes.append({
@@ -109,8 +104,13 @@ def nuevo_paciente():
             "usuario": usuario_actual
         })
         
-        # Guardamos los datos en el .json
-        guardar_pacientes(pacientes)
+        try:
+            guardar_pacientes(pacientes) #Guardamos los datos en el .json
+            registrar_log(f"[REGISTRO] Usuario '{usuario_actual}' registró nuevo paciente: {apellido}, {nombre}. (DNI: {dni})")  #se deja registro en el archivo .log que se registró un nuevo paciente, se registra en el .log apellido, nombre y dni del paciente nuevo
+        except Exception as e: #error de registro de paciente, alias "e", se registra en el .log el error según la función registrar_error que está en el archivo funciones_comunes
+            registrar_error(e)
+            return "Error inesperado al registrar paciente"
+            
         return redirect(url_for("clientes.index"))  # <-- Esto es lo que te lleva al index
     
     # Si la solicitud es GET, mostramos el formulario
@@ -137,9 +137,14 @@ def editar(dni):
         paciente["apellido"] = request.form["apellido"].strip().capitalize()
         paciente["email"] = request.form["email"].strip().lower()
         paciente["tipo"] = request.form["tipo"]
+        try:
+            guardar_pacientes(pacientes)
+            registrar_log(f"[EDICIÓN] Usuario '{session.get('usuario')}' editó paciente: {paciente['apellido']}, {paciente['nombre']}. (DNI: {paciente['dni']})")  #se deja registro en el archivo .log que se editó un paciente, se muestra apellido, nombre y dni
+        except Exception as e:
+            registrar_error(e) #se registro en el archivo .log si hubo un error al guardar los datos de edición
+            return "Error inesperado al editar paciente"
 
-        guardar_pacientes(pacientes)
-        return redirect(url_for("clientes.index"))  # <-- Esto es lo que te lleva al index
+        return redirect(url_for("clientes.index"))  #redirigimos al index después de editar
 
     return render_template("editar.html", paciente=paciente, obras_sociales=obras_sociales, id=dni)
 
@@ -150,12 +155,19 @@ def eliminar(dni):
         return redirect(url_for('admin.inicio'))
 
     pacientes = cargar_pacientes()
-    pacientes = [p for p in pacientes if p["dni"] != dni]
-
-    if session.get("rol") != "admin" and pacientes.get("usuario") != session.get("usuario"):
+    paciente = next((p for p in pacientes if p["dni"] == dni), None)
+    if not paciente:
+        return "Paciente no encontrado"    
+    if session.get("rol") != "admin" and paciente.get("usuario") != session.get("usuario"):
         return "No tenés permiso para eliminar este turno", 403
+    pacientes = [p for p in pacientes if p["dni"] != dni]
+    try:
+        registrar_log(f"[ELIMINACIÓN] Usuario '{session.get('usuario')}' eliminó paciente: {paciente['apellido']}, {paciente['nombre']}. (DNI: {paciente['dni']})")  #se deja registro en el archivo .log que se eliminó un paciente, dejando registro en el .log del apellido, nombre y dni del paciente borrado
+        guardar_pacientes(pacientes)
+    except Exception as e:
+        registrar_error(e) #de haber ocurrido un error al querer eliminar un paciente, se registra en el archivo .log
+        return "Error inesperado al eliminar paciente"
 
-    guardar_pacientes(pacientes)
     return redirect(url_for("clientes.index"))  # <-- Esto es lo que te lleva al index
 #Vemos los pacientes
 

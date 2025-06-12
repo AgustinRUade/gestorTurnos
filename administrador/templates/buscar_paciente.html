@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title %}Buscar Paciente{% endblock %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style.login.css') }}">
+
+{% block content %}
+<body class="inicio">
+    
+
+    <h1 class="titulo">Buscar Paciente</h1>
+
+    <form action="{{ url_for('clientes.buscar_paciente') }}" method="get" style="margin-bottom: 20px;">
+        <label for="dni">Ingrese DNI:</label>
+        <input type="text" name="dni" id="dni" placeholder="DNI" required>
+        <button type="submit">Buscar</button>
+        <a href="{{ url_for('clientes.index') }}" class="btn"> ⇠ Atrás</a>
+
+    </form>
+
+    {% if mensaje %}
+        <p style="color: red; font-weight: bold;">{{ mensaje }}</p>
+    {% endif %}
+
+    {% if paciente %}
+        <h2>Resultado encontrado</h2>
+        <table border="1" cellpadding="10" cellspacing="0">
+            <tr>
+                <th>Nombre</th>
+                <td>{{ paciente.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Apellido</th>
+                <td>{{ paciente.apellido }}</td>
+            </tr>
+            <tr>
+                <th>DNI</th>
+                <td>{{ paciente.dni }}</td>
+            </tr>
+            <tr>
+                <th>Género</th>
+                <td>{{ paciente.genero }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ paciente.email }}</td>
+            </tr>
+            <tr>
+                <th>Obra Social</th>
+                <td>{{ paciente.obra_social }}</td>
+            </tr>
+        </table>
+    {% endif %}
+    {% endblock %}
+</body>
