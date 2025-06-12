@@ -22,5 +22,21 @@
         "genero": "Femenino",
         "email": "sofiaromeroeck@gmail.com",
         "obra_social": "OSDE"
+    },
+    {
+        "dni": "44398617",
+        "nombre": "Nahuel",
+        "apellido": "Fernandez",
+        "email": "nahuelfernandez109@gmail.com",
+        "tipo": "Particular",
+        "usuario": "admin"
+    },
+    {
+        "dni": "12345678",
+        "nombre": "Ads",
+        "apellido": "Fasf",
+        "email": "void@g.com",
+        "obra sociall": "OSUTHGRA",
+        "usuario": "admin"
     }
 ]
