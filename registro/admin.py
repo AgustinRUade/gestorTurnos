@@ -13,37 +13,35 @@ paciente = [] #lista de pacientes con su turno, también se vacía al refrescar 
 
 @admin_bp.route('/', methods=['GET', 'POST'])
 def inicio():
-    if 'usuario' in session: #verifica si hay una sesión iniciada, si la hay, redirige a la página de mis turnos
+    if 'usuario' in session:
         if session.get('rol') == 'normal':
             return redirect(url_for('clientes.mis_turnos'))
-    mensaje = '' #variable de texto vacía para que se le pueda asignar mensaje que le corresponda dependiendo del camino del usuario
-    mensaje_tipo = '' #variable de texto vacia que dependiendo de lo que sucede en el sistema puede tomar valor "error" o "exito"
-    if request.args.get('mensaje') == 'registro_exitoso': 
-        mensaje = '¡Registro exitoso! Ya podés iniciar sesión.' #mensaje que se muestra luego de que un usuario se haya registrado correctamente
+    mensaje = ''
+    mensaje_tipo = ''
+    if request.args.get('mensaje') == 'registro_exitoso':
+        mensaje = '¡Registro exitoso! Ya podés iniciar sesión.'
         mensaje_tipo = 'exito'
 
-    if request.method == 'POST': #sucede cuando el usuario envía el formulario de inicio de sesión
-        usuario = request.form.get('usuario') #toma el valor del input 'usuario' del formulario de inicio de sesión, ES EL EMAIL
-        #RECORDARE QUE ANTES se usaba un input PROPIO de usuario y otro PROPIO de contraseña, ahora se usa el email como usuario y el dni como contraseña
-        contrasenia = request.form.get('contrasenia') #toma el valor del input 'contrasenia' del formulario de inicio de sesión, ES EL DNI
-        mantener_sesion = request.form.get('mantener_sesion') #variable que toma el valor del input 'mantener_sesion' del formulario de inicio de sesión, si está marcado, la sesión se mantendrá iniciada por 7 días, sino, se cerrará al cerrar el navegador
-        if usuario == administra[0] and contrasenia == administra[1]: #validación de las credenciales del administrador, SOLO si el valor del indice 0 de la tupla administra es igual a lo ingresado en el input de usuario y SOLO SI el valor del indice 1 de la tupla administra es igual a lo ingresado en el input de contraseña, entonces se inicia sesión como administrador
-            session['usuario'] = 'admin' #
+    if request.method == 'POST':
+        usuario = request.form.get('usuario')      # Esto es el email
+        contrasenia = request.form.get('contrasenia')  # Esto es el dni
+        mantener_sesion = request.form.get('mantener_sesion')
+        # Login administrador
+        if usuario == administra[0] and contrasenia == administra[1]:
+            session['usuario'] = 'admin'
             session['rol'] = 'admin'
-            registrar_log(f"[INICIO SESIÓN] Usuario '{usuario}' inició sesión como administrador.")  #se registra en el archivo .log inicio de sesión del usuario administrador
-            return redirect(url_for('clientes.index')) #solo si se inicia sesión con credenciales de administrador se direcciona ACÁ
-        for user in usuarios: #se recorren todos los usuarios y sus contraseñas de todos los diccionarios (uno por usuario) de la lista 'usuarios'
-            if user['email'] == usuario and user['dni'] == contrasenia: #antes había input de usuario y contraseña, ahora el email es el usuario y el dni es la contraseña
+            registrar_log(f"[INICIO SESIÓN] Usuario '{usuario}' inició sesión como administrador.")
+            return redirect(url_for('clientes.index'))
+        # Login paciente
+        for user in cargar_pacientes():
+            if user.get('email') == usuario and user.get('dni') == contrasenia:
                 session['usuario'] = usuario
                 session['rol'] = 'normal'
-                session.permanent = True if mantener_sesion == 'on' else False #SI el checkbox está marcado la variable toma el valor ON, y hace que la sesión permanente sea de valor TRUE, SINO, si el checkbox no está marcado la variable no toma el valor ON, y entonces hace que la sesión permanente sea de valor FALSE, es decir, que la sesión se cerrará al cerrar el navegador
-                registrar_log(f"[INICIO SESIÓN] Usuario '{usuario}' inició sesión.") #se registra en el .log cuando un usuario común inicia sesión
-                return redirect(url_for('clientes.mis_turnos')) #un usuario común inicia sesión y es dirigido a la pantalla de sus turnos
-        #si no se encuentra el usuario o la contraseña es incorrecta, se muestra un mensaje de error
-        mensaje = 'Usuario o contraseña incorrectos'
-        mensaje_tipo = 'error'
-        registrar_log(f"[ERROR INICIO SESIÓN] Usuario '{usuario}' intentó iniciar sesión y falló.")  #se registra en el archivo .log que quién intentó iniciar sesión (se captura el dato del input de usuario y se lo registra en el .log) no logró hacerlo
-    return render_template('inicio.html', mensaje=mensaje, mensaje_tipo=mensaje_tipo)
+                session.permanent = True if mantener_sesion == 'on' else False
+                registrar_log(f"[INICIO SESIÓN] Usuario '{usuario}' inició sesión.")
+                return redirect(url_for('clientes.mis_turnos'))
+        mensaje = 'Usuario o contraseña incorrectos.'
+    return render_template('inicio.html', mensaje=mensaje)
 
 
 
@@ -119,7 +117,7 @@ def turnocliente():
     if request.method == 'POST':
         dni = request.form['user_dni']
         nombre = request.form['user_nombre']
-        obra_social = request.form['tipo']
+        obra_social = request.form['tipo_obra_social']
         fecha = request.form['user_fecha']
 
         paciente.append({

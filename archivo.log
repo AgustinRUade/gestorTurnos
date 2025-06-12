@@ -38,3 +38,35 @@
 [12-06-2025 15:46:37] [ENCONTRADO] Paciente encontrado: Fernandez, Nahuel. (DNI: 44398617)
 [12-06-2025 15:47:30] [ERROR INICIO SESIÓN] Usuario 'nahuelfernandez105@gmail.com' intentó iniciar sesión y falló.
 [12-06-2025 15:47:41] [ERROR INICIO SESIÓN] Usuario 'nahuelfernandez105@gmail.com' intentó iniciar sesión y falló.
+[12-06-2025 15:58:46] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
+[12-06-2025 16:02:19] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
+[12-06-2025 16:10:40] [REGISTRO] Usuario 'admin' registró nuevo paciente: B, A. (DNI: 22222222)
+[12-06-2025 16:11:55] [ERROR INICIO SESIÓN] Usuario 'asas@gmail.com' intentó iniciar sesión y falló.
+[12-06-2025 16:12:31] [REGISTRO] Usuario 'abc@d.com' se registró exitosamente.
+[12-06-2025 16:12:49] [INICIO SESIÓN] Usuario 'abc@d.com' inició sesión.
+[12-06-2025 16:13:36] [INICIO SESIÓN] Usuario 'void@g.com' inició sesión.
+[12-06-2025 16:13:56] [ERROR INICIO SESIÓN] Usuario 'nahuelfernandez105@gmail.com' intentó iniciar sesión y falló.
+[12-06-2025 16:14:05] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
+[12-06-2025 16:14:12] [ELIMINACIÓN] Usuario 'admin' eliminó paciente: Fernandez, Nahuel. (DNI: 44398617)
+[12-06-2025 16:14:28] [REGISTRO] Usuario 'admin' registró nuevo paciente: Fernandez, Nahuel. (DNI: 44398617)
+[12-06-2025 16:14:48] [INICIO SESIÓN] Usuario 'nahuelfernandez109@gmail.com' inició sesión.
+[12-06-2025 16:15:20] [INICIO SESIÓN] Usuario 'eckerdtsofia23@gmail.com' inició sesión.
+[12-06-2025 16:15:59] [INICIO SESIÓN] Usuario 'sromeroeckerdt@uade.edu.ar' inició sesión.
+[12-06-2025 16:20:00] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
+[12-06-2025 16:28:24] [REGISTRO] Usuario 'admin' registró nuevo paciente: B, A. (DNI: 33333333)
+[12-06-2025 16:28:42] [ERROR INICIO SESIÓN] Usuario 'abc@c.com' intentó iniciar sesión y falló.
+[12-06-2025 16:28:57] [ERROR INICIO SESIÓN] Usuario 'nahuelfernandez105@gmail.com' intentó iniciar sesión y falló.
+[12-06-2025 16:29:35] [INICIO SESIÓN] Usuario 'void@g.com' inició sesión.
+[12-06-2025 16:30:48] [ERROR INICIO SESIÓN] Usuario 'nahuelfernandez109@gmail.com' intentó iniciar sesión y falló.
+[12-06-2025 16:31:01] [INICIO SESIÓN] Usuario 'nahuelfernandez109@gmail.com' inició sesión.
+[12-06-2025 16:31:23] [ERROR INICIO SESIÓN] Usuario 'abc@c.com' intentó iniciar sesión y falló.
+[12-06-2025 16:31:27] [ERROR INICIO SESIÓN] Usuario 'abc@c.com' intentó iniciar sesión y falló.
+[12-06-2025 16:31:37] [ERROR INICIO SESIÓN] Usuario 'abc@c.com' intentó iniciar sesión y falló.
+[12-06-2025 16:32:14] [INICIO SESIÓN] Usuario 'abc@d.com' inició sesión.
+[12-06-2025 16:33:11] [INICIO SESIÓN] Usuario 'abc@c.com' inició sesión.
+[12-06-2025 16:40:21] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
+[12-06-2025 16:41:29] [REGISTRO] Usuario 'admin' registró nuevo paciente: Das, As. (DNI: 12345677)
+[12-06-2025 16:49:13] [INICIO SESIÓN] Usuario 'asd@gmail.com' inició sesión.
+[12-06-2025 16:49:28] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
+[12-06-2025 16:50:00] [REGISTRO] Usuario 'admin' registró nuevo paciente: C, A. (DNI: 12345676)
+[12-06-2025 16:50:30] [INICIO SESIÓN] Usuario 'a@a.com' inició sesión.
