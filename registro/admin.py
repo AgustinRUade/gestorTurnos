@@ -117,7 +117,7 @@ def turnocliente():
     if request.method == 'POST':
         dni = request.form['user_dni']
         nombre = request.form['user_nombre']
-        obra_social = request.form['tipo_obra_social']
+        obra_social = request.form['tipo']
         fecha = request.form['user_fecha']
 
         paciente.append({
