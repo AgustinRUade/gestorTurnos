@@ -45,12 +45,12 @@ def cargar_pacientes(ruta="pacientes.json"): #esta y la función de abajo SE REP
             return json.load(f) #
     except (FileNotFoundError, json.JSONDecodeError) as e: #
             registrar_error(e) #si el archivo está corrupto, registra el error en el archivo .log
-                               #EXPLICO: se llama a la función registrar_error con el error capturado como parametro(e), para que se registre en el ERROR en el archivo .log a través de la función destinada a escribir errores
+                               #EXPLICO: se llama a la función registrar_error con el error capturado como parametro(e), para que así se registre el ERROR en el archivo .log a través de la función destinada a escribir errores
             return [] #esto asumo que es redundante con el if de arriba, repensarlo
 
 # Función para guardar la lista de pacientes en el archivo JSON.
 # Sobrescribe el archivo con la nueva lista de pacientes.
-def guardar_pacientes(pacientes, ruta="pacientes.json"):                                    #se repite misma funcion en admin.py
+def guardar_pacientes(pacientes, ruta="pacientes.json"):
     try:
         with open(ruta, "w", encoding="utf-8") as f: 
             json.dump(pacientes, f, ensure_ascii=False, indent=4)
