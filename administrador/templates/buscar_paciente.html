@@ -20,33 +20,15 @@
         <p style="color: red; font-weight: bold;">{{ mensaje }}</p>
     {% endif %}
 
-    {% if paciente %}
+    {% if matriz %}
         <h2>Resultado encontrado</h2>
         <table border="1" cellpadding="10" cellspacing="0">
-            <tr>
-                <th>Nombre</th>
-                <td>{{ paciente.nombre }}</td>
-            </tr>
-            <tr>
-                <th>Apellido</th>
-                <td>{{ paciente.apellido }}</td>
-            </tr>
-            <tr>
-                <th>DNI</th>
-                <td>{{ paciente.dni }}</td>
-            </tr>
-            <tr>
-                <th>Género</th>
-                <td>{{ paciente.genero }}</td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td>{{ paciente.email }}</td>
-            </tr>
-            <tr>
-                <th>Obra Social</th>
-                <td>{{ paciente.obra_social }}</td>
-            </tr>
+            {% for fila in matriz %}
+                <tr>
+                    <th>{{ fila[0] }}</th>
+                    <td>{{ fila[1] }}</td>
+                </tr>
+            {% endfor %}
         </table>
     {% endif %}
     {% endblock %}

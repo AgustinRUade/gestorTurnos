@@ -22,5 +22,13 @@
         "genero": "Femenino",
         "email": "sofiaromeroeck@gmail.com",
         "obra_social": "OSDE"
+    },
+    {
+        "nombre": "Sofía",
+        "apellido": "Romero Eckerdt",
+        "dni": "44444444",
+        "genero": "Femenino",
+        "email": "romeroeckerdtsofia@gmail.com",
+        "obra_social": "OSDE"
     }
 ]

@@ -52,6 +52,7 @@ def buscar_paciente():
     dni = request.args.get('dni')  #obtiene el parámetro 'dni' desde la URL (formulario GET)
     pacientes = cargar_pacientes()
     encontrado = None #variable con contenido None, si se encuentra un paciente se lo guarda en esta variable
+    matriz_busqueda = []
     if dni:
         registrar_log(f"[BÚSQUEDA] Usuario '{session.get('usuario')}' buscó paciente con DNI: {dni}")  #se registra en el archivo .log que se buscó un paciente y se registra qué dni se buscó
         for paciente in pacientes: #se recorre la lista de pacientes (usuarios) para encontrar el paciente que tenga el DNI ingresado
@@ -59,11 +60,20 @@ def buscar_paciente():
                 registrar_log(f"[ENCONTRADO] Paciente encontrado: {paciente['apellido']}, {paciente['nombre']}. (DNI: {dni})")  #se registra en el archivo .log que se encontró un paciente con el dni ingresado, en el log. se registra nombre, apellido y dni
                 encontrado = paciente
                 break #si se encuentra el paciente se sale del bucle
-        if not encontrado:
+        if encontrado:
+            matriz_busqueda = [ #de RAM, cuando se busca otro paciente la matriz se vacía del contenido anterior y se rellena con los datos del paciente encontrado actualmente
+                ["Nombre", encontrado.get("nombre", "")],
+                ["Apellido", encontrado.get("apellido", "")],
+                ["DNI", encontrado.get("dni", "")],
+                ["Género", encontrado.get("genero", "")],
+                ["Email", encontrado.get("email", "")],
+                ["Obra Social", encontrado.get("obra_social", "")]
+            ] #si se encuentra el paciente, se crea una matriz con los datos del paciente encontrado, si no se encuentra el dato, se deja vacío
+        else:
             registrar_log(f"[NO ENCONTRADO] Paciente no encontrado con DNI: {dni}") #se registra en el archivo .log que el paciente que se intentó buscar no fue encontrado, en el .log se registra el dni que no se encontró
         mensaje = None if encontrado else "Paciente no encontrado." #mensaje de error si no se encuentra ningún paciente
-        return render_template('buscar_paciente.html', paciente=encontrado, mensaje=mensaje)
-    return render_template('buscar_paciente.html', paciente=None, mensaje=None)
+        return render_template('buscar_paciente.html', matriz=matriz_busqueda, mensaje=mensaje)
+    return render_template('buscar_paciente.html', matriz=None, mensaje=None)
 
 
 #Agregamos paciente
@@ -77,7 +87,7 @@ def nuevo_paciente():
         nombre = request.form["nombre"].strip().capitalize()#Estos son para borrar los espacios extras y poner la primera letra mayuscula
         apellido = request.form["apellido"].strip().capitalize()
         email = request.form["email"].strip().lower()#Borra los espacios extra y primera letra minuscula
-        tipo = request.form["tipo"]
+        obra_social = request.form["obra_social"]
 
         # Validamos el DNI y el email
         # Si no son validos, retornamos un mensaje de error
@@ -101,7 +111,7 @@ def nuevo_paciente():
             "nombre": nombre,
             "apellido": apellido,
             "email": email,
-            "tipo": tipo,
+            "obra_social": obra_social,
             "usuario": usuario_actual
         })
         

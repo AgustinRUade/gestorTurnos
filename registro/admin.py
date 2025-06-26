@@ -8,7 +8,7 @@ admin_bp = Blueprint('admin', __name__, template_folder='templates')
 
 
 administra = ('administracion', '@altaadminis2025') #credenciales para iniciar sesión como administrador, como NO se modifica nunca, y NO se debe modificar nunca, estos datos deben estar en una tupla
-usuarios = cargar_pacientes() #
+
 paciente = [] #lista de pacientes con su turno, también se vacía al refrescar la página
 
 @admin_bp.route('/', methods=['GET', 'POST'])
@@ -28,10 +28,11 @@ def inicio():
         contrasenia = request.form.get('contrasenia') #toma el valor del input 'contrasenia' del formulario de inicio de sesión, ES EL DNI
         mantener_sesion = request.form.get('mantener_sesion') #variable que toma el valor del input 'mantener_sesion' del formulario de inicio de sesión, si está marcado, la sesión se mantendrá iniciada por 7 días, sino, se cerrará al cerrar el navegador
         if usuario == administra[0] and contrasenia == administra[1]: #validación de las credenciales del administrador, SOLO si el valor del indice 0 de la tupla administra es igual a lo ingresado en el input de usuario y SOLO SI el valor del indice 1 de la tupla administra es igual a lo ingresado en el input de contraseña, entonces se inicia sesión como administrador
-            session['usuario'] = 'admin' #
+            session['usuario'] = 'admin'
             session['rol'] = 'admin'
             registrar_log(f"[INICIO SESIÓN] Usuario '{usuario}' inició sesión como administrador.")  #se registra en el archivo .log inicio de sesión del usuario administrador
             return redirect(url_for('clientes.index')) #solo si se inicia sesión con credenciales de administrador se direcciona ACÁ
+        usuarios = cargar_pacientes() #carga la lista de usuarios desde el archivo JSON, que es donde se guardan los datos de los usuarios registrados
         for user in usuarios: #se recorren todos los usuarios y sus contraseñas de todos los diccionarios (uno por usuario) de la lista 'usuarios'
             if user['email'] == usuario and user['dni'] == contrasenia: #antes había input de usuario y contraseña, ahora el email es el usuario y el dni es la contraseña
                 session['usuario'] = usuario
@@ -42,7 +43,7 @@ def inicio():
         #si no se encuentra el usuario o la contraseña es incorrecta, se muestra un mensaje de error
         mensaje = 'Usuario o contraseña incorrectos'
         mensaje_tipo = 'error'
-        registrar_log(f"[ERROR INICIO SESIÓN] Usuario '{usuario}' intentó iniciar sesión y falló.")  #se registra en el archivo .log que quién intentó iniciar sesión (se captura el dato del input de usuario y se lo registra en el .log) no logró hacerlo
+        registrar_log(f"[ERROR INICIO SESIÓN] Se intentó iniciar sesión con usuario '{usuario}' y DNI '{contrasenia}' y se rechazó solicitud")  #se registra en el archivo .log que quién intentó iniciar sesión (se captura el dato del input de usuario y contraseña y se lo registra en el .log) no logró hacerlo
     return render_template('inicio.html', mensaje=mensaje, mensaje_tipo=mensaje_tipo)
 
 
@@ -61,6 +62,7 @@ def registro(): #Resgistro de usuario nuevo desde la interfaz de login
         genero = request.form.get('genero')
         email = request.form.get('email')
         obra_social = request.form.get('obra_social')
+        usuarios = cargar_pacientes() #carga la lista de usuarios desde el archivo JSON, que es donde se guardan los datos de los usuarios registrados
         if not validarDNI(dni): #se valida que el formato de DNI sea correcto, esto es de la función validarDNI que esta en el archivo funciones_comunes.py, es importado a este documento en la segunda línea de este archivo actual
             mensaje = 'DNI inválido. Debe contener solo números y tener entre 7 y 8 dígitos.' #mensaje SI NO se cumple el formato
             return render_template('registro.html', obras_sociales=obras_sociales, mensaje=mensaje) 
@@ -106,7 +108,14 @@ def bienvenida():
 
 @admin_bp.route("/logout")
 def logout():
-    session.clear()  # borra todos los datos de sesión
+    usuario = session.get('usuario')  # capturás el usuario de la sesión si existe
+    rol = session.get('rol')
+    if usuario:  #solo registra si había una sesión activa
+        if rol == 'admin':
+            registrar_log(f"[CIERRE SESIÓN DE ADMIN] El administrador cerró sesión.")
+        else:
+            registrar_log(f"[CIERRE SESIÓN] Usuario '{usuario}' cerró sesión.")
+    session.clear()  #borra todos los datos de sesión
     return redirect(url_for("admin.inicio"))
 
 @admin_bp.route('/turnocliente', methods=['GET', 'POST'])

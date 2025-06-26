@@ -23,11 +23,11 @@
                 <label for="Email">Email:</label><br>
                 <input type="text" name="email" required><br><br>
 
-                <label for="tipo">Obra social o particular:</label><br>
-                <select name="tipo" required>
+                <label for="obra_social">Obra social o particular:</label><br>
+                <select name="obra_social" required>
                     <option value="Particular">Particular</option>
                     {% for obra in obras_sociales %}
-                        <option value="{{ obra }}">{{ obra }}</option>
+                        <option value="{{ obra_social }}">{{ obra }}</option>
                     {% endfor %}
                 </select><br><br>
 
