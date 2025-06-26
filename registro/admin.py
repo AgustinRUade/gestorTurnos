@@ -108,7 +108,7 @@ def bienvenida():
 
 @admin_bp.route("/logout")
 def logout():
-    usuario = session.get('usuario')  # capturás el usuario de la sesión si existe
+    usuario = session.get('usuario')
     rol = session.get('rol')
     if usuario:  #solo registra si había una sesión activa
         if rol == 'admin':
