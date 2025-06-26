@@ -86,11 +86,7 @@ def nuevo_paciente():
         nombre = request.form["nombre"].strip().capitalize()#Estos son para borrar los espacios extras y poner la primera letra mayuscula
         apellido = request.form["apellido"].strip().capitalize()
         email = request.form["email"].strip().lower()#Borra los espacios extra y primera letra minuscula
-<<<<<<< HEAD
         obra_social = request.form["obra_social"]
-=======
-        obra_social = request.form["tipo"]
->>>>>>> 1561d43965e44deb1ce12555e078b4f2cd779664
 
         # Validamos el DNI y el email
         # Si no son validos, retornamos un mensaje de error
@@ -114,12 +110,8 @@ def nuevo_paciente():
             "nombre": nombre,
             "apellido": apellido,
             "email": email,
-<<<<<<< HEAD
             "obra_social": obra_social,
             "usuario": usuario_actual
-=======
-            "obra sociall": obra_social,
->>>>>>> 1561d43965e44deb1ce12555e078b4f2cd779664
         })
         
         try:

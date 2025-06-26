@@ -120,3 +120,21 @@
 [12-06-2025 16:50:30] [INICIO SESIÓN] Usuario 'a@a.com' inició sesión.
 [12-06-2025 17:00:17] [TURNO] Paciente Nahuel Román Fernández (DNI: 44398617) ha agendado un turno para el 2025-06-26.
 >>>>>>> 1561d43965e44deb1ce12555e078b4f2cd779664
+[25-06-2025 23:06:30] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
+[25-06-2025 23:06:30] [ERROR] Tipo: JSONDecodeError - Mensaje: Expecting property name enclosed in double quotes: line 27 column 1 (char 637)
+[25-06-2025 23:08:10] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
+[25-06-2025 23:08:43] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 44423507
+[25-06-2025 23:08:43] [ENCONTRADO] Paciente encontrado: Romero Eckerdt, Sofía. (DNI: 44423507)
+[25-06-2025 23:08:46] [CIERRE SESIÓN DE ADMIN] El administrador cerró sesión.
+[25-06-2025 23:09:59] [REGISTRO] Usuario 'nahuelfernandez109@gmail.com' se registró exitosamente.
+[25-06-2025 23:11:46] [INICIO SESIÓN] Usuario 'nahuelfernandez109@gmail.com' inició sesión.
+[25-06-2025 23:12:24] [TURNO] Paciente Nahuel Román Fernández (DNI: 44398617) ha agendado un turno para el 2025-06-26.
+[25-06-2025 23:12:32] [CIERRE SESIÓN] Usuario 'nahuelfernandez109@gmail.com' cerró sesión.
+[25-06-2025 23:12:35] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
+[25-06-2025 23:13:17] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 44398617
+[25-06-2025 23:13:17] [ENCONTRADO] Paciente encontrado: Fernández, Nahuel Román. (DNI: 44398617)
+[25-06-2025 23:33:36] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 44398617
+[25-06-2025 23:33:36] [ENCONTRADO] Paciente encontrado: Fernández, Nahuel Román. (DNI: 44398617)
+[25-06-2025 23:33:46] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 3333333
+[25-06-2025 23:33:46] [NO ENCONTRADO] Paciente no encontrado con DNI: 3333333
+[25-06-2025 23:34:18] [CIERRE SESIÓN DE ADMIN] El administrador cerró sesión.
