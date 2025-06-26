@@ -24,11 +24,56 @@
         "obra_social": "OSDE"
     },
     {
+<<<<<<< HEAD
         "nombre": "Sofía",
         "apellido": "Romero Eckerdt",
         "dni": "44444444",
         "genero": "Femenino",
         "email": "romeroeckerdtsofia@gmail.com",
         "obra_social": "OSDE"
+=======
+        "dni": "12345678",
+        "nombre": "Ads",
+        "apellido": "Fasf",
+        "email": "void@g.com",
+        "obra sociall": "OSUTHGRA",
+        "usuario": "admin"
+    },
+    {
+        "nombre": "ab",
+        "apellido": "ba",
+        "dni": "11111111",
+        "genero": "Masculino",
+        "email": "abc@d.com",
+        "obra_social": "OSDE"
+    },
+    {
+        "dni": "44398617",
+        "nombre": "Nahuel",
+        "apellido": "Fernandez",
+        "email": "nahuelfernandez109@gmail.com",
+        "obra sociall": "PAMI"
+    },
+    {
+        "dni": "33333333",
+        "nombre": "A",
+        "apellido": "B",
+        "email": "abc@c.com",
+        "obra sociall": "Particular"
+    },
+    {
+        "dni": "12345677",
+        "nombre": "As",
+        "apellido": "Das",
+        "email": "asd@gmail.com",
+        "obra sociall": "OSPIP"
+    },
+    {
+        "dni": "12345676",
+        "nombre": "A",
+        "apellido": "C",
+        "email": "a@a.com",
+        "obra sociall": "Particular"
+>>>>>>> 1561d43965e44deb1ce12555e078b4f2cd779664
     }
 ]

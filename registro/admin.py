@@ -13,15 +13,16 @@ paciente = [] #lista de pacientes con su turno, también se vacía al refrescar 
 
 @admin_bp.route('/', methods=['GET', 'POST'])
 def inicio():
-    if 'usuario' in session: #verifica si hay una sesión iniciada, si la hay, redirige a la página de mis turnos
+    if 'usuario' in session:
         if session.get('rol') == 'normal':
             return redirect(url_for('clientes.mis_turnos'))
-    mensaje = '' #variable de texto vacía para que se le pueda asignar mensaje que le corresponda dependiendo del camino del usuario
-    mensaje_tipo = '' #variable de texto vacia que dependiendo de lo que sucede en el sistema puede tomar valor "error" o "exito"
-    if request.args.get('mensaje') == 'registro_exitoso': 
-        mensaje = '¡Registro exitoso! Ya podés iniciar sesión.' #mensaje que se muestra luego de que un usuario se haya registrado correctamente
+    mensaje = ''
+    mensaje_tipo = ''
+    if request.args.get('mensaje') == 'registro_exitoso':
+        mensaje = '¡Registro exitoso! Ya podés iniciar sesión.'
         mensaje_tipo = 'exito'
 
+<<<<<<< HEAD
     if request.method == 'POST': #sucede cuando el usuario envía el formulario de inicio de sesión
         usuario = request.form.get('usuario') #toma el valor del input 'usuario' del formulario de inicio de sesión, ES EL EMAIL
         #RECORDARE QUE ANTES se usaba un input PROPIO de usuario y otro PROPIO de contraseña, ahora se usa el email como usuario y el dni como contraseña
@@ -45,6 +46,28 @@ def inicio():
         mensaje_tipo = 'error'
         registrar_log(f"[ERROR INICIO SESIÓN] Se intentó iniciar sesión con usuario '{usuario}' y DNI '{contrasenia}' y se rechazó solicitud")  #se registra en el archivo .log que quién intentó iniciar sesión (se captura el dato del input de usuario y contraseña y se lo registra en el .log) no logró hacerlo
     return render_template('inicio.html', mensaje=mensaje, mensaje_tipo=mensaje_tipo)
+=======
+    if request.method == 'POST':
+        usuario = request.form.get('usuario')      # Esto es el email
+        contrasenia = request.form.get('contrasenia')  # Esto es el dni
+        mantener_sesion = request.form.get('mantener_sesion')
+        # Login administrador
+        if usuario == administra[0] and contrasenia == administra[1]:
+            session['usuario'] = 'admin'
+            session['rol'] = 'admin'
+            registrar_log(f"[INICIO SESIÓN] Usuario '{usuario}' inició sesión como administrador.")
+            return redirect(url_for('clientes.index'))
+        # Login paciente
+        for user in cargar_pacientes():
+            if user.get('email') == usuario and user.get('dni') == contrasenia:
+                session['usuario'] = usuario
+                session['rol'] = 'normal'
+                session.permanent = True if mantener_sesion == 'on' else False
+                registrar_log(f"[INICIO SESIÓN] Usuario '{usuario}' inició sesión.")
+                return redirect(url_for('clientes.mis_turnos'))
+        mensaje = 'Usuario o contraseña incorrectos.'
+    return render_template('inicio.html', mensaje=mensaje)
+>>>>>>> 1561d43965e44deb1ce12555e078b4f2cd779664
 
 
 

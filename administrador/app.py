@@ -1,7 +1,6 @@
-#Aca generamos la matriz de turnos (de momento vacia)
 #Creamos el CRUD para crear, ver, editar y borrar los turnos
 from flask import Blueprint, render_template, request, redirect, session, url_for
-from funciones_comunes import registrar_log, registrar_error, validarDNI, validarMail, cargar_pacientes, guardar_pacientes, PACIENTES_JSON #importamos las funciones de registro de log y error, validación de dni y de email, carga  y guardado de pacientes dque están en funciones_comunes.py
+from funciones_comunes import registrar_log, registrar_error, validarDNI, validarMail, cargar_pacientes, guardar_pacientes, PACIENTES_JSON #importamos las funciones de registro de log y error, validación de dni y de email, carga  y guardado de pacientes que están en funciones_comunes.py
 
 pacientes_bp = Blueprint('clientes', __name__, url_prefix="/pacientes", template_folder="templates") 
 
@@ -35,7 +34,7 @@ def index():
     usuario_actual = session.get("usuario")
     rol = session.get("rol")
     for p in pacientes:          
-        print(" -", type(p), p) #tuve un error antes, como en el lambda se pide por "nombre", agregué esto para verificar que exista el campo nombre en el json
+        print(" -", type(p), p) #tuve un error antes, como en el lambda se pide por "nombre", agregué esto por las dudas para verificar que exista el campo nombre en el json
     for p in pacientes:
         if "nombre" not in p:
             registrar_error(f"[ADVERTENCIA] Paciente sin campo 'nombre': {p}")  #se registra un error en archivo.log si algún paciente no tiene el campo 'nombre' con datos
@@ -87,7 +86,11 @@ def nuevo_paciente():
         nombre = request.form["nombre"].strip().capitalize()#Estos son para borrar los espacios extras y poner la primera letra mayuscula
         apellido = request.form["apellido"].strip().capitalize()
         email = request.form["email"].strip().lower()#Borra los espacios extra y primera letra minuscula
+<<<<<<< HEAD
         obra_social = request.form["obra_social"]
+=======
+        obra_social = request.form["tipo"]
+>>>>>>> 1561d43965e44deb1ce12555e078b4f2cd779664
 
         # Validamos el DNI y el email
         # Si no son validos, retornamos un mensaje de error
@@ -111,14 +114,18 @@ def nuevo_paciente():
             "nombre": nombre,
             "apellido": apellido,
             "email": email,
+<<<<<<< HEAD
             "obra_social": obra_social,
             "usuario": usuario_actual
+=======
+            "obra sociall": obra_social,
+>>>>>>> 1561d43965e44deb1ce12555e078b4f2cd779664
         })
         
         try:
             guardar_pacientes(pacientes) #Guardamos los datos en el .json
             registrar_log(f"[REGISTRO] Usuario '{usuario_actual}' registró nuevo paciente: {apellido}, {nombre}. (DNI: {dni})")  #se deja registro en el archivo .log que se registró un nuevo paciente, se registra en el .log apellido, nombre y dni del paciente nuevo
-        except Exception as e: #error de registro de paciente como alias "e", se registra en el .log el error según la función registrar_error que está en el archivo funciones_comunes
+        except Exception as e: #error de registro de paciente, alias "e", se registra en el .log el error según la función registrar_error que está en el archivo funciones_comunes
             registrar_error(e)
             return "Error inesperado al registrar paciente"
             
@@ -174,7 +181,6 @@ def eliminar(dni):
     pacientes = [p for p in pacientes if p["dni"] != dni]
     try:
         registrar_log(f"[ELIMINACIÓN] Usuario '{session.get('usuario')}' eliminó paciente: {paciente['apellido']}, {paciente['nombre']}. (DNI: {paciente['dni']})")  #se deja registro en el archivo .log que se eliminó un paciente, dejando registro en el .log del apellido, nombre y dni del paciente borrado
-         # Si hubo un error al guardar, se registra en el archivo .log
         guardar_pacientes(pacientes)
     except Exception as e:
         registrar_error(e) #de haber ocurrido un error al querer eliminar un paciente, se registra en el archivo .log

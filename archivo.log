@@ -5,6 +5,7 @@
 [11-06-2025 20:47:10] [NO ENCONTRADO] Paciente no encontrado con DNI: 44444444
 [11-06-2025 20:48:02] [INICIO SESIÓN] Usuario 'sromeroeckerdt@uade.edu.ar' inició sesión.
 [11-06-2025 20:48:18] [TURNO] Paciente Sofia Yazmin Romero Eckerdt (DNI: 44423507) ha agendado un turno para el 2025-06-23.
+<<<<<<< HEAD
 [25-06-2025 20:37:47] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
 [25-06-2025 20:37:56] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 44423507
 [25-06-2025 20:37:56] [ENCONTRADO] Paciente encontrado: Romero Eckerdt, Sofía. (DNI: 44423507)
@@ -51,3 +52,71 @@
 [25-06-2025 21:18:06] [CIERRE SESIÓN] Usuario 'sromeroeckerdt@uade.edu.ar' con DNI 'None' cerró sesión.
 [25-06-2025 21:31:21] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
 [25-06-2025 21:31:23] [CIERRE SESIÓN] El administrador cerró sesión.
+=======
+[12-06-2025 14:41:45] [ERROR INICIO SESIÓN] Usuario 'admin' intentó iniciar sesión y falló.
+[12-06-2025 14:41:57] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
+[12-06-2025 14:43:09] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 44423507
+[12-06-2025 14:43:09] [ENCONTRADO] Paciente encontrado: Romero Eckerdt, Sofía. (DNI: 44423507)
+[12-06-2025 14:44:24] [REGISTRO] Usuario 'admin' registró nuevo paciente: Fernandez, Nahuel. (DNI: 44398617)
+[12-06-2025 14:44:43] [ERROR INICIO SESIÓN] Usuario 'nahuelfernandez109@gmail.com' intentó iniciar sesión y falló.
+[12-06-2025 14:48:28] [ERROR INICIO SESIÓN] Usuario 'admin' intentó iniciar sesión y falló.
+[12-06-2025 14:49:29] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
+[12-06-2025 14:49:55] [REGISTRO] Usuario 'admin' registró nuevo paciente: Fe, Na. (DNI: 44398618)
+[12-06-2025 14:55:37] [REGISTRO] Usuario 'nahuelfernandez105@gmail.com' se registró exitosamente.
+[12-06-2025 14:55:53] [INICIO SESIÓN] Usuario 'nahuelfernandez105@gmail.com' inició sesión.
+[12-06-2025 14:56:50] [TURNO] Paciente Nahuel Román Fernández (DNI: 44398615) ha agendado un turno para el 2025-06-20.
+[12-06-2025 14:56:55] [ELIMINACIÓN] Paciente con DNI 44398615 ha sido eliminado.
+[12-06-2025 14:59:06] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
+[12-06-2025 15:00:06] [REGISTRO] Usuario 'admin' registró nuevo paciente: Fasf, Ads. (DNI: 12345678)
+[12-06-2025 15:05:33] [ELIMINACIÓN] Usuario 'admin' eliminó paciente: Fe, Na. (DNI: 44398618)
+[12-06-2025 15:05:40] [INICIO SESIÓN] Usuario 'nahuelfernandez105@gmail.com' inició sesión.
+[12-06-2025 15:05:55] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
+[12-06-2025 15:06:08] [ELIMINACIÓN] Usuario 'admin' eliminó paciente: Fe, Nahuel. (DNI: 44398615)
+[12-06-2025 15:06:17] [INICIO SESIÓN] Usuario 'nahuelfernandez105@gmail.com' inició sesión.
+[12-06-2025 15:06:28] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
+[12-06-2025 15:09:40] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 12345678
+[12-06-2025 15:09:40] [ENCONTRADO] Paciente encontrado: Fasf, Ads. (DNI: 12345678)
+[12-06-2025 15:09:50] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 44398617
+[12-06-2025 15:09:50] [ENCONTRADO] Paciente encontrado: Fernandez, Nahuel. (DNI: 44398617)
+[12-06-2025 15:11:01] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 44423507
+[12-06-2025 15:11:01] [ENCONTRADO] Paciente encontrado: Romero Eckerdt, Sofía. (DNI: 44423507)
+[12-06-2025 15:12:48] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 44398617
+[12-06-2025 15:12:48] [ENCONTRADO] Paciente encontrado: Fernandez, Nahuel. (DNI: 44398617)
+[12-06-2025 15:46:37] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 44398617
+[12-06-2025 15:46:37] [ENCONTRADO] Paciente encontrado: Fernandez, Nahuel. (DNI: 44398617)
+[12-06-2025 15:47:30] [ERROR INICIO SESIÓN] Usuario 'nahuelfernandez105@gmail.com' intentó iniciar sesión y falló.
+[12-06-2025 15:47:41] [ERROR INICIO SESIÓN] Usuario 'nahuelfernandez105@gmail.com' intentó iniciar sesión y falló.
+[12-06-2025 15:58:46] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
+[12-06-2025 16:02:19] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
+[12-06-2025 16:10:40] [REGISTRO] Usuario 'admin' registró nuevo paciente: B, A. (DNI: 22222222)
+[12-06-2025 16:11:55] [ERROR INICIO SESIÓN] Usuario 'asas@gmail.com' intentó iniciar sesión y falló.
+[12-06-2025 16:12:31] [REGISTRO] Usuario 'abc@d.com' se registró exitosamente.
+[12-06-2025 16:12:49] [INICIO SESIÓN] Usuario 'abc@d.com' inició sesión.
+[12-06-2025 16:13:36] [INICIO SESIÓN] Usuario 'void@g.com' inició sesión.
+[12-06-2025 16:13:56] [ERROR INICIO SESIÓN] Usuario 'nahuelfernandez105@gmail.com' intentó iniciar sesión y falló.
+[12-06-2025 16:14:05] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
+[12-06-2025 16:14:12] [ELIMINACIÓN] Usuario 'admin' eliminó paciente: Fernandez, Nahuel. (DNI: 44398617)
+[12-06-2025 16:14:28] [REGISTRO] Usuario 'admin' registró nuevo paciente: Fernandez, Nahuel. (DNI: 44398617)
+[12-06-2025 16:14:48] [INICIO SESIÓN] Usuario 'nahuelfernandez109@gmail.com' inició sesión.
+[12-06-2025 16:15:20] [INICIO SESIÓN] Usuario 'eckerdtsofia23@gmail.com' inició sesión.
+[12-06-2025 16:15:59] [INICIO SESIÓN] Usuario 'sromeroeckerdt@uade.edu.ar' inició sesión.
+[12-06-2025 16:20:00] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
+[12-06-2025 16:28:24] [REGISTRO] Usuario 'admin' registró nuevo paciente: B, A. (DNI: 33333333)
+[12-06-2025 16:28:42] [ERROR INICIO SESIÓN] Usuario 'abc@c.com' intentó iniciar sesión y falló.
+[12-06-2025 16:28:57] [ERROR INICIO SESIÓN] Usuario 'nahuelfernandez105@gmail.com' intentó iniciar sesión y falló.
+[12-06-2025 16:29:35] [INICIO SESIÓN] Usuario 'void@g.com' inició sesión.
+[12-06-2025 16:30:48] [ERROR INICIO SESIÓN] Usuario 'nahuelfernandez109@gmail.com' intentó iniciar sesión y falló.
+[12-06-2025 16:31:01] [INICIO SESIÓN] Usuario 'nahuelfernandez109@gmail.com' inició sesión.
+[12-06-2025 16:31:23] [ERROR INICIO SESIÓN] Usuario 'abc@c.com' intentó iniciar sesión y falló.
+[12-06-2025 16:31:27] [ERROR INICIO SESIÓN] Usuario 'abc@c.com' intentó iniciar sesión y falló.
+[12-06-2025 16:31:37] [ERROR INICIO SESIÓN] Usuario 'abc@c.com' intentó iniciar sesión y falló.
+[12-06-2025 16:32:14] [INICIO SESIÓN] Usuario 'abc@d.com' inició sesión.
+[12-06-2025 16:33:11] [INICIO SESIÓN] Usuario 'abc@c.com' inició sesión.
+[12-06-2025 16:40:21] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
+[12-06-2025 16:41:29] [REGISTRO] Usuario 'admin' registró nuevo paciente: Das, As. (DNI: 12345677)
+[12-06-2025 16:49:13] [INICIO SESIÓN] Usuario 'asd@gmail.com' inició sesión.
+[12-06-2025 16:49:28] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
+[12-06-2025 16:50:00] [REGISTRO] Usuario 'admin' registró nuevo paciente: C, A. (DNI: 12345676)
+[12-06-2025 16:50:30] [INICIO SESIÓN] Usuario 'a@a.com' inició sesión.
+[12-06-2025 17:00:17] [TURNO] Paciente Nahuel Román Fernández (DNI: 44398617) ha agendado un turno para el 2025-06-26.
+>>>>>>> 1561d43965e44deb1ce12555e078b4f2cd779664

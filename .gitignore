@@ -1,0 +1,20 @@
+# Ignorar carpetas compiladas
+__pycache__/
+*.py[cod]
+
+# Archivos de entorno virtual (si usás venv)
+env/
+venv/
+
+# Archivos de configuración del sistema o editores
+*.log
+*.swp
+.DS_Store
+.idea/
+.vscode/
+
+# Archivos de base de datos temporales
+*.sqlite3
+
+# Configuración de pytest
+.pytest_cache/
