@@ -1,140 +1,91 @@
-[11-06-2025 20:47:00] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
-[11-06-2025 20:47:06] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 44423507
-[11-06-2025 20:47:06] [ENCONTRADO] Paciente encontrado: Romero Eckerdt, Sofía. (DNI: 44423507)
-[11-06-2025 20:47:10] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 44444444
-[11-06-2025 20:47:10] [NO ENCONTRADO] Paciente no encontrado con DNI: 44444444
-[11-06-2025 20:48:02] [INICIO SESIÓN] Usuario 'sromeroeckerdt@uade.edu.ar' inició sesión.
-[11-06-2025 20:48:18] [TURNO] Paciente Sofia Yazmin Romero Eckerdt (DNI: 44423507) ha agendado un turno para el 2025-06-23.
-<<<<<<< HEAD
-[25-06-2025 20:37:47] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
-[25-06-2025 20:37:56] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 44423507
-[25-06-2025 20:37:56] [ENCONTRADO] Paciente encontrado: Romero Eckerdt, Sofía. (DNI: 44423507)
-[25-06-2025 20:38:08] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 44423507
-[25-06-2025 20:38:08] [ENCONTRADO] Paciente encontrado: Romero Eckerdt, Sofía. (DNI: 44423507)
-[25-06-2025 20:41:42] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 44423507
-[25-06-2025 20:41:42] [ENCONTRADO] Paciente encontrado: Romero Eckerdt, Sofía. (DNI: 44423507)
-[25-06-2025 20:41:55] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 44423506
-[25-06-2025 20:41:55] [ENCONTRADO] Paciente encontrado: Romero eckerdt, Sofía. (DNI: 44423506)
-[25-06-2025 20:42:08] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 44423588
-[25-06-2025 20:42:08] [ENCONTRADO] Paciente encontrado: Romero Eckerdt, Sofía. (DNI: 44423588)
-[25-06-2025 20:42:18] [ELIMINACIÓN] Usuario 'admin' eliminó paciente: Romero Eckerdt, Sofía. (DNI: 44423507)
-[25-06-2025 20:42:29] [INICIO SESIÓN] Usuario 'sromeroeckerdt@uade.edu.ar' inició sesión.
-[25-06-2025 20:43:14] [REGISTRO] Usuario 'romeroeckerdtsofia@gmail.com' se registró exitosamente.
-[25-06-2025 20:43:29] [ERROR INICIO SESIÓN] Usuario 'romeroeckerdtsofia23@gmail.com' intentó iniciar sesión y falló.
-[25-06-2025 20:43:42] [ERROR INICIO SESIÓN] Usuario 'romeroeckerdtsofia23@gmail.com' intentó iniciar sesión y falló.
-[25-06-2025 20:44:17] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
-[25-06-2025 20:44:39] [ERROR INICIO SESIÓN] Usuario 'romeroeckerdtsofia23@gmail.com' intentó iniciar sesión y falló.
-[25-06-2025 20:44:58] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
-[25-06-2025 20:54:23] [REGISTRO] Usuario 'juli@gmail.com' se registró exitosamente.
-[25-06-2025 20:54:38] [ERROR INICIO SESIÓN] Usuario 'juli@gmail.com' intentó iniciar sesión y falló.
-[25-06-2025 20:54:53] [ERROR INICIO SESIÓN] Usuario 'juli@gmail.com' intentó iniciar sesión y falló.
-[25-06-2025 20:56:17] [ERROR INICIO SESIÓN] Usuario 'juli@gmail.com' intentó iniciar sesión y falló.
-[25-06-2025 21:01:01] [INICIO SESIÓN] Usuario 'juli@gmail.com' inició sesión.
-[25-06-2025 21:01:14] [INICIO SESIÓN] Usuario 'juli@gmail.com' inició sesión.
-[25-06-2025 21:01:26] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
-[25-06-2025 21:01:29] [ELIMINACIÓN] Usuario 'admin' eliminó paciente: Romero Eckerdt, Sofía. (DNI: 22222222)
-[25-06-2025 21:01:51] [ERROR INICIO SESIÓN] Usuario 'juli@gmail.com' intentó iniciar sesión y falló.
-[25-06-2025 21:02:19] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
-[25-06-2025 21:02:26] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 22222222
-[25-06-2025 21:02:26] [NO ENCONTRADO] Paciente no encontrado con DNI: 22222222
-[25-06-2025 21:02:29] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 44423507
-[25-06-2025 21:02:29] [ENCONTRADO] Paciente encontrado: Romero Eckerdt, Sofía. (DNI: 44423507)
-[25-06-2025 21:02:53] [REGISTRO] Usuario 'admin' registró nuevo paciente: Romero eckerdt, Sofía. (DNI: 22222222)
-[25-06-2025 21:03:00] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 22222222
-[25-06-2025 21:03:00] [ENCONTRADO] Paciente encontrado: Romero eckerdt, Sofía. (DNI: 22222222)
-[25-06-2025 21:03:15] [INICIO SESIÓN] Usuario 'juli@gmail.com' inició sesión.
-[25-06-2025 21:03:57] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
-[25-06-2025 21:04:00] [ELIMINACIÓN] Usuario 'admin' eliminó paciente: Romero eckerdt, Sofía. (DNI: 22222222)
-[25-06-2025 21:04:13] [ERROR INICIO SESIÓN] Usuario 'juli@gmail.com' intentó iniciar sesión y falló.
-[25-06-2025 21:17:11] [INICIO SESIÓN] Usuario 'sromeroeckerdt@uade.edu.ar' inició sesión.
-[25-06-2025 21:17:14] [CIERRE SESIÓN] Usuario 'sromeroeckerdt@uade.edu.ar' con DNI 'None' cerró sesión.
-[25-06-2025 21:18:04] [INICIO SESIÓN] Usuario 'sromeroeckerdt@uade.edu.ar' inició sesión.
-[25-06-2025 21:18:06] [CIERRE SESIÓN] Usuario 'sromeroeckerdt@uade.edu.ar' con DNI 'None' cerró sesión.
-[25-06-2025 21:31:21] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
-[25-06-2025 21:31:23] [CIERRE SESIÓN] El administrador cerró sesión.
-=======
-[12-06-2025 14:41:45] [ERROR INICIO SESIÓN] Usuario 'admin' intentó iniciar sesión y falló.
-[12-06-2025 14:41:57] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
-[12-06-2025 14:43:09] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 44423507
-[12-06-2025 14:43:09] [ENCONTRADO] Paciente encontrado: Romero Eckerdt, Sofía. (DNI: 44423507)
-[12-06-2025 14:44:24] [REGISTRO] Usuario 'admin' registró nuevo paciente: Fernandez, Nahuel. (DNI: 44398617)
-[12-06-2025 14:44:43] [ERROR INICIO SESIÓN] Usuario 'nahuelfernandez109@gmail.com' intentó iniciar sesión y falló.
-[12-06-2025 14:48:28] [ERROR INICIO SESIÓN] Usuario 'admin' intentó iniciar sesión y falló.
-[12-06-2025 14:49:29] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
-[12-06-2025 14:49:55] [REGISTRO] Usuario 'admin' registró nuevo paciente: Fe, Na. (DNI: 44398618)
-[12-06-2025 14:55:37] [REGISTRO] Usuario 'nahuelfernandez105@gmail.com' se registró exitosamente.
-[12-06-2025 14:55:53] [INICIO SESIÓN] Usuario 'nahuelfernandez105@gmail.com' inició sesión.
-[12-06-2025 14:56:50] [TURNO] Paciente Nahuel Román Fernández (DNI: 44398615) ha agendado un turno para el 2025-06-20.
-[12-06-2025 14:56:55] [ELIMINACIÓN] Paciente con DNI 44398615 ha sido eliminado.
-[12-06-2025 14:59:06] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
-[12-06-2025 15:00:06] [REGISTRO] Usuario 'admin' registró nuevo paciente: Fasf, Ads. (DNI: 12345678)
-[12-06-2025 15:05:33] [ELIMINACIÓN] Usuario 'admin' eliminó paciente: Fe, Na. (DNI: 44398618)
-[12-06-2025 15:05:40] [INICIO SESIÓN] Usuario 'nahuelfernandez105@gmail.com' inició sesión.
-[12-06-2025 15:05:55] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
-[12-06-2025 15:06:08] [ELIMINACIÓN] Usuario 'admin' eliminó paciente: Fe, Nahuel. (DNI: 44398615)
-[12-06-2025 15:06:17] [INICIO SESIÓN] Usuario 'nahuelfernandez105@gmail.com' inició sesión.
-[12-06-2025 15:06:28] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
-[12-06-2025 15:09:40] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 12345678
-[12-06-2025 15:09:40] [ENCONTRADO] Paciente encontrado: Fasf, Ads. (DNI: 12345678)
-[12-06-2025 15:09:50] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 44398617
-[12-06-2025 15:09:50] [ENCONTRADO] Paciente encontrado: Fernandez, Nahuel. (DNI: 44398617)
-[12-06-2025 15:11:01] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 44423507
-[12-06-2025 15:11:01] [ENCONTRADO] Paciente encontrado: Romero Eckerdt, Sofía. (DNI: 44423507)
-[12-06-2025 15:12:48] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 44398617
-[12-06-2025 15:12:48] [ENCONTRADO] Paciente encontrado: Fernandez, Nahuel. (DNI: 44398617)
-[12-06-2025 15:46:37] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 44398617
-[12-06-2025 15:46:37] [ENCONTRADO] Paciente encontrado: Fernandez, Nahuel. (DNI: 44398617)
-[12-06-2025 15:47:30] [ERROR INICIO SESIÓN] Usuario 'nahuelfernandez105@gmail.com' intentó iniciar sesión y falló.
-[12-06-2025 15:47:41] [ERROR INICIO SESIÓN] Usuario 'nahuelfernandez105@gmail.com' intentó iniciar sesión y falló.
-[12-06-2025 15:58:46] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
-[12-06-2025 16:02:19] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
-[12-06-2025 16:10:40] [REGISTRO] Usuario 'admin' registró nuevo paciente: B, A. (DNI: 22222222)
-[12-06-2025 16:11:55] [ERROR INICIO SESIÓN] Usuario 'asas@gmail.com' intentó iniciar sesión y falló.
-[12-06-2025 16:12:31] [REGISTRO] Usuario 'abc@d.com' se registró exitosamente.
-[12-06-2025 16:12:49] [INICIO SESIÓN] Usuario 'abc@d.com' inició sesión.
-[12-06-2025 16:13:36] [INICIO SESIÓN] Usuario 'void@g.com' inició sesión.
-[12-06-2025 16:13:56] [ERROR INICIO SESIÓN] Usuario 'nahuelfernandez105@gmail.com' intentó iniciar sesión y falló.
-[12-06-2025 16:14:05] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
-[12-06-2025 16:14:12] [ELIMINACIÓN] Usuario 'admin' eliminó paciente: Fernandez, Nahuel. (DNI: 44398617)
-[12-06-2025 16:14:28] [REGISTRO] Usuario 'admin' registró nuevo paciente: Fernandez, Nahuel. (DNI: 44398617)
-[12-06-2025 16:14:48] [INICIO SESIÓN] Usuario 'nahuelfernandez109@gmail.com' inició sesión.
-[12-06-2025 16:15:20] [INICIO SESIÓN] Usuario 'eckerdtsofia23@gmail.com' inició sesión.
-[12-06-2025 16:15:59] [INICIO SESIÓN] Usuario 'sromeroeckerdt@uade.edu.ar' inició sesión.
-[12-06-2025 16:20:00] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
-[12-06-2025 16:28:24] [REGISTRO] Usuario 'admin' registró nuevo paciente: B, A. (DNI: 33333333)
-[12-06-2025 16:28:42] [ERROR INICIO SESIÓN] Usuario 'abc@c.com' intentó iniciar sesión y falló.
-[12-06-2025 16:28:57] [ERROR INICIO SESIÓN] Usuario 'nahuelfernandez105@gmail.com' intentó iniciar sesión y falló.
-[12-06-2025 16:29:35] [INICIO SESIÓN] Usuario 'void@g.com' inició sesión.
-[12-06-2025 16:30:48] [ERROR INICIO SESIÓN] Usuario 'nahuelfernandez109@gmail.com' intentó iniciar sesión y falló.
-[12-06-2025 16:31:01] [INICIO SESIÓN] Usuario 'nahuelfernandez109@gmail.com' inició sesión.
-[12-06-2025 16:31:23] [ERROR INICIO SESIÓN] Usuario 'abc@c.com' intentó iniciar sesión y falló.
-[12-06-2025 16:31:27] [ERROR INICIO SESIÓN] Usuario 'abc@c.com' intentó iniciar sesión y falló.
-[12-06-2025 16:31:37] [ERROR INICIO SESIÓN] Usuario 'abc@c.com' intentó iniciar sesión y falló.
-[12-06-2025 16:32:14] [INICIO SESIÓN] Usuario 'abc@d.com' inició sesión.
-[12-06-2025 16:33:11] [INICIO SESIÓN] Usuario 'abc@c.com' inició sesión.
-[12-06-2025 16:40:21] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
-[12-06-2025 16:41:29] [REGISTRO] Usuario 'admin' registró nuevo paciente: Das, As. (DNI: 12345677)
-[12-06-2025 16:49:13] [INICIO SESIÓN] Usuario 'asd@gmail.com' inició sesión.
-[12-06-2025 16:49:28] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
-[12-06-2025 16:50:00] [REGISTRO] Usuario 'admin' registró nuevo paciente: C, A. (DNI: 12345676)
-[12-06-2025 16:50:30] [INICIO SESIÓN] Usuario 'a@a.com' inició sesión.
-[12-06-2025 17:00:17] [TURNO] Paciente Nahuel Román Fernández (DNI: 44398617) ha agendado un turno para el 2025-06-26.
->>>>>>> 1561d43965e44deb1ce12555e078b4f2cd779664
-[25-06-2025 23:06:30] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
-[25-06-2025 23:06:30] [ERROR] Tipo: JSONDecodeError - Mensaje: Expecting property name enclosed in double quotes: line 27 column 1 (char 637)
-[25-06-2025 23:08:10] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
-[25-06-2025 23:08:43] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 44423507
-[25-06-2025 23:08:43] [ENCONTRADO] Paciente encontrado: Romero Eckerdt, Sofía. (DNI: 44423507)
-[25-06-2025 23:08:46] [CIERRE SESIÓN DE ADMIN] El administrador cerró sesión.
-[25-06-2025 23:09:59] [REGISTRO] Usuario 'nahuelfernandez109@gmail.com' se registró exitosamente.
-[25-06-2025 23:11:46] [INICIO SESIÓN] Usuario 'nahuelfernandez109@gmail.com' inició sesión.
-[25-06-2025 23:12:24] [TURNO] Paciente Nahuel Román Fernández (DNI: 44398617) ha agendado un turno para el 2025-06-26.
-[25-06-2025 23:12:32] [CIERRE SESIÓN] Usuario 'nahuelfernandez109@gmail.com' cerró sesión.
-[25-06-2025 23:12:35] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
-[25-06-2025 23:13:17] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 44398617
-[25-06-2025 23:13:17] [ENCONTRADO] Paciente encontrado: Fernández, Nahuel Román. (DNI: 44398617)
-[25-06-2025 23:33:36] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 44398617
-[25-06-2025 23:33:36] [ENCONTRADO] Paciente encontrado: Fernández, Nahuel Román. (DNI: 44398617)
-[25-06-2025 23:33:46] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 3333333
-[25-06-2025 23:33:46] [NO ENCONTRADO] Paciente no encontrado con DNI: 3333333
-[25-06-2025 23:34:18] [CIERRE SESIÓN DE ADMIN] El administrador cerró sesión.
+[26-06-2025 13:41:23] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
+[26-06-2025 13:41:40] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 44423588
+[26-06-2025 13:41:40] [ENCONTRADO] Paciente encontrado: Romero Eckerdt, Sofía. (DNI: 44423588)
+[26-06-2025 13:41:57] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 44442222
+[26-06-2025 13:41:57] [NO ENCONTRADO] Paciente no encontrado con DNI: 44442222
+[26-06-2025 13:42:13] [CIERRE SESIÓN DE ADMIN] El administrador cerró sesión.
+[26-06-2025 13:43:26] [REGISTRO] Usuario 'juli@gmail.com' se registró exitosamente.
+[26-06-2025 13:43:39] [INICIO SESIÓN] Usuario 'juli@gmail.com' inició sesión.
+[26-06-2025 13:44:11] [TURNO] Paciente Sofia Yazmin Romero Eckerdt (DNI: 22222222) ha agendado un turno para el 2025-06-27.
+[26-06-2025 13:44:55] [CIERRE SESIÓN] Usuario 'juli@gmail.com' cerró sesión.
+[26-06-2025 13:45:17] [ERROR INICIO SESIÓN] Se intentó iniciar sesión con usuario 'wsrfesgdtrg' y DNI 'sete5yrt' y se rechazó solicitud
+[26-06-2025 13:45:43] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
+[26-06-2025 13:45:56] [ELIMINACIÓN] Usuario 'admin' eliminó paciente: Romero Eckerdt, Sofía. (DNI: 44423507)
+[26-06-2025 13:46:01] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 44423507
+[26-06-2025 13:46:01] [NO ENCONTRADO] Paciente no encontrado con DNI: 44423507
+[26-06-2025 13:46:16] [REGISTRO] Usuario 'admin' registró nuevo paciente: Romero eckerdt, Sofía. (DNI: 44423507)
+[26-06-2025 13:46:24] [CIERRE SESIÓN DE ADMIN] El administrador cerró sesión.
+[26-06-2025 13:46:38] [INICIO SESIÓN] Usuario 'hola@gmail.com' inició sesión.
+[26-06-2025 13:51:05] [CIERRE SESIÓN] Usuario 'hola@gmail.com' cerró sesión.
+[12-07-2025 15:41:52] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
+[12-07-2025 15:41:56] [ELIMINACIÓN] Usuario 'admin' eliminó paciente: Romero eckerdt, Sofía. (DNI: 44423506)
+[12-07-2025 15:42:03] [ELIMINACIÓN] Usuario 'admin' eliminó paciente: Romero Eckerdt, Sofía. (DNI: 44423588)
+[12-07-2025 15:44:12] [ELIMINACIÓN] Usuario 'admin' eliminó paciente: Fernández, Nahuel Román. (DNI: 44398617)
+[12-07-2025 15:44:14] [ELIMINACIÓN] Usuario 'admin' eliminó paciente: Romero Eckerdt, Sofía. (DNI: 44444444)
+[12-07-2025 15:44:18] [ELIMINACIÓN] Usuario 'admin' eliminó paciente: Romero Eckerdt, Sofía. (DNI: 22222222)
+[12-07-2025 15:44:21] [CIERRE SESIÓN DE ADMIN] El administrador cerró sesión.
+[12-07-2025 15:47:32] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
+[12-07-2025 15:47:35] [ELIMINACIÓN] Usuario 'admin' eliminó paciente: Romero eckerdt, Sofía. (DNI: 44423507)
+[12-07-2025 15:47:38] [CIERRE SESIÓN DE ADMIN] El administrador cerró sesión.
+[12-07-2025 15:50:05] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
+[12-07-2025 15:50:19] [REGISTRO] Usuario 'admin' registró nuevo paciente: Romero eckerdt, Sofía. (DNI: 44423507)
+[12-07-2025 15:50:31] [ELIMINACIÓN] Usuario 'admin' eliminó paciente: Romero eckerdt, Sofía. (DNI: 44423507)
+[12-07-2025 15:58:05] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
+[12-07-2025 15:58:13] [REGISTRO] Usuario 'admin' registró nuevo paciente: Romero eckerdt, Sofía. (DNI: 44423507)
+[12-07-2025 15:58:15] [ELIMINACIÓN] Usuario 'admin' eliminó paciente: Romero eckerdt, Sofía. (DNI: 44423507)
+[12-07-2025 16:04:03] [CIERRE SESIÓN DE ADMIN] El administrador cerró sesión.
+[12-07-2025 16:04:32] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
+[12-07-2025 16:04:39] [REGISTRO] Usuario 'admin' registró nuevo paciente: Romero eckerdt, Sofía. (DNI: 44423507)
+[12-07-2025 16:04:44] [ELIMINACIÓN] Usuario 'admin' eliminó paciente: Romero eckerdt, Sofía. (DNI: 44423507)
+[12-07-2025 16:09:18] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
+[12-07-2025 16:09:26] [REGISTRO] Usuario 'admin' registró nuevo paciente: Romero eckerdt, Sofía. (DNI: 44423507)
+[12-07-2025 16:09:28] [ELIMINACIÓN] Usuario 'admin' eliminó paciente: Romero eckerdt, Sofía. (DNI: 44423507)
+[12-07-2025 16:10:20] [CIERRE SESIÓN DE ADMIN] El administrador cerró sesión.
+[12-07-2025 16:10:32] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
+[12-07-2025 16:10:40] [REGISTRO] Usuario 'admin' registró nuevo paciente: Romero eckerdt, Sofía. (DNI: 44423507)
+[12-07-2025 16:10:42] [ELIMINACIÓN] Usuario 'admin' eliminó paciente: Romero eckerdt, Sofía. (DNI: 44423507)
+[12-07-2025 16:17:17] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
+[12-07-2025 16:17:30] [REGISTRO] Usuario 'admin' registró nuevo paciente: Romero eckerdt, Sofía. (DNI: 44423507)
+[12-07-2025 16:17:33] [ELIMINACIÓN] Usuario 'admin' eliminó paciente: Romero eckerdt, Sofía. (DNI: 44423507)
+[12-07-2025 16:39:11] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
+[12-07-2025 16:41:00] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
+[12-07-2025 16:41:12] [REGISTRO] Usuario 'admin' registró nuevo paciente: Romero eckerdt, Sofía. (DNI: 44423507)
+[12-07-2025 16:41:27] [ELIMINACIÓN] Usuario 'admin' eliminó paciente: Romero eckerdt, Sofía. (DNI: 44423507)
+[12-07-2025 16:44:10] [REGISTRO] Usuario 'admin' registró nuevo paciente: Romero eckerdt, Sofía. (DNI: 44423588)
+[12-07-2025 16:44:17] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 44423588
+[12-07-2025 16:44:17] [ENCONTRADO] Paciente encontrado: Romero eckerdt, Sofía. (DNI: 44423588)
+[12-07-2025 16:45:12] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 44423588
+[12-07-2025 16:45:12] [ENCONTRADO] Paciente encontrado: Romero eckerdt, Sofía. (DNI: 44423588)
+[12-07-2025 16:45:51] [CIERRE SESIÓN DE ADMIN] El administrador cerró sesión.
+[12-07-2025 16:46:03] [REGISTRO] Usuario 'sromeroeckerdt@uade.edu.ar' se registró exitosamente.
+[12-07-2025 16:46:21] [INICIO SESIÓN] Usuario 'sromeroeckerdt@uade.edu.ar' inició sesión.
+[12-07-2025 16:46:48] [CIERRE SESIÓN] Usuario 'sromeroeckerdt@uade.edu.ar' cerró sesión.
+[12-07-2025 16:47:13] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
+[12-07-2025 16:47:20] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 44423507
+[12-07-2025 16:47:20] [ENCONTRADO] Paciente encontrado: Romero Eckerdt, Sofía. (DNI: 44423507)
+[12-07-2025 16:47:36] [ELIMINACIÓN] Usuario 'admin' eliminó paciente: Romero Eckerdt, Sofía. (DNI: 44423507)
+[12-07-2025 16:47:38] [CIERRE SESIÓN DE ADMIN] El administrador cerró sesión.
+[12-07-2025 16:47:53] [ERROR INICIO SESIÓN] Se intentó iniciar sesión con usuario 'sromeroeckerdt@uade.edu.ar' y DNI '44423507' y se rechazó solicitud
+[12-07-2025 16:48:11] [INICIO SESIÓN] Usuario 'eckerdtsofia23@gmail.com' inició sesión.
+[12-07-2025 16:48:15] [CIERRE SESIÓN] Usuario 'eckerdtsofia23@gmail.com' cerró sesión.
+[12-07-2025 16:48:40] [INICIO SESIÓN] Usuario 'eckerdtsofia23@gmail.com' inició sesión.
+[12-07-2025 16:49:12] [TURNO] Paciente Sofia Yazmin Romero Eckerdt (DNI: 44423588) ha agendado un turno para el 2025-07-29.
+[12-07-2025 16:49:29] [ELIMINACIÓN] Paciente con DNI 44423588 ha sido eliminado.
+[12-07-2025 17:27:23] [TURNO] Paciente Sofia Yazmin Romero Eckerdt (DNI: 44423507) ha agendado un turno para el 2025-07-29.
+[12-07-2025 17:27:25] [ELIMINACIÓN] Paciente con DNI 44423507 ha sido eliminado.
+[12-07-2025 17:30:22] [TURNO] Paciente Sofia Yazmin Romero Eckerdt (DNI: 44423507) ha agendado un turno para el 2025-06-29.
+[12-07-2025 17:30:24] [ELIMINACIÓN] Paciente con DNI 44423507 ha sido eliminado.
+[12-07-2025 17:30:44] [CIERRE SESIÓN] Usuario 'eckerdtsofia23@gmail.com' cerró sesión.
+[12-07-2025 17:31:00] [REGISTRO] Usuario 'sofiaromeroeck@gmail.com' se registró exitosamente.
+[12-07-2025 17:31:11] [INICIO SESIÓN] Usuario 'sofiaromeroeck@gmail.com' inició sesión.
+[12-07-2025 17:31:30] [TURNO] Paciente Sofia Yazmin Romero Eckerdt (DNI: 44444444) ha agendado un turno para el 2025-07-29.
+[12-07-2025 17:31:33] [ELIMINACIÓN] Paciente con DNI 44444444 ha sido eliminado.
+[12-07-2025 17:33:40] [TURNO] Paciente Sofia Yazmin Romero Eckerdt (DNI: 44444444) ha agendado un turno para el 2025-07-29.
+[12-07-2025 17:33:47] [ELIMINACIÓN] Paciente con DNI 44444444 ha sido eliminado.
+[12-07-2025 17:33:49] [CIERRE SESIÓN] Usuario 'sofiaromeroeck@gmail.com' cerró sesión.
+[12-07-2025 17:34:15] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
+[12-07-2025 17:34:17] [ELIMINACIÓN] Usuario 'admin' eliminó paciente: Romero eckerdt, Sofía. (DNI: 44423588)
+[12-07-2025 17:35:17] [CIERRE SESIÓN DE ADMIN] El administrador cerró sesión.
+[12-07-2025 17:35:27] [INICIO SESIÓN] Usuario 'sofiaromeroeck@gmail.com' inició sesión.
+[12-07-2025 17:35:41] [TURNO] Paciente Sofia Yazmin Romero Eckerdt (DNI: 44444444) ha agendado un turno para el 2025-07-29.
+[12-07-2025 17:35:52] [ELIMINACIÓN] Paciente con DNI 44444444 ha sido eliminado.

@@ -64,7 +64,6 @@ def buscar_paciente():
                 ["Nombre", encontrado.get("nombre", "")],
                 ["Apellido", encontrado.get("apellido", "")],
                 ["DNI", encontrado.get("dni", "")],
-                ["Género", encontrado.get("genero", "")],
                 ["Email", encontrado.get("email", "")],
                 ["Obra Social", encontrado.get("obra_social", "")]
             ] #si se encuentra el paciente, se crea una matriz con los datos del paciente encontrado, si no se encuentra el dato, se deja vacío

@@ -33,7 +33,7 @@
                 <td>{{ paciente["tipo"] }}</td>
                 <td>
                     <a class="btnEdit" href="{{ url_for('clientes.editar', dni=paciente['dni']) }}">Editar</a>
-                    <a class="btnDelete" href="{{ url_for('clientes.eliminar', dni=paciente['dni']) }}">Eliminar</a>
+                    <a class="btnDelete btn-eliminar" href="{{ url_for('clientes.eliminar', dni=paciente['dni']) }}">Eliminar</a>
                 </td>
                 <td>
                     <a href="" class="btn">Ver turnos</a>
@@ -44,5 +44,6 @@
         </table><br>
         <p><a href="{{ url_for('admin.logout') }}">Cerrar sesión</a></p>
     </div>
+    <script src="{{ url_for('static', filename='js/confirmacion.js') }}"></script>
 </body>
 </html>

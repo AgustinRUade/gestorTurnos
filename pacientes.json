@@ -2,41 +2,9 @@
     {
         "nombre": "Sofía",
         "apellido": "Romero Eckerdt",
-        "dni": "44423507",
-        "genero": "Femenino",
-        "email": "sromeroeckerdt@uade.edu.ar",
-        "obra_social": "OSDE"
-    },
-    {
-        "dni": "44423506",
-        "nombre": "Sofía",
-        "apellido": "Romero eckerdt",
-        "email": "eckerdtsofia23@gmail.com",
-        "tipo": "Particular",
-        "usuario": "admin"
-    },
-    {
-        "nombre": "Sofía",
-        "apellido": "Romero Eckerdt",
-        "dni": "44423588",
-        "genero": "Femenino",
-        "email": "sofiaromeroeck@gmail.com",
-        "obra_social": "OSDE"
-    },
-    {
-        "nombre": "Sofía",
-        "apellido": "Romero Eckerdt",
         "dni": "44444444",
         "genero": "Femenino",
-        "email": "romeroeckerdtsofia@gmail.com",
-        "obra_social": "OSDE"
-    },
-    {
-        "nombre": "Nahuel Román",
-        "apellido": "Fernández",
-        "dni": "44398617",
-        "genero": "Masculino",
-        "email": "nahuelfernandez109@gmail.com",
+        "email": "sofiaromeroeck@gmail.com",
         "obra_social": "OSDE"
     }
 ]
