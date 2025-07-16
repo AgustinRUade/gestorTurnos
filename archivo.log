@@ -89,3 +89,12 @@
 [12-07-2025 17:35:27] [INICIO SESIÓN] Usuario 'sofiaromeroeck@gmail.com' inició sesión.
 [12-07-2025 17:35:41] [TURNO] Paciente Sofia Yazmin Romero Eckerdt (DNI: 44444444) ha agendado un turno para el 2025-07-29.
 [12-07-2025 17:35:52] [ELIMINACIÓN] Paciente con DNI 44444444 ha sido eliminado.
+[16-07-2025 13:59:18] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
+[16-07-2025 14:38:43] [REGISTRO] Usuario 'ppppp@gmail.com' se registró exitosamente.
+[16-07-2025 14:41:12] [REGISTRO] Usuario 'ppppep@gmail.com' se registró exitosamente.
+[16-07-2025 14:41:37] [INICIO SESIÓN] Usuario 'ppppep@gmail.com' inició sesión.
+[16-07-2025 14:46:48] [CIERRE SESIÓN] Usuario 'ppppep@gmail.com' cerró sesión.
+[16-07-2025 14:46:50] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
+[16-07-2025 14:46:55] [ELIMINACIÓN] Usuario 'admin' eliminó paciente: d, Ana Gómez. (DNI: 11111111)
+[16-07-2025 14:46:59] [ELIMINACIÓN] Usuario 'admin' eliminó paciente: Romero Eckerdt, Sofía. (DNI: 44444444)
+[16-07-2025 14:47:02] [ELIMINACIÓN] Usuario 'admin' eliminó paciente: yunior, tutuca. (DNI: 11111112)

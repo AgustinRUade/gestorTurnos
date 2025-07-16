@@ -20,7 +20,6 @@
                 <th>Email</th>
                 <th>Obra social / Particular</th>
                 <th>Acciones</th>
-                <th>Ver turnos</th> <!-- Nueva columna -->
             </tr>
         </thead>
         <tbody>
@@ -34,9 +33,6 @@
                 <td>
                     <a class="btnEdit" href="{{ url_for('clientes.editar', dni=paciente['dni']) }}">Editar</a>
                     <a class="btnDelete btn-eliminar" href="{{ url_for('clientes.eliminar', dni=paciente['dni']) }}">Eliminar</a>
-                </td>
-                <td>
-                    <a href="" class="btn">Ver turnos</a>
                 </td>
             </tr>
             {% endfor %}
