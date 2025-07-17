@@ -194,3 +194,22 @@
 [16-07-2025 21:03:03] [ENCONTRADO] Paciente encontrado: Fernández, Maximo. (DNI: 44521751)
 [16-07-2025 21:03:17] [CIERRE SESIÓN DE ADMIN] El administrador cerró sesión.
 [16-07-2025 21:03:21] [INICIO SESIÓN] Usuario 'nahuelfernandez109@gmail.com' inició sesión.
+[16-07-2025 21:36:24] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
+[16-07-2025 21:43:06] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 44521751
+[16-07-2025 21:43:06] [ENCONTRADO] Paciente encontrado: Fernández, Maximo. (DNI: 44521751)
+[16-07-2025 21:46:55] [CIERRE SESIÓN DE ADMIN] El administrador cerró sesión.
+[16-07-2025 21:47:10] [INICIO SESIÓN] Usuario 'maxi@programa.com' inició sesión.
+[16-07-2025 21:51:15] [TURNO] Paciente Maximo Fernández (DNI: 44521751) ha agendado un turno para el 2025-10-23.
+[16-07-2025 21:51:30] [ELIMINACIÓN] Turno de DNI 44521751 para el 2025-10-23 ha sido eliminado.
+[16-07-2025 21:51:35] [CIERRE SESIÓN] Usuario 'maxi@programa.com' cerró sesión.
+[17-07-2025 13:44:23] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
+[17-07-2025 13:45:07] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 44521751
+[17-07-2025 13:45:07] [ENCONTRADO] Paciente encontrado: Fernández, Maximo. (DNI: 44521751)
+[17-07-2025 13:46:11] [CIERRE SESIÓN DE ADMIN] El administrador cerró sesión.
+[17-07-2025 13:46:18] [INICIO SESIÓN] Usuario 'maxi@programa.com' inició sesión.
+[17-07-2025 13:47:03] [TURNO] Paciente Maximo Fernández (DNI: 44521751) ha agendado un turno para el 2025-07-23.
+[17-07-2025 13:47:24] [CIERRE SESIÓN] Usuario 'maxi@programa.com' cerró sesión.
+[17-07-2025 13:47:41] [INICIO SESIÓN] Usuario 'maxi@programa.com' inició sesión.
+[17-07-2025 13:48:51] [TURNO] Paciente Maximo Fernández (DNI: 44521751) ha agendado un turno para el 2025-07-24.
+[17-07-2025 13:51:08] [CIERRE SESIÓN] Usuario 'maxi@programa.com' cerró sesión.
+[17-07-2025 13:52:24] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.

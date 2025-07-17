@@ -25,5 +25,23 @@
             "Traumatología"
         ],
         "fecha": "2025-07-27"
+    },
+    {
+        "dni": "44521751",
+        "nombre": "Maximo Fernández",
+        "obra_social": "PAMI",
+        "especialidades": [
+            "Oftalmología"
+        ],
+        "fecha": "2025-07-23"
+    },
+    {
+        "dni": "44521751",
+        "nombre": "Maximo Fernández",
+        "obra_social": "PAMI",
+        "especialidades": [
+            "Cardiología"
+        ],
+        "fecha": "2025-07-24"
     }
 ]

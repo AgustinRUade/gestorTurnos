@@ -33,7 +33,6 @@
                 <td>{{ paciente["genero"] }}</td>
                 <td>{{ paciente["obra_social"] if paciente["obra_social"] else "Particular" }}</td>
                 <td>
-                    <a class="btnEdit" href="{{ url_for('clientes.editar', dni=paciente['dni']) }}">Editar</a>
                     <a class="btnDelete btn-eliminar" href="{{ url_for('clientes.eliminar', dni=paciente['dni']) }}">Eliminar</a>
                 </td>
             </tr>

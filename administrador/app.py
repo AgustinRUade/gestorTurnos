@@ -125,38 +125,6 @@ def nuevo_paciente():
     # Si la solicitud es GET, mostramos el formulario
     return render_template("nuevo.html", obras_sociales = obras_sociales)
 
-# Editamos paciente
-@pacientes_bp.route("/editar/<dni>", methods=["GET", "POST"])
-def editar(dni):
-    if 'usuario' not in session:
-        return redirect(url_for('admin.inicio'))
-    
-    pacientes = cargar_pacientes()
-    paciente = next((p for p in pacientes if p["dni"] == dni), None)
-    if not paciente:
-        return "Paciente no encontrado"
-
-     # Solo puede editar el dueño del turno o el admin
-    if session.get("rol") != "admin" and paciente.get("usuario") != session.get("usuario"):
-        return "No tenés permiso para editar este turno", 403
-
-    if request.method == "POST":
-        paciente["dni"] = request.form["dni"]
-        paciente["nombre"] = request.form["nombre"].strip().capitalize()
-        paciente["apellido"] = request.form["apellido"].strip().capitalize()
-        paciente["email"] = request.form["email"].strip().lower()
-        paciente["tipo"] = request.form["tipo"]
-        try:
-            guardar_pacientes(pacientes)
-            registrar_log(f"[EDICIÓN] Usuario '{session.get('usuario')}' editó paciente: {paciente['apellido']}, {paciente['nombre']}. (DNI: {paciente['dni']})")  #se deja registro en el archivo .log que se editó un paciente, se muestra apellido, nombre y dni
-        except Exception as e:
-            registrar_error(e) #se registro en el archivo .log si hubo un error al guardar los datos de edición
-            return "Error inesperado al editar paciente"
-
-        return redirect(url_for("clientes.index"))  #redirigimos al index después de editar
-
-    return render_template("editar.html", paciente=paciente, obras_sociales=obras_sociales, id=dni)
-
 #Borramos turno
 @pacientes_bp.route("/eliminar/<dni>")
 def eliminar(dni):
