@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, session, url_for, redirect
-from funciones_comunes import registrar_log, registrar_error, validarDNI, validarMail, cargar_pacientes, guardar_pacientes, PACIENTES_JSON #importamos las funciones de registro de log y error, validación de dni y de email, desde funciones_comunes.py
+from funciones_comunes import registrar_log, registrar_error, validarDNI, validarMail, cargar_pacientes, guardar_pacientes, PACIENTES_JSON, cargar_turnos, guardar_turnos
 #importación de funciones_comunes.py, tiene funciones que se usan tanto acá en admin.py como en app.py de la carpeta administrador: por esto decidí ponerlo en un archivo aparte, y además ahí estan las escrituras al .log y validaciones logicas, lo que facilita la prueba en el pytest
 
 
@@ -36,10 +36,11 @@ def inicio():
         for user in usuarios: #se recorren todos los usuarios y sus contraseñas de todos los diccionarios (uno por usuario) de la lista 'usuarios'
             if user['email'] == usuario and user['dni'] == contrasenia: #antes había input de usuario y contraseña, ahora el email es el usuario y el dni es la contraseña
                 session['usuario'] = usuario
+                session['dni'] = user['dni']  # <-- Guarda el DNI en la sesión
                 session['rol'] = 'normal'
-                session.permanent = True if mantener_sesion == 'on' else False #SI el checkbox está marcado la variable toma el valor ON, y hace que la sesión permanente sea de valor TRUE, SINO, si el checkbox no está marcado la variable no toma el valor ON, y entonces hace que la sesión permanente sea de valor FALSE, es decir, que la sesión se cerrará al cerrar el navegador
+                session.permanent = True if mantener_sesion == 'on' else False #SI el checkbox está marcado la variable toma el valor ON, y hace que la sesión permanente sea de valor TRUE, SINO, se cerrará al cerrar el navegador
                 registrar_log(f"[INICIO SESIÓN] Usuario '{usuario}' inició sesión.") #se registra en el .log cuando un usuario común inicia sesión
-                return redirect(url_for('clientes.mis_turnos')) #un usuario común inicia sesión y es dirigido a la pantalla de sus turnos
+                return redirect(url_for('admin.bienvenida')) #un usuario común inicia sesión y es dirigido a la pantalla de sus turnos
         #si no se encuentra el usuario o la contraseña es incorrecta, se muestra un mensaje de error
         mensaje = 'Usuario o contraseña incorrectos'
         mensaje_tipo = 'error'
@@ -93,18 +94,12 @@ def registro(): #Resgistro de usuario nuevo desde la interfaz de login
     return render_template('registro.html', obras_sociales=obras_sociales, mensaje=mensaje)
 
 #VERIFICAR SI ESTO DIRIGE A UNA RUTA
-@admin_bp.route('/alta', methods=['GET', 'POST'])
-def alta():
-    obras_sociales = ["OSDE", "Swiss Medical", "Galeno", "Medifé", "Omint", "Sancor Salud", 
-                      "Federada Salud", "Hospital Italiano", "IOMA", "PAMI", "OSDEPYM", 
-                      "Unión Personal", "Luis Pasteur"] #lista de obras sociales para que administrador pueda registrar un paciente
-    return render_template('alta.html', obras_sociales=obras_sociales)
-
-#VERIFICAR SI ESTO DIRIGE A UNA RUTA
 @admin_bp.route('/bienvenida')
 def bienvenida():
+    dni = session.get('dni')  # <-- Usa el DNI guardado en la sesión
+    turnos_usuario = [t for t in cargar_turnos() if t['dni'] == dni]
     nombre = request.args.get('nombre')
-    return render_template('bienvenida.html', nombre=nombre, pacientes=paciente)
+    return render_template('bienvenida.html', nombre=nombre, pacientes=turnos_usuario)
 
 @admin_bp.route("/logout")
 def logout():
@@ -120,39 +115,54 @@ def logout():
 
 @admin_bp.route('/turnocliente', methods=['GET', 'POST'])
 def turnocliente():
-
     obras_sociales = ["OSDE", "Swiss Medical", "Galeno", "Medifé", "Omint", "Sancor Salud", 
                       "Federada Salud", "Hospital Italiano", "IOMA", "PAMI", "OSDEPYM", 
                       "Unión Personal", "Luis Pasteur"]
-    
-    if request.method == 'POST':
-        dni = request.form['user_dni']
-        nombre = request.form['user_nombre']
-        obra_social = request.form['tipo']
-        fecha = request.form['user_fecha']
 
-        paciente.append({
+    especialidades = ["Cardiología", "Dermatología", "Ginecología", "Pediatría", "Traumatología",
+                      "Oftalmología", "Otorrinolaringología", "Psiquiatría", "Endocrinología",
+                      "Neurología", "Gastroenterología", "Urología"]
+
+    dni = session.get('dni')
+    usuarios = cargar_pacientes()
+    usuario_actual = next((u for u in usuarios if u['dni'] == dni), None)
+    nombre = usuario_actual['nombre'] + " " + usuario_actual['apellido'] if usuario_actual else ""
+    obra_social = usuario_actual['obra_social'] if usuario_actual else ""
+
+    if request.method == 'POST':
+        fecha = request.form['user_fecha']
+        especialidades_seleccionadas = request.form.getlist('especialidades')
+        if not especialidades_seleccionadas:
+            registrar_error(f"[ERROR TURNO] El usuario {nombre} (DNI: {dni}) intentó agendar un turno sin seleccionar especialidades.")
+            return render_template('turnocliente.html', nombre=nombre, obra_social=obra_social, especialidades=especialidades, error="Debe seleccionar al menos una especialidad.")
+
+        nuevo_turno = {
             'dni': dni,
             'nombre': nombre,
             'obra_social': obra_social,
+            'especialidades': especialidades_seleccionadas,
             'fecha': fecha
-        })
-        registrar_log(f"[TURNO] Paciente {nombre} (DNI: {dni}) ha agendado un turno para el {fecha}.") #se registra en el .log cuando un usuario se asigna un turno
-        return redirect(url_for('admin.bienvenida'))  # vuelve a misturnos.html
-    return render_template('turnocliente.html', obras_sociales=obras_sociales)
+        }
+
+        turnos = cargar_turnos()
+        turnos.append(nuevo_turno)
+        guardar_turnos(turnos)
+
+        registrar_log(f"[TURNO] Paciente {nombre} (DNI: {dni}) ha agendado un turno para el {fecha}.")
+        return redirect(url_for('admin.bienvenida'))
+
+    return render_template('turnocliente.html', nombre=nombre, obra_social=obra_social, especialidades=especialidades)
 
 
-@admin_bp.route('/eliminar/<dni>', methods=['GET'])
-def eliminar(dni):
-    global paciente  # usamos la lista global
-
-    paciente_encontrado = next((p for p in paciente if p["dni"] == dni), None)
-
-    if not paciente_encontrado:
-        return "Paciente no encontrado", 404
-
-    paciente.remove(paciente_encontrado)  # se elimina automáticamente
-    registrar_log(f"[ELIMINACIÓN] Paciente con DNI {dni} ha sido eliminado.") #se registra en el archivo .log que se eliminó un paciente
-    return redirect(url_for('admin.bienvenida'))  # redirige después de eliminar
+@admin_bp.route('/eliminar/<dni>/<fecha>', methods=['GET'])
+def eliminar(dni, fecha):
+    turnos = cargar_turnos()
+    turno_encontrado = next((t for t in turnos if t["dni"] == dni and t["fecha"] == fecha), None)
+    if not turno_encontrado:
+        return "Turno no encontrado", 404
+    turnos.remove(turno_encontrado)
+    guardar_turnos(turnos)
+    registrar_log(f"[ELIMINACIÓN] Turno de DNI {dni} para el {fecha} ha sido eliminado.")
+    return redirect(url_for('admin.bienvenida'))
 
 

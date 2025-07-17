@@ -1,0 +1,29 @@
+[
+    {
+        "dni": "44521751",
+        "nombre": "Maximo Fernández",
+        "obra_social": "PAMI",
+        "especialidades": [
+            "Psiquiatría"
+        ],
+        "fecha": "2025-07-24"
+    },
+    {
+        "dni": "44521751",
+        "nombre": "Maximo Fernández",
+        "obra_social": "PAMI",
+        "especialidades": [
+            "Pediatría"
+        ],
+        "fecha": "2025-07-24"
+    },
+    {
+        "dni": "44398617",
+        "nombre": "Nahuel Román Fernández",
+        "obra_social": "IOMA",
+        "especialidades": [
+            "Traumatología"
+        ],
+        "fecha": "2025-07-27"
+    }
+]

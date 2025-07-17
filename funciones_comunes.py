@@ -4,6 +4,7 @@ import json
 import os 
 
 PACIENTES_JSON = "pacientes.json"  #Archivo donde se guardan los pacientes
+TURNOS_JSON = "turnos.json"
 
 def registrar_log(texto):
     fecha_hora = datetime.now().strftime("%d-%m-%Y %H:%M:%S") #para que en el archivo .log se registre día(%d), mes(%m), año(%Y), hora(%H), minuto(%M) y segundo(%S) de cuando sucedió lo que se registra
@@ -55,4 +56,17 @@ def guardar_pacientes(pacientes, ruta="pacientes.json"):
         with open(ruta, "w", encoding="utf-8") as f: 
             json.dump(pacientes, f, ensure_ascii=False, indent=4)
     except Exception as e:
-        registrar_error(e) #si hubo un error al guardar los pacientes, registra el error en el archivo .log. 
+        registrar_error(e) #si hubo un error al guardar los pacientes, registra el error en el archivo .log.
+
+# Nueva función para cargar turnos desde el archivo JSON
+def cargar_turnos():
+    try:
+        with open(TURNOS_JSON, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return []
+
+# Nueva función para guardar turnos en el archivo JSON
+def guardar_turnos(turnos):
+    with open(TURNOS_JSON, "w", encoding="utf-8") as f:
+        json.dump(turnos, f, ensure_ascii=False, indent=4)

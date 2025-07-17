@@ -98,3 +98,99 @@
 [16-07-2025 14:46:55] [ELIMINACIÓN] Usuario 'admin' eliminó paciente: d, Ana Gómez. (DNI: 11111111)
 [16-07-2025 14:46:59] [ELIMINACIÓN] Usuario 'admin' eliminó paciente: Romero Eckerdt, Sofía. (DNI: 44444444)
 [16-07-2025 14:47:02] [ELIMINACIÓN] Usuario 'admin' eliminó paciente: yunior, tutuca. (DNI: 11111112)
+[16-07-2025 18:51:39] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
+[16-07-2025 18:51:53] [CIERRE SESIÓN DE ADMIN] El administrador cerró sesión.
+[16-07-2025 18:52:11] [REGISTRO] Usuario 'nahuelfernandez109@gmail.com' se registró exitosamente.
+[16-07-2025 18:52:15] [INICIO SESIÓN] Usuario 'nahuelfernandez109@gmail.com' inició sesión.
+[16-07-2025 18:54:38] [TURNO] Paciente Nahuel Román Fernández (DNI: 44398617) ha agendado un turno para el 2025-07-17.
+[16-07-2025 19:05:32] [TURNO] Paciente Nahuel Román Fernández (DNI: 44398617) ha agendado un turno para el 2025-07-30.
+[16-07-2025 19:05:45] [CIERRE SESIÓN] Usuario 'nahuelfernandez109@gmail.com' cerró sesión.
+[16-07-2025 19:05:49] [INICIO SESIÓN] Usuario 'nahuelfernandez109@gmail.com' inició sesión.
+[16-07-2025 19:08:27] [TURNO] Paciente Nahuel Román Fernández (DNI: 44398617) ha agendado un turno para el 2025-07-23.
+[16-07-2025 19:08:34] [CIERRE SESIÓN] Usuario 'nahuelfernandez109@gmail.com' cerró sesión.
+[16-07-2025 19:08:36] [INICIO SESIÓN] Usuario 'nahuelfernandez109@gmail.com' inició sesión.
+[16-07-2025 19:12:32] [TURNO] Paciente Nahuel Román Fernández (DNI: 44398617) ha agendado un turno para el 2025-08-03.
+[16-07-2025 19:12:41] [CIERRE SESIÓN] Usuario 'nahuelfernandez109@gmail.com' cerró sesión.
+[16-07-2025 19:13:02] [INICIO SESIÓN] Usuario 'nahuelfernandez109@gmail.com' inició sesión.
+[16-07-2025 19:13:14] [TURNO] Paciente Nahuel Román Fernández (DNI: 44398617) ha agendado un turno para el 2025-07-29.
+[16-07-2025 19:13:48] [TURNO] Paciente Nahuel Román Fernández (DNI: 44398617) ha agendado un turno para el 2025-07-25.
+[16-07-2025 19:13:52] [CIERRE SESIÓN] Usuario 'nahuelfernandez109@gmail.com' cerró sesión.
+[16-07-2025 19:13:54] [INICIO SESIÓN] Usuario 'nahuelfernandez109@gmail.com' inició sesión.
+[16-07-2025 19:14:02] [TURNO] Paciente Nahuel Román Fernández (DNI: 44398617) ha agendado un turno para el 2025-08-08.
+[16-07-2025 19:17:07] [CIERRE SESIÓN] Usuario 'nahuelfernandez109@gmail.com' cerró sesión.
+[16-07-2025 19:17:37] [REGISTRO] Usuario 'neggaman73@gmail.com' se registró exitosamente.
+[16-07-2025 19:17:59] [INICIO SESIÓN] Usuario 'neggaman73@gmail.com' inició sesión.
+[16-07-2025 19:18:48] [TURNO] Paciente sadasds (DNI: 44444444) ha agendado un turno para el 2025-07-19.
+[16-07-2025 19:19:28] [CIERRE SESIÓN] Usuario 'neggaman73@gmail.com' cerró sesión.
+[16-07-2025 19:19:32] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
+[16-07-2025 19:19:51] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 44398617
+[16-07-2025 19:19:51] [ENCONTRADO] Paciente encontrado: Fernández, Nahuel Román. (DNI: 44398617)
+[16-07-2025 19:32:12] [CIERRE SESIÓN DE ADMIN] El administrador cerró sesión.
+[16-07-2025 19:32:37] [INICIO SESIÓN] Usuario 'nahuelfernandez109@gmail.com' inició sesión.
+[16-07-2025 19:42:39] [TURNO] Paciente Nahuel Román Fernández (DNI: nahuelfernandez109@gmail.com) ha agendado un turno para el 2025-08-01.
+[16-07-2025 19:42:46] [CIERRE SESIÓN] Usuario 'nahuelfernandez109@gmail.com' cerró sesión.
+[16-07-2025 19:42:49] [INICIO SESIÓN] Usuario 'nahuelfernandez109@gmail.com' inició sesión.
+[16-07-2025 19:50:43] [TURNO] Paciente Nahuel Román Fernández (DNI: nahuelfernandez109@gmail.com) ha agendado un turno para el 2025-07-18.
+[16-07-2025 19:52:17] [TURNO] Paciente Nahuel Román Fernández (DNI: None) ha agendado un turno para el 2025-08-02.
+[16-07-2025 19:53:03] [CIERRE SESIÓN] Usuario 'nahuelfernandez109@gmail.com' cerró sesión.
+[16-07-2025 19:53:06] [INICIO SESIÓN] Usuario 'nahuelfernandez109@gmail.com' inició sesión.
+[16-07-2025 19:53:14] [TURNO] Paciente Nahuel Román Fernández (DNI: 44398617) ha agendado un turno para el 2025-08-02.
+[16-07-2025 19:54:20] [TURNO] Paciente Nahuel Román Fernández (DNI: 44398617) ha agendado un turno para el 2025-08-05.
+[16-07-2025 19:54:36] [CIERRE SESIÓN] Usuario 'nahuelfernandez109@gmail.com' cerró sesión.
+[16-07-2025 19:54:38] [INICIO SESIÓN] Usuario 'nahuelfernandez109@gmail.com' inició sesión.
+[16-07-2025 20:00:01] [CIERRE SESIÓN] Usuario 'nahuelfernandez109@gmail.com' cerró sesión.
+[16-07-2025 20:00:06] [INICIO SESIÓN] Usuario 'nahuelfernandez109@gmail.com' inició sesión.
+[16-07-2025 20:00:15] [TURNO] Paciente Nahuel Román Fernández (DNI: 44398617) ha agendado un turno para el 2025-07-23.
+[16-07-2025 20:04:19] [CIERRE SESIÓN] Usuario 'nahuelfernandez109@gmail.com' cerró sesión.
+[16-07-2025 20:04:22] [INICIO SESIÓN] Usuario 'nahuelfernandez109@gmail.com' inició sesión.
+[16-07-2025 20:05:15] [TURNO] Paciente Nahuel Román Fernández (DNI: 44398617) ha agendado un turno para el 2025-08-10.
+[16-07-2025 20:06:02] [CIERRE SESIÓN] Usuario 'nahuelfernandez109@gmail.com' cerró sesión.
+[16-07-2025 20:06:04] [INICIO SESIÓN] Usuario 'nahuelfernandez109@gmail.com' inició sesión.
+[16-07-2025 20:06:11] [TURNO] Paciente Nahuel Román Fernández (DNI: 44398617) ha agendado un turno para el 2025-07-26.
+[16-07-2025 20:06:16] [ELIMINACIÓN] Turno de DNI 44398617 para el 2025-07-26 ha sido eliminado.
+[16-07-2025 20:06:26] [ELIMINACIÓN] Turno de DNI 44398617 para el 2025-08-10 ha sido eliminado.
+[16-07-2025 20:06:29] [ELIMINACIÓN] Turno de DNI 44398617 para el 2025-07-23 ha sido eliminado.
+[16-07-2025 20:06:43] [ELIMINACIÓN] Turno de DNI 44398617 para el 2025-08-10 ha sido eliminado.
+[16-07-2025 20:06:45] [ELIMINACIÓN] Turno de DNI 44398617 para el 2025-07-23 ha sido eliminado.
+[16-07-2025 20:06:49] [ELIMINACIÓN] Turno de DNI 44398617 para el 2025-08-05 ha sido eliminado.
+[16-07-2025 20:06:52] [CIERRE SESIÓN] Usuario 'nahuelfernandez109@gmail.com' cerró sesión.
+[16-07-2025 20:06:55] [INICIO SESIÓN] Usuario 'nahuelfernandez109@gmail.com' inició sesión.
+[16-07-2025 20:14:34] [CIERRE SESIÓN] Usuario 'nahuelfernandez109@gmail.com' cerró sesión.
+[16-07-2025 20:14:36] [INICIO SESIÓN] Usuario 'nahuelfernandez109@gmail.com' inició sesión.
+[16-07-2025 20:14:43] [TURNO] Paciente Nahuel Román Fernández (DNI: 44398617) ha agendado un turno para el 2025-07-24.
+[16-07-2025 20:21:33] [CIERRE SESIÓN] Usuario 'nahuelfernandez109@gmail.com' cerró sesión.
+[16-07-2025 20:21:36] [INICIO SESIÓN] Usuario 'nahuelfernandez109@gmail.com' inició sesión.
+[16-07-2025 20:29:30] [CIERRE SESIÓN] Usuario 'nahuelfernandez109@gmail.com' cerró sesión.
+[16-07-2025 20:29:32] [INICIO SESIÓN] Usuario 'nahuelfernandez109@gmail.com' inició sesión.
+[16-07-2025 20:31:21] [CIERRE SESIÓN] Usuario 'nahuelfernandez109@gmail.com' cerró sesión.
+[16-07-2025 20:32:57] [REGISTRO] Usuario 'maxi@programa.com' se registró exitosamente.
+[16-07-2025 20:33:18] [INICIO SESIÓN] Usuario 'maxi@programa.com' inició sesión.
+[16-07-2025 20:33:34] [TURNO] Paciente maximo  (DNI: 44521751) ha agendado un turno para el 2025-07-23.
+[16-07-2025 20:33:36] [CIERRE SESIÓN] Usuario 'maxi@programa.com' cerró sesión.
+[16-07-2025 20:33:39] [INICIO SESIÓN] Usuario 'maxi@programa.com' inició sesión.
+[16-07-2025 21:00:49] [TURNO] Paciente Maximo Fernández (DNI: 44521751) ha agendado un turno para el 2025-07-24.
+[16-07-2025 21:01:00] [ELIMINACIÓN] Turno de DNI 44521751 para el 2025-07-23 ha sido eliminado.
+[16-07-2025 21:01:06] [ELIMINACIÓN] Turno de DNI 44521751 para el 2025-07-24 ha sido eliminado.
+[16-07-2025 21:01:11] [TURNO] Paciente Maximo Fernández (DNI: 44521751) ha agendado un turno para el 2025-07-23.
+[16-07-2025 21:01:14] [CIERRE SESIÓN] Usuario 'maxi@programa.com' cerró sesión.
+[16-07-2025 21:01:17] [INICIO SESIÓN] Usuario 'maxi@programa.com' inició sesión.
+[16-07-2025 21:01:46] [TURNO] Paciente Maximo Fernández (DNI: 44521751) ha agendado un turno para el 2025-07-24.
+[16-07-2025 21:01:54] [TURNO] Paciente Maximo Fernández (DNI: 44521751) ha agendado un turno para el 2025-07-24.
+[16-07-2025 21:01:55] [CIERRE SESIÓN] Usuario 'maxi@programa.com' cerró sesión.
+[16-07-2025 21:01:57] [INICIO SESIÓN] Usuario 'maxi@programa.com' inició sesión.
+[16-07-2025 21:01:59] [CIERRE SESIÓN] Usuario 'maxi@programa.com' cerró sesión.
+[16-07-2025 21:02:05] [INICIO SESIÓN] Usuario 'nahuelfernandez109@gmail.com' inició sesión.
+[16-07-2025 21:02:12] [TURNO] Paciente Nahuel Román Fernández (DNI: 44398617) ha agendado un turno para el 2025-07-27.
+[16-07-2025 21:02:14] [CIERRE SESIÓN] Usuario 'nahuelfernandez109@gmail.com' cerró sesión.
+[16-07-2025 21:02:16] [INICIO SESIÓN] Usuario 'nahuelfernandez109@gmail.com' inició sesión.
+[16-07-2025 21:02:21] [CIERRE SESIÓN] Usuario 'nahuelfernandez109@gmail.com' cerró sesión.
+[16-07-2025 21:02:24] [INICIO SESIÓN] Usuario 'administracion' inició sesión como administrador.
+[16-07-2025 21:02:35] [ELIMINACIÓN] Usuario 'admin' eliminó paciente: programa, mxi. (DNI: 44398611)
+[16-07-2025 21:02:44] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 44398617
+[16-07-2025 21:02:44] [ENCONTRADO] Paciente encontrado: Fernández, Nahuel Román. (DNI: 44398617)
+[16-07-2025 21:02:49] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 22836994
+[16-07-2025 21:02:49] [NO ENCONTRADO] Paciente no encontrado con DNI: 22836994
+[16-07-2025 21:03:03] [BÚSQUEDA] Usuario 'admin' buscó paciente con DNI: 44521751
+[16-07-2025 21:03:03] [ENCONTRADO] Paciente encontrado: Fernández, Maximo. (DNI: 44521751)
+[16-07-2025 21:03:17] [CIERRE SESIÓN DE ADMIN] El administrador cerró sesión.
+[16-07-2025 21:03:21] [INICIO SESIÓN] Usuario 'nahuelfernandez109@gmail.com' inició sesión.

@@ -19,17 +19,23 @@
                 </tr>
             </thead>
             <tbody>
-                {% for paciente in pacientes %}
-                <tr>
-                    <td>{{ paciente.dni }}</td>
-                    <td>{{ paciente.nombre }}</td>
-                    <td>{{ paciente.obra_social }}</td>
-                    <td>{{ paciente.fecha }}</td>
-                    <td>
-                        <a href="{{ url_for('admin.eliminar', dni=paciente['dni']) }}" class="btnEdit btn-eliminar-turno">Eliminar turno</a>
-                    </td>
-                </tr>
-                {% endfor %}
+                {% if pacientes %}
+                    {% for paciente in pacientes %}
+                    <tr>
+                        <td>{{ paciente.dni }}</td>
+                        <td>{{ paciente.nombre }}</td>
+                        <td>{{ paciente.obra_social }}</td>
+                        <td>{{ paciente.fecha }}</td>
+                        <td>
+                            <a href="{{ url_for('admin.eliminar', dni=paciente.dni, fecha=paciente.fecha) }}" class="btnEdit btn-eliminar-turno">Eliminar turno</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="5">No tenés turnos agendados.</td>
+                    </tr>
+                {% endif %}
             </tbody>
         </table>
         <p><a href="{{ url_for('admin.logout') }}" class="btnEdit">Cerrar sesión</a></p>

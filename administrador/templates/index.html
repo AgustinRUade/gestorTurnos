@@ -18,6 +18,7 @@
                 <th>Nombre</th>
                 <th>Apellido</th>
                 <th>Email</th>
+                <th>Género</th>
                 <th>Obra social / Particular</th>
                 <th>Acciones</th>
             </tr>
@@ -29,7 +30,8 @@
                 <td>{{ paciente["nombre"] }}</td>
                 <td>{{ paciente["apellido"] }}</td>
                 <td>{{ paciente["email"] }}</td>
-                <td>{{ paciente["tipo"] }}</td>
+                <td>{{ paciente["genero"] }}</td>
+                <td>{{ paciente["obra_social"] if paciente["obra_social"] else "Particular" }}</td>
                 <td>
                     <a class="btnEdit" href="{{ url_for('clientes.editar', dni=paciente['dni']) }}">Editar</a>
                     <a class="btnDelete btn-eliminar" href="{{ url_for('clientes.eliminar', dni=paciente['dni']) }}">Eliminar</a>

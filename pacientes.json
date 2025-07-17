@@ -1,1 +1,18 @@
-[]
+[
+    {
+        "nombre": "Nahuel Román",
+        "apellido": "Fernández",
+        "dni": "44398617",
+        "genero": "Masculino",
+        "email": "nahuelfernandez109@gmail.com",
+        "obra_social": "IOMA"
+    },
+    {
+        "nombre": "Maximo",
+        "apellido": "Fernández",
+        "dni": "44521751",
+        "genero": "Masculino",
+        "email": "maxi@programa.com",
+        "obra_social": "PAMI"
+    }
+]
